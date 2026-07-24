@@ -67,6 +67,9 @@ export default function ExamSessionPage() {
           if (!currentSession || currentSession.id !== sessionId) {
             useExamStore.getState().startExam(session);
           }
+        } else {
+          // C-004: Invalid session/ID — redirect to /exam
+          console.warn('Exam session not found:', sessionId);
         }
       } catch (e) {
         console.error('Failed to load:', e);
@@ -76,6 +79,13 @@ export default function ExamSessionPage() {
     }
     load();
   }, [sessionId]);
+
+  // C-004: Redirect to /exam if no valid session was found after loading
+  useEffect(() => {
+    if (!loading && !examSessions.find((s) => s.id === sessionId)) {
+      router.push('/exam');
+    }
+  }, [loading, sessionId, examSessions, router]);
 
   const handleExpire = useCallback(() => {
     handleSubmitExam();
