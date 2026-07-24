@@ -1,6 +1,7 @@
 // ===== ISTQB CTFL v4.0.1 — Active Quiz Session Store =====
 
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import type { Quiz, SubmittedAnswer } from '@/types';
 
 // ── State Shape ─────────────────────────────────────
@@ -37,80 +38,88 @@ const initialState: QuizState = {
   quizActive: false,
 };
 
-// ── Store (non-persisted — session-only) ────────────
+// ── Store (persisted via localStorage) ──────────────
 
-export const useQuizStore = create<QuizStore>()((set, get) => ({
-  ...initialState,
+export const useQuizStore = create<QuizStore>()(
+  persist(
+    (set, get) => ({
+      ...initialState,
 
-  startQuiz: (quiz, timeLimitSeconds) =>
-    set({
-      currentQuiz: quiz,
-      currentAnswers: [],
-      currentQuestionIndex: 0,
-      timeRemaining: timeLimitSeconds ?? quiz.timeLimitSeconds,
-      quizActive: true,
+      startQuiz: (quiz, timeLimitSeconds) =>
+        set({
+          currentQuiz: quiz,
+          currentAnswers: [],
+          currentQuestionIndex: 0,
+          timeRemaining: timeLimitSeconds ?? quiz.timeLimitSeconds,
+          quizActive: true,
+        }),
+
+      submitAnswer: (answer) =>
+        set((state) => {
+          const existing = state.currentAnswers.findIndex(
+            (a) => a.questionId === answer.questionId,
+          );
+          if (existing >= 0) {
+            const updated = [...state.currentAnswers];
+            updated[existing] = answer;
+            return { currentAnswers: updated };
+          }
+          return { currentAnswers: [...state.currentAnswers, answer] };
+        }),
+
+      nextQuestion: () =>
+        set((state) => {
+          const total = state.currentQuiz?.questionIds.length ?? 0;
+          const nextIndex = Math.min(state.currentQuestionIndex + 1, total - 1);
+          return { currentQuestionIndex: nextIndex };
+        }),
+
+      prevQuestion: () =>
+        set((state) => {
+          const prevIndex = Math.max(state.currentQuestionIndex - 1, 0);
+          return { currentQuestionIndex: prevIndex };
+        }),
+
+      setConfidence: (questionId, confidence) =>
+        set((state) => ({
+          currentAnswers: state.currentAnswers.map((a) =>
+            a.questionId === questionId ? { ...a, confidence } : a,
+          ),
+        })),
+
+      finishQuiz: () => {
+        const state = get();
+        const quiz = state.currentQuiz;
+        const timeLimit = quiz?.timeLimitSeconds;
+        let timeSpentSeconds: number;
+
+        if (timeLimit !== null && timeLimit !== undefined && state.timeRemaining !== null) {
+          timeSpentSeconds = timeLimit - state.timeRemaining;
+        } else {
+          // Sum up time from individual answers if available; otherwise 0
+          timeSpentSeconds = state.currentAnswers.reduce(
+            (sum, a) => sum + (a.timeSpentSeconds ?? 0),
+            0,
+          );
+        }
+
+        set({
+          quizActive: false,
+          currentQuiz: null,
+          timeRemaining: null,
+        });
+
+        return {
+          answers: state.currentAnswers,
+          timeSpentSeconds,
+        };
+      },
+
+      resetQuiz: () => set(initialState),
     }),
-
-  submitAnswer: (answer) =>
-    set((state) => {
-      const existing = state.currentAnswers.findIndex(
-        (a) => a.questionId === answer.questionId,
-      );
-      if (existing >= 0) {
-        const updated = [...state.currentAnswers];
-        updated[existing] = answer;
-        return { currentAnswers: updated };
-      }
-      return { currentAnswers: [...state.currentAnswers, answer] };
-    }),
-
-  nextQuestion: () =>
-    set((state) => {
-      const total = state.currentQuiz?.questionIds.length ?? 0;
-      const nextIndex = Math.min(state.currentQuestionIndex + 1, total - 1);
-      return { currentQuestionIndex: nextIndex };
-    }),
-
-  prevQuestion: () =>
-    set((state) => {
-      const prevIndex = Math.max(state.currentQuestionIndex - 1, 0);
-      return { currentQuestionIndex: prevIndex };
-    }),
-
-  setConfidence: (questionId, confidence) =>
-    set((state) => ({
-      currentAnswers: state.currentAnswers.map((a) =>
-        a.questionId === questionId ? { ...a, confidence } : a,
-      ),
-    })),
-
-  finishQuiz: () => {
-    const state = get();
-    const quiz = state.currentQuiz;
-    const timeLimit = quiz?.timeLimitSeconds;
-    let timeSpentSeconds: number;
-
-    if (timeLimit !== null && timeLimit !== undefined && state.timeRemaining !== null) {
-      timeSpentSeconds = timeLimit - state.timeRemaining;
-    } else {
-      // Sum up time from individual answers if available; otherwise 0
-      timeSpentSeconds = state.currentAnswers.reduce(
-        (sum, a) => sum + (a.timeSpentSeconds ?? 0),
-        0,
-      );
-    }
-
-    set({
-      quizActive: false,
-      currentQuiz: null,
-      timeRemaining: null,
-    });
-
-    return {
-      answers: state.currentAnswers,
-      timeSpentSeconds,
-    };
-  },
-
-  resetQuiz: () => set(initialState),
-}));
+    {
+      name: 'istqb-quiz-store',
+      storage: createJSONStorage(() => localStorage),
+    },
+  ),
+);
