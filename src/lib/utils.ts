@@ -38,8 +38,12 @@ export function formatRelativeTime(date: string | number | Date): string {
  * Uses crypto.randomUUID() when available, falls back to Math.random.
  */
 export function generateId(): string {
-  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
-    return crypto.randomUUID();
+  try {
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+      return crypto.randomUUID();
+    }
+  } catch {
+    // Fall through to fallback
   }
   // Secure fallback using crypto.getRandomValues
   const arr = new Uint32Array(4);
