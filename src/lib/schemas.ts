@@ -4,7 +4,7 @@
 import { z } from 'zod';
 
 // ── Helpers ────────────────────────────────────────
-const isoDateString = z.string().datetime({ offset: true }).or(z.string().datetime()).or(z.string().min(10));
+const isoDateString = z.string().datetime({ offset: true }).or(z.string().datetime()).or(z.string().regex(/^\d{4}-\d{2}-\d{2}$/));
 const slug = z.string().min(1).max(100);
 const id = z.string().min(1);
 
