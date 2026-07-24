@@ -186,7 +186,7 @@ export default function GlossaryPage() {
                     </div>
 
                     <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400">
-                      {term.definition}
+                      {term.definitionFr ?? term.definition}
                     </p>
 
                     {/* Synonyms */}

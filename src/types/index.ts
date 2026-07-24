@@ -80,6 +80,7 @@ export interface GlossaryTerm {
   term: string;
   termFr: string;
   definition: string;
+  definitionFr: string;
   synonyms: string[];
   relatedTerms: string[];
   chapterIds: string[];

@@ -236,6 +236,7 @@ export const GlossaryTermSchema = z.object({
   term: z.string().min(1),
   termFr: z.string().min(1),
   definition: z.string().min(1),
+  definitionFr: z.string(),
   synonyms: z.array(z.string()),
   relatedTerms: z.array(z.string()),
   chapterIds: z.array(z.string()),
