@@ -5,7 +5,7 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import type { Chapter, Lesson, GlossaryTerm } from '@/types';
+import type { Chapter, Lesson, GlossaryTerm, Flashcard } from '@/types';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -13,7 +13,7 @@ import { useISTQBStore } from '@/store/useISTQBStore';
 import {
   ArrowLeft, ArrowRight, BookOpen, Clock, Lightbulb,
   AlertTriangle, FlaskConical, FileQuestion, GraduationCap,
-  ChevronLeft, ChevronRight, CheckCircle2, XCircle
+  ChevronLeft, ChevronRight, CheckCircle2, XCircle, X
 } from 'lucide-react';
 
 export default function LessonDetailPage() {
@@ -26,7 +26,7 @@ export default function LessonDetailPage() {
   const [glossaryMap, setGlossaryMap] = useState<Map<string, GlossaryTerm>>(new Map());
   const [loading, setLoading] = useState(true);
 
-  // Tooltip state
+  // Tooltip state (Termes du glossaire only)
   const [tooltip, setTooltip] = useState<{
     visible: boolean;
     x: number;
@@ -36,25 +36,29 @@ export default function LessonDetailPage() {
   }>({ visible: false, x: 0, y: 0, term: '', definition: '' });
   const tooltipRef = useRef<HTMLDivElement>(null);
 
+  // Flashcards modal state
+  const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
+  const [fcModalOpen, setFcModalOpen] = useState(false);
+  const [fcFlipped, setFcFlipped] = useState<Record<string, boolean>>({});
+  const [fcIndex, setFcIndex] = useState(0);
+
   // Mini quiz state
   const [quizAnswers, setQuizAnswers] = useState<Record<string, string>>({});
   const [quizSubmitted, setQuizSubmitted] = useState<Record<string, boolean>>({});
 
   const updateProgressChapter = useISTQBStore((s) => s.updateProgressChapter);
 
-  // Build a term-name lookup (sorted longest-first for greedy matching)
-  const [termNameMap, setTermNameMap] = useState<Map<string, GlossaryTerm>>(new Map());
-  const [sortedTermNames, setSortedTermNames] = useState<string[]>([]);
-
   useEffect(() => {
     async function load() {
       try {
-        const [chaptersData, glossaryData] = await Promise.all([
+        const [chaptersData, glossaryData, flashcardsData] = await Promise.all([
           import('@/data/seed/chapters.json'),
           import('@/data/seed/glossary.json'),
+          import('@/data/seed/flashcards.json'),
         ]);
         const chapters = chaptersData.default as Chapter[];
         const gloss = glossaryData.default as GlossaryTerm[];
+        const fcs = flashcardsData.default as Flashcard[];
 
         const found = chapters.find((ch) => ch.slug === chapterSlug);
         if (found) {
@@ -69,27 +73,19 @@ export default function LessonDetailPage() {
           }
           if (foundLesson) {
             setLesson(foundLesson);
-            // Mark as in_progress
             updateProgressChapter(found.id, { status: 'in_progress' });
           }
         }
 
-        // Build glossary map (id -> term)
+        // Build glossary map
         const map = new Map<string, GlossaryTerm>();
-        // Build name lookup (term name -> term)
-        const nameMap = new Map<string, GlossaryTerm>();
-        for (const term of gloss) {
-          map.set(term.id, term);
-          // Index by the French term name (lowercased)
-          const tName = (term.termFr || term.term).toLowerCase();
-          nameMap.set(tName, term);
-        }
+        for (const term of gloss) map.set(term.id, term);
         setGlossaryMap(map);
-        setTermNameMap(nameMap);
 
-        // Build sorted list of term names (longest first for greedy matching)
-        const names = Array.from(nameMap.keys()).sort((a, b) => b.length - a.length);
-        setSortedTermNames(names);
+        // Filter flashcards for this chapter
+        if (found) {
+          setFlashcards(fcs.filter((fc) => fc.chapterId === found.id));
+        }
       } catch (e) {
         console.error('Failed to load lesson:', e);
       } finally {
@@ -99,51 +95,7 @@ export default function LessonDetailPage() {
     load();
   }, [chapterSlug, lessonSlug]);
 
-  // Highlight glossary terms in a text string
-  const highlightGlossaryTerms = useCallback((text: string): string => {
-    if (!sortedTermNames.length) return text;
-
-    // Escape special regex characters in term names
-    let result = text;
-    for (const tName of sortedTermNames) {
-      const entry = termNameMap.get(tName);
-      if (!entry) continue;
-
-      // Build a regex that matches the term as a whole word (case-insensitive)
-      const escaped = tName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      // Match at word boundaries, being French-aware (accents and apostrophes)
-      const regex = new RegExp(`(?<=^|[\\s,;:.!?\\-\\'"«»\\(\\[\\{]|&nbsp;)(${escaped})(?=$|[\\s,;:.!?\\-\\'"«»\\)\\]\\}]|&nbsp;)`, 'gi');
-      result = result.replace(regex, (match) => {
-        const def = entry.definitionFr || entry.definition;
-        const escapedDef = def.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-        return `<span class="glossary-term-link" data-term="${entry.termFr || entry.term}" data-definition="${escapedDef}" style="color: #4f46e5; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px; cursor: help; position: relative;">${match}</span>`;
-      });
-    }
-    return result;
-  }, [sortedTermNames, termNameMap]);
-
-  // Tooltip handlers
-  const handleTermMouseEnter = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const target = e.target as HTMLElement;
-    if (target.classList.contains('glossary-term-link')) {
-      const term = target.getAttribute('data-term') || '';
-      const definition = target.getAttribute('data-definition') || '';
-      const rect = target.getBoundingClientRect();
-      setTooltip({
-        visible: true,
-        x: rect.left + rect.width / 2,
-        y: rect.top - 8,
-        term,
-        definition,
-      });
-    }
-  }, []);
-
-  const handleTermMouseLeave = useCallback(() => {
-    setTooltip((prev) => ({ ...prev, visible: false }));
-  }, []);
-
-  // Render markdown-like content as simple HTML with glossary tooltips
+  // Render markdown-like content as simple HTML (no body glossary tooltips)
   function renderLessonContent(content: string) {
     const lines = content.split('\n');
     const elements: React.ReactElement[] = [];
@@ -174,6 +126,13 @@ export default function LessonDetailPage() {
         listItems = [];
         inList = false;
       }
+    }
+
+    function applyMarkdown(text: string): string {
+      return text
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/`(.+?)`/g, '<code class="rounded bg-slate-100 px-1 py-0.5 text-xs font-mono text-rose-600 dark:bg-slate-800 dark:text-rose-400">$1</code>');
     }
 
     for (const line of lines) {
@@ -211,12 +170,7 @@ export default function LessonDetailPage() {
       // Blockquote
       if (trimmed.startsWith('> ')) {
         flushList();
-        // Also highlight terms in blockquotes
-        const highlighted = highlightGlossaryTerms(trimmed.replace('> ', ''));
-        const processed = highlighted
-          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-          .replace(/\*(.+?)\*/g, '<em>$1</em>')
-          .replace(/`(.+?)`/g, '<code class="rounded bg-slate-100 px-1 py-0.5 text-xs font-mono text-rose-600 dark:bg-slate-800 dark:text-rose-400">$1</code>');
+        const processed = applyMarkdown(trimmed.replace('> ', ''));
         elements.push(
           <blockquote key={key++} className="mb-3 border-l-4 border-indigo-400 bg-indigo-50 px-4 py-2 text-sm italic text-slate-700 dark:border-indigo-600 dark:bg-indigo-950/30 dark:text-slate-300" dangerouslySetInnerHTML={{ __html: processed }} />
         );
@@ -232,24 +186,12 @@ export default function LessonDetailPage() {
       // List items
       if (trimmed.startsWith('- ')) {
         if (!inList) { inList = true; orderedList = false; }
-        const itemText = trimmed.replace(/^- /, '');
-        const highlighted = highlightGlossaryTerms(itemText);
-        const processed = highlighted
-          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-          .replace(/\*(.+?)\*/g, '<em>$1</em>')
-          .replace(/`(.+?)`/g, '<code class="rounded bg-slate-100 px-1 py-0.5 text-xs font-mono text-rose-600 dark:bg-slate-800 dark:text-rose-400">$1</code>');
-        listItems.push(processed);
+        listItems.push(applyMarkdown(trimmed.replace(/^- /, '')));
         continue;
       }
       if (/^\d+\.\s/.test(trimmed)) {
         if (!inList) { inList = true; orderedList = true; }
-        const itemText = trimmed.replace(/^\d+\.\s/, '');
-        const highlighted = highlightGlossaryTerms(itemText);
-        const processed = highlighted
-          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-          .replace(/\*(.+?)\*/g, '<em>$1</em>')
-          .replace(/`(.+?)`/g, '<code class="rounded bg-slate-100 px-1 py-0.5 text-xs font-mono text-rose-600 dark:bg-slate-800 dark:text-rose-400">$1</code>');
-        listItems.push(processed);
+        listItems.push(applyMarkdown(trimmed.replace(/^\d+\.\s/, '')));
         continue;
       }
 
@@ -262,14 +204,8 @@ export default function LessonDetailPage() {
 
       // Paragraph
       flushList();
-      // First highlight glossary terms, then apply markdown
-      const highlighted = highlightGlossaryTerms(trimmed);
-      const processed = highlighted
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-        .replace(/`(.+?)`/g, '<code class="rounded bg-slate-100 px-1 py-0.5 text-xs font-mono text-rose-600 dark:bg-slate-800 dark:text-rose-400">$1</code>');
       elements.push(
-        <p key={key++} className="mb-3 text-sm leading-relaxed text-slate-700 dark:text-slate-300" dangerouslySetInnerHTML={{ __html: processed }} />
+        <p key={key++} className="mb-3 text-sm leading-relaxed text-slate-700 dark:text-slate-300" dangerouslySetInnerHTML={{ __html: applyMarkdown(trimmed) }} />
       );
     }
     flushList();
@@ -281,18 +217,11 @@ export default function LessonDetailPage() {
     setQuizSubmitted((prev) => ({ ...prev, [questionId]: true }));
   }
 
-  // Find prev/next lesson
   function findAdjacentLesson(direction: 'prev' | 'next'): { slug: string; chapterSlug: string } | null {
-    if (!chapter) return null;
+    if (!chapter || !lesson) return null;
     const allLessons: Lesson[] = [];
-    const lessonSlugMap = new Map<string, { slug: string; chapterSlug: string }>();
-    for (const ch of [chapter]) {
-      for (const section of ch.sections) {
-        for (const l of section.lessons) {
-          allLessons.push(l);
-          lessonSlugMap.set(l.slug, { slug: l.slug, chapterSlug: ch.slug });
-        }
-      }
+    for (const section of chapter.sections) {
+      for (const l of section.lessons) allLessons.push(l);
     }
     const idx = allLessons.findIndex((l) => l.slug === lessonSlug);
     if (idx === -1) return null;
@@ -353,44 +282,33 @@ export default function LessonDetailPage() {
         <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">{lesson.objective}</p>
       </div>
 
-      {/* Content with glossary tooltips */}
+      {/* Résumé mnémotechnique */}
+      {lesson.summary && (
+        <Card className="mb-6 border-indigo-200 bg-indigo-50/50 dark:border-indigo-900/50 dark:bg-indigo-950/20">
+          <CardContent className="p-4">
+            <div className="flex items-start gap-2">
+              <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600 dark:text-indigo-400" />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-1">
+                  Résumé mnémotechnique
+                </p>
+                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {lesson.summary}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Content (no glossary tooltips) */}
       <Card className="mb-6">
         <CardContent className="p-6">
-          <div
-            className="prose-custom max-w-none"
-            onMouseEnter={handleTermMouseEnter}
-            onMouseMove={handleTermMouseEnter}
-            onMouseLeave={handleTermMouseLeave}
-          >
+          <div className="prose-custom max-w-none">
             {renderLessonContent(lesson.content)}
           </div>
         </CardContent>
       </Card>
-
-      {/* Tooltip popup */}
-      {tooltip.visible && (
-        <div
-          ref={tooltipRef}
-          className="fixed z-50 max-w-xs rounded-lg border border-indigo-200 bg-white px-4 py-3 shadow-lg dark:border-indigo-800 dark:bg-slate-800"
-          style={{
-            left: tooltip.x,
-            top: tooltip.y,
-            transform: 'translate(-50%, -100%)',
-            pointerEvents: 'none',
-          }}
-        >
-          <div className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-1">
-            {tooltip.term}
-          </div>
-          <div className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-            {tooltip.definition}
-          </div>
-          {/* Arrow */}
-          <div
-            className="absolute left-1/2 top-full -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-slate-800"
-          />
-        </div>
-      )}
 
       {/* Examples */}
       {lesson.examples.length > 0 && (
@@ -475,7 +393,7 @@ export default function LessonDetailPage() {
         </section>
       )}
 
-      {/* Glossary Terms — tooltip badges (no redirect) */}
+      {/* Glossary Terms — tooltip badges */}
       {lesson.glossaryTerms.length > 0 && (
         <section className="mb-6">
           <h2 className="mb-3 flex items-center gap-2 text-lg font-bold text-indigo-700 dark:text-indigo-400">
@@ -511,6 +429,28 @@ export default function LessonDetailPage() {
             })}
           </div>
         </section>
+      )}
+
+      {/* Tooltip popup */}
+      {tooltip.visible && (
+        <div
+          ref={tooltipRef}
+          className="fixed z-50 max-w-xs rounded-lg border border-indigo-200 bg-white px-4 py-3 shadow-lg dark:border-indigo-800 dark:bg-slate-800"
+          style={{
+            left: tooltip.x,
+            top: tooltip.y,
+            transform: 'translate(-50%, -100%)',
+            pointerEvents: 'none',
+          }}
+        >
+          <div className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-1">
+            {tooltip.term}
+          </div>
+          <div className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            {tooltip.definition}
+          </div>
+          <div className="absolute left-1/2 top-full -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-slate-800" />
+        </div>
       )}
 
       {/* Mini Quiz */}
@@ -576,15 +516,115 @@ export default function LessonDetailPage() {
         </section>
       )}
 
-      {/* Flashcards link */}
+      {/* Flashcards inline modal */}
       <div className="mb-6">
-        <Button asChild variant="outline">
-          <Link href="/flashcards">
-            <GraduationCap className="mr-1 h-4 w-4" />
-            Voir les flashcards associées
-          </Link>
+        <Button
+          variant="outline"
+          onClick={() => {
+            setFcIndex(0);
+            setFcFlipped({});
+            setFcModalOpen(true);
+          }}
+        >
+          <GraduationCap className="mr-1 h-4 w-4" />
+          Voir les flashcards associées
         </Button>
       </div>
+
+      {/* Flashcards Modal */}
+      {fcModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="relative w-full max-w-lg rounded-xl border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-900">
+            <button
+              onClick={() => setFcModalOpen(false)}
+              className="absolute right-3 top-3 rounded-full p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-slate-50">
+              Flashcards — {chapter?.titleFr}
+            </h3>
+            <p className="mb-4 text-xs text-slate-500">
+              {fcIndex + 1} / {flashcards.length}
+            </p>
+
+            {flashcards.length === 0 ? (
+              <p className="py-8 text-center text-sm text-slate-500">
+                Aucune flashcard pour ce chapitre.
+              </p>
+            ) : (
+              <>
+                <div
+                  className="mb-4 min-h-[200px] cursor-pointer rounded-lg border-2 border-slate-200 p-6 transition-all hover:border-indigo-300 dark:border-slate-600 dark:hover:border-indigo-600"
+                  onClick={() =>
+                    setFcFlipped((prev) => ({
+                      ...prev,
+                      [flashcards[fcIndex].id]: !prev[flashcards[fcIndex].id],
+                    }))
+                  }
+                >
+                  {fcFlipped[flashcards[fcIndex].id] ? (
+                    <div>
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+                        Réponse
+                      </p>
+                      <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line">
+                        {flashcards[fcIndex].back}
+                      </p>
+                    </div>
+                  ) : (
+                    <div>
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                        Question
+                      </p>
+                      <p className="text-sm leading-relaxed text-slate-900 dark:text-slate-50">
+                        {flashcards[fcIndex].front}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {flashcards[fcIndex].hint && (
+                  <p className="mb-4 text-xs italic text-slate-400">
+                    💡 {flashcards[fcIndex].hint}
+                  </p>
+                )}
+
+                <div className="flex items-center justify-between gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    disabled={fcIndex === 0}
+                    onClick={() => {
+                      setFcIndex((i) => i - 1);
+                      setFcFlipped((prev) => ({ ...prev, [flashcards[fcIndex - 1]?.id]: false }));
+                    }}
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                    Précédent
+                  </Button>
+                  <span className="text-xs text-slate-500">
+                    Cliquez sur la carte pour retourner
+                  </span>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    disabled={fcIndex === flashcards.length - 1}
+                    onClick={() => {
+                      setFcIndex((i) => i + 1);
+                      setFcFlipped((prev) => ({ ...prev, [flashcards[fcIndex + 1]?.id]: false }));
+                    }}
+                  >
+                    Suivant
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Prev/Next navigation */}
       <div className="flex items-center justify-between border-t border-slate-200 pt-6 dark:border-slate-700">

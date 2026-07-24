@@ -316,58 +316,62 @@ export default function FlashcardsPage() {
             </div>
           )}
 
-          {/* Navigation */}
-          <div className="flex items-center justify-between">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={goPrev}
-              disabled={currentIndex === 0}
-            >
-              <ChevronLeft className="mr-1 h-4 w-4" />
-              Précédente
-            </Button>
-            <div className="flex items-center gap-1">
-              {filtered.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setCurrentIndex(i); setFlipped(false); }}
-                  className={`h-2 w-2 rounded-full transition-colors ${
-                    i === currentIndex
-                      ? 'bg-indigo-600'
-                      : 'bg-slate-300 dark:bg-slate-600'
-                  }`}
-                />
-              ))}
-            </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={goNext}
-              disabled={currentIndex >= filtered.length - 1}
-            >
-              Suivante
-              <ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
-          </div>
+          {/* Navigation (only after flip) */}
+          {flipped && (
+            <>
+              <div className="flex items-center justify-between">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={goPrev}
+                  disabled={currentIndex === 0}
+                >
+                  <ChevronLeft className="mr-1 h-4 w-4" />
+                  Précédente
+                </Button>
+                <div className="flex items-center gap-1">
+                  {filtered.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => { setCurrentIndex(i); setFlipped(false); }}
+                      className={`h-2 w-2 rounded-full transition-colors ${
+                        i === currentIndex
+                          ? 'bg-indigo-600'
+                          : 'bg-slate-300 dark:bg-slate-600'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={goNext}
+                  disabled={currentIndex >= filtered.length - 1}
+                >
+                  Suivante
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Button>
+              </div>
 
-          {/* Stats */}
-          <div className="mt-6 rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
-            <div className="grid grid-cols-3 gap-4 text-center text-xs">
-              <div>
-                <p className="font-bold text-slate-900 dark:text-slate-50">{currentCard.reviewCount}</p>
-                <p className="text-slate-500 dark:text-slate-400">Révisions</p>
+              {/* Stats */}
+              <div className="mt-6 rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
+                <div className="grid grid-cols-3 gap-4 text-center text-xs">
+                  <div>
+                    <p className="font-bold text-slate-900 dark:text-slate-50">{currentCard.reviewCount}</p>
+                    <p className="text-slate-500 dark:text-slate-400">Révisions</p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900 dark:text-slate-50">{currentCard.correctStreak}</p>
+                    <p className="text-slate-500 dark:text-slate-400">Série</p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900 dark:text-slate-50">{currentCard.intervalDays}j</p>
+                    <p className="text-slate-500 dark:text-slate-400">Intervalle</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p className="font-bold text-slate-900 dark:text-slate-50">{currentCard.correctStreak}</p>
-                <p className="text-slate-500 dark:text-slate-400">Série</p>
-              </div>
-              <div>
-                <p className="font-bold text-slate-900 dark:text-slate-50">{currentCard.intervalDays}j</p>
-                <p className="text-slate-500 dark:text-slate-400">Intervalle</p>
-              </div>
-            </div>
-          </div>
+            </>
+          )}
         </>
       )}
 
