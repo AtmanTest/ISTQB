@@ -9,7 +9,7 @@ export default defineConfig({
     globals: true,
     include: ['src/__tests__/**/*.test.{ts,tsx,js,jsx}'],
     exclude: ['node_modules', '.next'],
-    setupFiles: [],
+    setupFiles: ['src/__tests__/setup.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
