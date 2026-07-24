@@ -43,14 +43,14 @@ export default function GlossaryPage() {
     return () => clearTimeout(timer);
   }, [search]);
 
-  // Get unique first letters
+  // Get unique first letters (sorted with French locale)
   const letters = useMemo(() => {
     const set = new Set<string>();
     for (const t of terms) {
       const first = t.term.charAt(0).toUpperCase();
       if (/[A-ZÀ-Ü]/.test(first)) set.add(first);
     }
-    return Array.from(set).sort();
+    return Array.from(set).sort(new Intl.Collator('fr').compare);
   }, [terms]);
 
   // Filtered terms
@@ -59,9 +59,7 @@ export default function GlossaryPage() {
     if (debouncedSearch) {
       const q = debouncedSearch.toLowerCase();
       result = result.filter((t) =>
-        t.term.toLowerCase().includes(q) ||
-        t.definition.toLowerCase().includes(q) ||
-        t.synonyms.some((s) => s.toLowerCase().includes(q))
+        t.term.toLowerCase().includes(q)
       );
     }
     if (activeLetter) {
@@ -69,7 +67,7 @@ export default function GlossaryPage() {
         t.term.charAt(0).toUpperCase() === activeLetter
       );
     }
-    return result.sort((a, b) => a.term.localeCompare(b.term));
+    return result.sort((a, b) => a.term.localeCompare(b.term, 'fr'));
   }, [terms, debouncedSearch, activeLetter]);
 
   const chapterMap = useMemo(() => {

@@ -382,57 +382,57 @@ export default function ResourcesPage() {
           <CardContent>
             <div className="grid gap-3 sm:grid-cols-2">
               <a
-                href="https://www.istqb.org/downloads/send/51-ctfl-401/"
+                href="https://cftl.fr/wp-content/uploads/2023/11/ISTQB-Syllabus-Niveau-Fondation-v4.0-Francais.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-lg border border-slate-200 p-3 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
               >
                 <BookOpen className="h-5 w-5 text-indigo-500" />
                 <div>
-                  <p className="text-sm font-medium text-slate-900 dark:text-slate-50">Syllabus CTFL v4.0.1</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Document officiel de référence</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-slate-50">Syllabus CTFL v4.0.1 (FR)</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Version française officielle</p>
                 </div>
                 <ArrowUpRight className="ml-auto h-4 w-4 shrink-0 text-slate-400" />
               </a>
 
               <a
-                href="https://www.istqb.org/downloads/send/52-sample-exam-ctfl-401/"
+                href="https://cftl.fr/examens/preparer-un-examen/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-lg border border-slate-200 p-3 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
               >
                 <FileText className="h-5 w-5 text-emerald-500" />
                 <div>
-                  <p className="text-sm font-medium text-slate-900 dark:text-slate-50">Examens blancs officiels</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">4 séries de 40 questions</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-slate-50">Examens blancs CFTL</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Préparation aux examens ISTQB</p>
                 </div>
                 <ArrowUpRight className="ml-auto h-4 w-4 shrink-0 text-slate-400" />
               </a>
 
               <a
-                href="https://www.istqb.org/glossary/"
+                href="https://glossary.istqb.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-lg border border-slate-200 p-3 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
               >
                 <BookMarked className="h-5 w-5 text-violet-500" />
                 <div>
-                  <p className="text-sm font-medium text-slate-900 dark:text-slate-50">Glossaire ISTQB</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Terminologie officielle du test</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-slate-50">Glossaire ISTQB en ligne</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Terminologie officielle multilingue</p>
                 </div>
                 <ArrowUpRight className="ml-auto h-4 w-4 shrink-0 text-slate-400" />
               </a>
 
               <a
-                href="https://www.istqb.org/certifications/certified-tester-foundation-level/"
+                href="https://cftl.fr/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-lg border border-slate-200 p-3 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
               >
                 <Award className="h-5 w-5 text-amber-500" />
                 <div>
-                  <p className="text-sm font-medium text-slate-900 dark:text-slate-50">Page officielle CTFL</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Informations sur la certification</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-slate-50">CFTL — Comité Français</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Ressources ISTQB en français</p>
                 </div>
                 <ArrowUpRight className="ml-auto h-4 w-4 shrink-0 text-slate-400" />
               </a>

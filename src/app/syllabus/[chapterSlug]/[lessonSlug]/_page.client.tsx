@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import type { Chapter, Lesson, GlossaryTerm } from '@/types';
@@ -26,11 +26,25 @@ export default function LessonDetailPage() {
   const [glossaryMap, setGlossaryMap] = useState<Map<string, GlossaryTerm>>(new Map());
   const [loading, setLoading] = useState(true);
 
+  // Tooltip state
+  const [tooltip, setTooltip] = useState<{
+    visible: boolean;
+    x: number;
+    y: number;
+    term: string;
+    definition: string;
+  }>({ visible: false, x: 0, y: 0, term: '', definition: '' });
+  const tooltipRef = useRef<HTMLDivElement>(null);
+
   // Mini quiz state
   const [quizAnswers, setQuizAnswers] = useState<Record<string, string>>({});
   const [quizSubmitted, setQuizSubmitted] = useState<Record<string, boolean>>({});
 
   const updateProgressChapter = useISTQBStore((s) => s.updateProgressChapter);
+
+  // Build a term-name lookup (sorted longest-first for greedy matching)
+  const [termNameMap, setTermNameMap] = useState<Map<string, GlossaryTerm>>(new Map());
+  const [sortedTermNames, setSortedTermNames] = useState<string[]>([]);
 
   useEffect(() => {
     async function load() {
@@ -60,12 +74,22 @@ export default function LessonDetailPage() {
           }
         }
 
-        // Build glossary map
+        // Build glossary map (id -> term)
         const map = new Map<string, GlossaryTerm>();
+        // Build name lookup (term name -> term)
+        const nameMap = new Map<string, GlossaryTerm>();
         for (const term of gloss) {
           map.set(term.id, term);
+          // Index by the French term name (lowercased)
+          const tName = (term.termFr || term.term).toLowerCase();
+          nameMap.set(tName, term);
         }
         setGlossaryMap(map);
+        setTermNameMap(nameMap);
+
+        // Build sorted list of term names (longest first for greedy matching)
+        const names = Array.from(nameMap.keys()).sort((a, b) => b.length - a.length);
+        setSortedTermNames(names);
       } catch (e) {
         console.error('Failed to load lesson:', e);
       } finally {
@@ -75,7 +99,51 @@ export default function LessonDetailPage() {
     load();
   }, [chapterSlug, lessonSlug]);
 
-  // Render markdown-like content as simple HTML
+  // Highlight glossary terms in a text string
+  const highlightGlossaryTerms = useCallback((text: string): string => {
+    if (!sortedTermNames.length) return text;
+
+    // Escape special regex characters in term names
+    let result = text;
+    for (const tName of sortedTermNames) {
+      const entry = termNameMap.get(tName);
+      if (!entry) continue;
+
+      // Build a regex that matches the term as a whole word (case-insensitive)
+      const escaped = tName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      // Match at word boundaries, being French-aware (accents and apostrophes)
+      const regex = new RegExp(`(?<=^|[\\s,;:.!?\\-\\'"«»\\(\\[\\{]|&nbsp;)(${escaped})(?=$|[\\s,;:.!?\\-\\'"«»\\)\\]\\}]|&nbsp;)`, 'gi');
+      result = result.replace(regex, (match) => {
+        const def = entry.definitionFr || entry.definition;
+        const escapedDef = def.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        return `<span class="glossary-term-link" data-term="${entry.termFr || entry.term}" data-definition="${escapedDef}" style="color: #4f46e5; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px; cursor: help; position: relative;">${match}</span>`;
+      });
+    }
+    return result;
+  }, [sortedTermNames, termNameMap]);
+
+  // Tooltip handlers
+  const handleTermMouseEnter = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('glossary-term-link')) {
+      const term = target.getAttribute('data-term') || '';
+      const definition = target.getAttribute('data-definition') || '';
+      const rect = target.getBoundingClientRect();
+      setTooltip({
+        visible: true,
+        x: rect.left + rect.width / 2,
+        y: rect.top - 8,
+        term,
+        definition,
+      });
+    }
+  }, []);
+
+  const handleTermMouseLeave = useCallback(() => {
+    setTooltip((prev) => ({ ...prev, visible: false }));
+  }, []);
+
+  // Render markdown-like content as simple HTML with glossary tooltips
   function renderLessonContent(content: string) {
     const lines = content.split('\n');
     const elements: React.ReactElement[] = [];
@@ -90,7 +158,7 @@ export default function LessonDetailPage() {
           elements.push(
             <ol key={key++} className="mb-4 ml-6 list-decimal space-y-1 text-sm text-slate-700 dark:text-slate-300">
               {listItems.map((item, i) => (
-                <li key={i}>{item}</li>
+                <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
               ))}
             </ol>
           );
@@ -98,7 +166,7 @@ export default function LessonDetailPage() {
           elements.push(
             <ul key={key++} className="mb-4 ml-6 list-disc space-y-1 text-sm text-slate-700 dark:text-slate-300">
               {listItems.map((item, i) => (
-                <li key={i}>{item}</li>
+                <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
               ))}
             </ul>
           );
@@ -143,10 +211,14 @@ export default function LessonDetailPage() {
       // Blockquote
       if (trimmed.startsWith('> ')) {
         flushList();
+        // Also highlight terms in blockquotes
+        const highlighted = highlightGlossaryTerms(trimmed.replace('> ', ''));
+        const processed = highlighted
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>')
+          .replace(/`(.+?)`/g, '<code class="rounded bg-slate-100 px-1 py-0.5 text-xs font-mono text-rose-600 dark:bg-slate-800 dark:text-rose-400">$1</code>');
         elements.push(
-          <blockquote key={key++} className="mb-3 border-l-4 border-indigo-400 bg-indigo-50 px-4 py-2 text-sm italic text-slate-700 dark:border-indigo-600 dark:bg-indigo-950/30 dark:text-slate-300">
-            {trimmed.replace('> ', '')}
-          </blockquote>
+          <blockquote key={key++} className="mb-3 border-l-4 border-indigo-400 bg-indigo-50 px-4 py-2 text-sm italic text-slate-700 dark:border-indigo-600 dark:bg-indigo-950/30 dark:text-slate-300" dangerouslySetInnerHTML={{ __html: processed }} />
         );
         continue;
       }
@@ -160,12 +232,24 @@ export default function LessonDetailPage() {
       // List items
       if (trimmed.startsWith('- ')) {
         if (!inList) { inList = true; orderedList = false; }
-        listItems.push(trimmed.replace(/^- /, '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'));
+        const itemText = trimmed.replace(/^- /, '');
+        const highlighted = highlightGlossaryTerms(itemText);
+        const processed = highlighted
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>')
+          .replace(/`(.+?)`/g, '<code class="rounded bg-slate-100 px-1 py-0.5 text-xs font-mono text-rose-600 dark:bg-slate-800 dark:text-rose-400">$1</code>');
+        listItems.push(processed);
         continue;
       }
       if (/^\d+\.\s/.test(trimmed)) {
         if (!inList) { inList = true; orderedList = true; }
-        listItems.push(trimmed.replace(/^\d+\.\s/, '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'));
+        const itemText = trimmed.replace(/^\d+\.\s/, '');
+        const highlighted = highlightGlossaryTerms(itemText);
+        const processed = highlighted
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>')
+          .replace(/`(.+?)`/g, '<code class="rounded bg-slate-100 px-1 py-0.5 text-xs font-mono text-rose-600 dark:bg-slate-800 dark:text-rose-400">$1</code>');
+        listItems.push(processed);
         continue;
       }
 
@@ -178,7 +262,9 @@ export default function LessonDetailPage() {
 
       // Paragraph
       flushList();
-      const processed = trimmed
+      // First highlight glossary terms, then apply markdown
+      const highlighted = highlightGlossaryTerms(trimmed);
+      const processed = highlighted
         .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
         .replace(/\*(.+?)\*/g, '<em>$1</em>')
         .replace(/`(.+?)`/g, '<code class="rounded bg-slate-100 px-1 py-0.5 text-xs font-mono text-rose-600 dark:bg-slate-800 dark:text-rose-400">$1</code>');
@@ -267,14 +353,44 @@ export default function LessonDetailPage() {
         <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">{lesson.objective}</p>
       </div>
 
-      {/* Content */}
+      {/* Content with glossary tooltips */}
       <Card className="mb-6">
         <CardContent className="p-6">
-          <div className="prose-custom max-w-none">
+          <div
+            className="prose-custom max-w-none"
+            onMouseEnter={handleTermMouseEnter}
+            onMouseMove={handleTermMouseEnter}
+            onMouseLeave={handleTermMouseLeave}
+          >
             {renderLessonContent(lesson.content)}
           </div>
         </CardContent>
       </Card>
+
+      {/* Tooltip popup */}
+      {tooltip.visible && (
+        <div
+          ref={tooltipRef}
+          className="fixed z-50 max-w-xs rounded-lg border border-indigo-200 bg-white px-4 py-3 shadow-lg dark:border-indigo-800 dark:bg-slate-800"
+          style={{
+            left: tooltip.x,
+            top: tooltip.y,
+            transform: 'translate(-50%, -100%)',
+            pointerEvents: 'none',
+          }}
+        >
+          <div className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-1">
+            {tooltip.term}
+          </div>
+          <div className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            {tooltip.definition}
+          </div>
+          {/* Arrow */}
+          <div
+            className="absolute left-1/2 top-full -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-slate-800"
+          />
+        </div>
+      )}
 
       {/* Examples */}
       {lesson.examples.length > 0 && (
@@ -359,7 +475,7 @@ export default function LessonDetailPage() {
         </section>
       )}
 
-      {/* Glossary Terms */}
+      {/* Glossary Terms — tooltip badges (no redirect) */}
       {lesson.glossaryTerms.length > 0 && (
         <section className="mb-6">
           <h2 className="mb-3 flex items-center gap-2 text-lg font-bold text-indigo-700 dark:text-indigo-400">
@@ -371,11 +487,26 @@ export default function LessonDetailPage() {
               const term = glossaryMap.get(termId);
               if (!term) return null;
               return (
-                <Link key={termId} href="/glossary" className="group">
-                  <Badge variant="outline" className="cursor-pointer transition-colors group-hover:border-indigo-300 group-hover:bg-indigo-50 dark:group-hover:border-indigo-600 dark:group-hover:bg-indigo-950/30">
+                <span
+                  key={termId}
+                  className="group relative inline-block"
+                  onMouseEnter={(e) => {
+                    const def = term.definitionFr || term.definition;
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    setTooltip({
+                      visible: true,
+                      x: rect.left + rect.width / 2,
+                      y: rect.top - 8,
+                      term: term.termFr ?? term.term,
+                      definition: def,
+                    });
+                  }}
+                  onMouseLeave={() => setTooltip((prev) => ({ ...prev, visible: false }))}
+                >
+                  <Badge variant="outline" className="cursor-pointer transition-colors hover:border-indigo-300 hover:bg-indigo-50 dark:hover:border-indigo-600 dark:hover:bg-indigo-950/30">
                     {term.termFr ?? term.term}
                   </Badge>
-                </Link>
+                </span>
               );
             })}
           </div>

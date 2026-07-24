@@ -12,7 +12,7 @@
   {
     "id": "res-exam-structure",
     "title": "Exam Structures and Rules v1.2",
-    "url": "https://www.istqb.org/downloads/send/55-exam-structures-and-rules/",
+    "url": "https://cftl.fr/examens/",
     "description": "Document détaillant les règles et la structure des examens ISTQB, incluant le nombre de questions, le seuil de réussite, la durée, et les règles de notation pour la certification CTFL.",
     "type": "guide",
     "category": "official",
@@ -22,7 +22,7 @@
   {
     "id": "res-sample-exam-a",
     "title": "Examen Blanc A — CTFL v4.0",
-    "url": "https://www.istqb.org/downloads/send/52-sample-exam-ctfl-401/",
+    "url": "https://cftl.fr/examens/preparer-un-examen/",
     "description": "Examen blanc officiel A pour la certification CTFL v4.0.1. Contient 40 questions avec corrigés, couvrant l'ensemble des objectifs d'apprentissage du syllabus.",
     "type": "sample_exam",
     "category": "official",
@@ -32,7 +32,7 @@
   {
     "id": "res-sample-exam-b",
     "title": "Examen Blanc B — CTFL v4.0",
-    "url": "https://www.istqb.org/downloads/send/52-sample-exam-ctfl-401",
+    "url": "https://cftl.fr/examens/preparer-un-examen/",
     "description": "Examen blanc officiel B pour la certification CTFL v4.0.1. Jeu de 40 questions supplémentaires permettant de se préparer dans des conditions d'examen réalistes.",
     "type": "sample_exam",
     "category": "official",
@@ -42,7 +42,7 @@
   {
     "id": "res-sample-exam-c",
     "title": "Examen Blanc C — CTFL v4.0",
-    "url": "https://www.istqb.org/downloads/send/52-sample-exam-ctfl-401",
+    "url": "https://cftl.fr/examens/preparer-un-examen/",
     "description": "Examen blanc officiel C pour la certification CTFL v4.0.1. Troisième série de questions types pour un entraînement intensif avant l'examen.",
     "type": "sample_exam",
     "category": "official",
@@ -52,7 +52,7 @@
   {
     "id": "res-sample-exam-d",
     "title": "Examen Blanc D — CTFL v4.0",
-    "url": "https://www.istqb.org/downloads/send/52-sample-exam-ctfl-401",
+    "url": "https://cftl.fr/examens/preparer-un-examen/",
     "description": "Examen blanc officiel D pour la certification CTFL v4.0.1. Quatrième et dernière série de questions d'entraînement pour valider votre préparation.",
     "type": "sample_exam",
     "category": "official",
@@ -62,7 +62,7 @@
   {
     "id": "res-glossary-istqb",
     "title": "Glossaire ISTQB des Termes de Test",
-    "url": "https://www.istqb.org/glossary/",
+    "url": "https://glossary.istqb.org/",
     "description": "Glossaire officiel ISTQB contenant la terminologie standardisée des tests logiciels en plusieurs langues. Référence incontournable pour comprendre et utiliser correctement les termes techniques.",
     "type": "glossary",
     "category": "official",
@@ -72,7 +72,7 @@
   {
     "id": "res-overview-ctfl",
     "title": "Vue d'Ensemble CTFL v4.0.1",
-    "url": "https://www.istqb.org/certifications/certified-tester-foundation-level/",
+    "url": "https://cftl.fr/istqb/",
     "description": "Page officielle de présentation de la certification Certified Tester Foundation Level, détaillant les objectifs, le public cible, les prérequis et le processus de certification.",
     "type": "guide",
     "category": "official",
@@ -92,7 +92,7 @@
   {
     "id": "res-test-process-poster",
     "title": "Affiche du Processus de Test ISTQB",
-    "url": "https://www.istqb.org/downloads/category/55-exam-structures-and-rules/",
+    "url": "https://cftl.fr/tests-logiciels/comprendre-les-tests/",
     "description": "Aide-mémoire visuel présentant les phases du processus de test ISTQB : planification, analyse, conception, implémentation, exécution et clôture.",
     "type": "guide",
     "category": "official",
