@@ -1,10 +1,12 @@
 // ===== ISTQB CTFL v4.0.1 — Landing Page (Accueil) =====
 
+'use client';
+
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import {
   BookOpen,
   HelpCircle,
-  Layers,
   FileText,
   BarChart3,
   Calendar,
@@ -19,69 +21,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-// ── Chapter Data ──────────────────────────────
-const chapters = [
-  {
-    id: 'ch1',
-    number: 1,
-    title: 'Fondamentaux des tests',
-    duration: '180 min',
-    los: 2,
-    color: 'from-indigo-500 to-indigo-600',
-    slug: '/syllabus/ch1',
-    keywords: ['test', 'qualité', 'débogage'],
-  },
-  {
-    id: 'ch2',
-    number: 2,
-    title: 'Tout au long du cycle de développement',
-    duration: '130 min',
-    los: 2,
-    color: 'from-violet-500 to-violet-600',
-    slug: '/syllabus/ch2',
-    keywords: ['cycle', 'développement', 'intégration'],
-  },
-  {
-    id: 'ch3',
-    number: 3,
-    title: 'Tests statiques',
-    duration: '80 min',
-    los: 1,
-    color: 'from-blue-500 to-blue-600',
-    slug: '/syllabus/ch3',
-    keywords: ['revue', 'analyse', 'statique'],
-  },
-  {
-    id: 'ch4',
-    number: 4,
-    title: 'Conception des tests',
-    duration: '390 min',
-    los: 4,
-    color: 'from-emerald-500 to-emerald-600',
-    slug: '/syllabus/ch4',
-    keywords: ['conception', 'technique', 'boîte noire'],
-  },
-  {
-    id: 'ch5',
-    number: 5,
-    title: 'Gestion des tests',
-    duration: '335 min',
-    los: 3,
-    color: 'from-amber-500 to-amber-600',
-    slug: '/syllabus/ch5',
-    keywords: ['gestion', 'planification', 'risque'],
-  },
-  {
-    id: 'ch6',
-    number: 6,
-    title: 'Outils de test',
-    duration: '20 min',
-    los: 2,
-    color: 'from-rose-500 to-rose-600',
-    slug: '/syllabus/ch6',
-    keywords: ['outils', 'automatisation', 'support'],
-  },
-];
+const chapterColors: Record<string, string> = {
+  ch1: 'from-indigo-500 to-indigo-600',
+  ch2: 'from-violet-500 to-violet-600',
+  ch3: 'from-blue-500 to-blue-600',
+  ch4: 'from-emerald-500 to-emerald-600',
+  ch5: 'from-amber-500 to-amber-600',
+  ch6: 'from-rose-500 to-rose-600',
+};
 
 // ── Exam Format ───────────────────────────────
 const examStats = [
@@ -120,6 +67,33 @@ const resources = [
 
 // ── Component ─────────────────────────────────
 export default function LandingPage() {
+  const [chapters, setChapters] = useState<{ id: string; order: number; titleFr: string; durationMinutes: number; slug: string; keywords: string[]; learningObjectives: any[] }[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const data = await import('@/data/seed/chapters.json');
+        setChapters(data.default as any[]);
+      } catch (e) {
+        console.error('Failed to load chapters:', e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-center py-20">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* ─── Hero ─────────────────────────── */}
@@ -170,30 +144,30 @@ export default function LandingPage() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {chapters.map((ch) => (
-            <Link key={ch.id} href={ch.slug} className="group block">
+          {chapters.sort((a, b) => a.order - b.order).map((ch) => (
+            <Link key={ch.id} href={`/syllabus/${ch.slug}`} className="group block">
               <Card className="h-full transition-all hover:shadow-md hover:-translate-y-0.5">
                 <CardHeader>
                   <div
-                    className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${ch.color} text-white text-sm font-bold shadow-sm`}
+                    className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${chapterColors[ch.id] ?? 'from-slate-500 to-slate-600'} text-white text-sm font-bold shadow-sm`}
                   >
-                    {ch.number}
+                    {ch.order}
                   </div>
                   <CardTitle className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                    {ch.title}
+                    {ch.titleFr}
                   </CardTitle>
                   <CardDescription>
                     <span className="inline-flex items-center gap-1 text-xs">
                       <Clock className="h-3 w-3" />
-                      {ch.duration}
+                      {ch.durationMinutes} min
                     </span>
                     <span className="mx-2 text-slate-300 dark:text-slate-600">·</span>
-                    <span className="text-xs">{ch.los} objectifs</span>
+                    <span className="text-xs">{ch.learningObjectives.length} objectifs</span>
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-1.5">
-                    {ch.keywords.map((kw) => (
+                    {ch.keywords.slice(0, 4).map((kw) => (
                       <Badge key={kw} variant="secondary" className="text-xs">
                         {kw}
                       </Badge>
