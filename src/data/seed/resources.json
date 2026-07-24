@@ -1,0 +1,102 @@
+[
+  {
+    "id": "res-syllabus-ctfl",
+    "title": "Syllabus CTFL v4.0.1",
+    "url": "https://www.istqb.org/downloads/send/51-ctfl-401/",
+    "description": "Syllabus officiel du Certified Tester Foundation Level version 4.0.1 de l'ISTQB. Document de référence complet couvrant l'ensemble des 6 chapitres et leurs objectifs d'apprentissage.",
+    "type": "syllabus",
+    "category": "official",
+    "chapterIds": ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6"],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "res-exam-structure",
+    "title": "Exam Structures and Rules v1.2",
+    "url": "https://www.istqb.org/downloads/send/55-exam-structures-and-rules/",
+    "description": "Document détaillant les règles et la structure des examens ISTQB, incluant le nombre de questions, le seuil de réussite, la durée, et les règles de notation pour la certification CTFL.",
+    "type": "guide",
+    "category": "official",
+    "chapterIds": ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6"],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "res-sample-exam-a",
+    "title": "Examen Blanc A — CTFL v4.0",
+    "url": "https://www.istqb.org/downloads/send/52-sample-exam-ctfl-401/",
+    "description": "Examen blanc officiel A pour la certification CTFL v4.0.1. Contient 40 questions avec corrigés, couvrant l'ensemble des objectifs d'apprentissage du syllabus.",
+    "type": "sample_exam",
+    "category": "official",
+    "chapterIds": ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6"],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "res-sample-exam-b",
+    "title": "Examen Blanc B — CTFL v4.0",
+    "url": "https://www.istqb.org/downloads/send/52-sample-exam-ctfl-401",
+    "description": "Examen blanc officiel B pour la certification CTFL v4.0.1. Jeu de 40 questions supplémentaires permettant de se préparer dans des conditions d'examen réalistes.",
+    "type": "sample_exam",
+    "category": "official",
+    "chapterIds": ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6"],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "res-sample-exam-c",
+    "title": "Examen Blanc C — CTFL v4.0",
+    "url": "https://www.istqb.org/downloads/send/52-sample-exam-ctfl-401",
+    "description": "Examen blanc officiel C pour la certification CTFL v4.0.1. Troisième série de questions types pour un entraînement intensif avant l'examen.",
+    "type": "sample_exam",
+    "category": "official",
+    "chapterIds": ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6"],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "res-sample-exam-d",
+    "title": "Examen Blanc D — CTFL v4.0",
+    "url": "https://www.istqb.org/downloads/send/52-sample-exam-ctfl-401",
+    "description": "Examen blanc officiel D pour la certification CTFL v4.0.1. Quatrième et dernière série de questions d'entraînement pour valider votre préparation.",
+    "type": "sample_exam",
+    "category": "official",
+    "chapterIds": ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6"],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "res-glossary-istqb",
+    "title": "Glossaire ISTQB des Termes de Test",
+    "url": "https://www.istqb.org/glossary/",
+    "description": "Glossaire officiel ISTQB contenant la terminologie standardisée des tests logiciels en plusieurs langues. Référence incontournable pour comprendre et utiliser correctement les termes techniques.",
+    "type": "glossary",
+    "category": "official",
+    "chapterIds": ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6"],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "res-overview-ctfl",
+    "title": "Vue d'Ensemble CTFL v4.0.1",
+    "url": "https://www.istqb.org/certifications/certified-tester-foundation-level/",
+    "description": "Page officielle de présentation de la certification Certified Tester Foundation Level, détaillant les objectifs, le public cible, les prérequis et le processus de certification.",
+    "type": "guide",
+    "category": "official",
+    "chapterIds": ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6"],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "res-istqb-code-of-ethics",
+    "title": "Code d'Éthique ISTQB",
+    "url": "https://www.istqb.org/about-us/code-of-ethics/",
+    "description": "Code d'éthique professionnelle de l'ISTQB que chaque testeur certifié s'engage à respecter. Principes d'intégrité, compétence, confidentialité et professionnalisme.",
+    "type": "guide",
+    "category": "official",
+    "chapterIds": ["ch1"],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "res-test-process-poster",
+    "title": "Affiche du Processus de Test ISTQB",
+    "url": "https://www.istqb.org/downloads/category/55-exam-structures-and-rules/",
+    "description": "Aide-mémoire visuel présentant les phases du processus de test ISTQB : planification, analyse, conception, implémentation, exécution et clôture.",
+    "type": "guide",
+    "category": "official",
+    "chapterIds": ["ch1", "ch5"],
+    "createdAt": "2026-01-01"
+  }
+]

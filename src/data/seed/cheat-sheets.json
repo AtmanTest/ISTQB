@@ -1,0 +1,93 @@
+[
+  {
+    "id": "cs-ch1",
+    "chapterId": "ch1",
+    "title": "Fondamentaux du Test — Aide-Mémoire",
+    "content": "# Fondamentaux du Test — Aide-Mémoire\n\n## Objectifs du Test\nLe test logiciel a pour objectifs :\n- **Évaluer les produits de travail** (documents, code, configurations)\n- **Trouver des défauts** dans les composants et systèmes\n- **Donner de la confiance** dans le niveau de qualité\n- **Prévenir les défauts** en analysant les causes racines\n- **Fournir des informations** pour la prise de décision\n\n## Test vs Débogage\n- Le **test** trouve des défaillances (causes = défauts)\n- Le **débogage** trouve, analyse et supprime les causes des défaillances\n- Les testeurs **identifient** les défaillances, les développeurs **corrigent** les défauts\n\n## Sept Principes du Test\n1. **Les tests montrent la présence de défauts** — ils ne prouvent pas leur absence\n2. **Les tests exhaustifs sont impossibles** — prioriser par risque\n3. **Tester tôt** — plus économique de corriger tôt\n4. **Regroupement des défauts** — la plupart des défauts se concentrent dans peu de modules\n5. **Paradoxe du pesticide** — répéter les mêmes tests finit par ne plus trouver de nouveaux défauts\n6. **Le test dépend du contexte** — pas de méthode universelle\n7. **L'absence d'erreur est une illusion** — un système sans défaut peut ne pas répondre aux besoins\n\n## Processus de Test\n1. **Planification** — définition de la stratégie, estimation, planning\n2. **Analyse** — analyse de la base de test, identification des conditions de test\n3. **Conception** — création des cas de test et des procédures\n4. **Implémentation** — organisation des suites de test, préparation de l'environnement\n5. **Exécution** — lancement des tests, comparaison des résultats\n6. **Clôture** — archivage, leçons apprises, libération des ressources\n\n## Traçabilité\nLa traçabilité relie : exigences → conditions de test → cas de test → résultats → défauts\nElle permet d'évaluer la couverture et l'impact des changements.\n\n## Rôles et Responsabilités\n- Le **Testeur** : conçoit et exécute les tests, rapporte les défauts\n- Le **Chef de Projet Test** : planifie, supervise, reporte\n- Le **Développeur** : corrige les défauts, participe aux revues\n- L'**Analyste Métier** : fournit la base de test, clarifie les exigences\n\n## Approche TÉA (Testeur dans l'Équipe)\nLe test est l'affaire de toute l'équipe. Chaque membre contribue à la qualité à son niveau.",
+    "keyPoints": [
+      "Les tests ont 5 objectifs principaux : évaluer, trouver des défauts, donner confiance, prévenir, informer",
+      "Le test et le débogage sont des activités différentes avec des objectifs distincts",
+      "Les 7 principes du test sont fondamentaux et doivent guider toute activité de test",
+      "Le processus de test comprend 6 activités séquentielles mais itératives",
+      "La traçabilité est essentielle pour mesurer la couverture et gérer les changements",
+      "L'approche TÉA implique que toute l'équipe partage la responsabilité de la qualité",
+      "Les tests peuvent être appliqués à différents stades : statiques (revues) et dynamiques (exécution)"
+    ],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "cs-ch2",
+    "chapterId": "ch2",
+    "title": "Test tout au long du Cycle de Vie — Aide-Mémoire",
+    "content": "# Test tout au long du Cycle de Vie — Aide-Mémoire\n\n## Modèles de Cycle de Vie\n- **Modèle en Cascade** : Phases séquentielles, chaque phase est terminée avant la suivante\n- **Modèle en V** : Les niveaux de test correspondent aux phases de développement\n- **Modèle Itératif/Agile** : Cycles courts (sprints), tests continus, adaptation aux changements\n\n## Niveaux de Test\n1. **Test de Composant** (unitaire) : Test d'unités individuelles, généralement par les développeurs, accès au code\n2. **Test d'Intégration** : Test des interfaces entre composants, recherche de défauts d'interaction\n3. **Test Système** : Test du système complet, comportement de bout en bout\n4. **Test d'Acceptation** : Validation par l'utilisateur/client, critères d'acceptation\n\n## Types de Test\n- **Fonctionnel** : Ce que le système fait (conformité aux exigences)\n- **Non Fonctionnel** : Comment le système se comporte (performance, sécurité, utilisabilité)\n- **Structurel (Boîte Blanche)** : Structure interne du code (couverture, chemins)\n- **Lié aux Changements** : Confirmation et régression après modifications\n\n## Test de Maintenance\nDéclencheurs : modifications, migrations, mise hors service\nActivités : analyse d'impact, test de régression, test de confirmation\nLe test de maintenance s'applique aux systèmes en production.",
+    "keyPoints": [
+      "Le choix du modèle SDLC influence le planning et l'approche des tests",
+      "Il existe 4 niveaux de test : composant, intégration, système et acceptation",
+      "Les types de test peuvent être appliqués à n'importe quel niveau de test",
+      "Le test de confirmation vérifie la correction d'un défaut spécifique",
+      "Le test de régression vérifie l'absence d'effets secondaires après un changement",
+      "La maintenance testing concerne les modifications, migrations et retraits de systèmes"
+    ],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "cs-ch3",
+    "chapterId": "ch3",
+    "title": "Test Statique — Aide-Mémoire",
+    "content": "# Test Statique — Aide-Mémoire\n\n## Qu'est-ce que le Test Statique ?\nLe test statique examine les produits de travail sans exécuter le code. Il inclut :\n- Les **revues manuelles** par des pairs\n- L'**analyse outillée** (outils d'analyse statique)\n\n## Différence Test Statique vs Dynamique\n- **Statique** : examine le code/la doc sans exécution, trouve des défauts latents\n- **Dynamique** : exécute le code, trouve des défaillances\n\n## Processus de Revue Formelle\n1. **Planification** : choix des participants, définition des rôles\n2. **Lancement** : distribution du document, briefing\n3. **Préparation individuelle** : chaque relecteur examine le document\n4. **Réunion de revue** : discussion des anomalies, décisions\n5. **Correction** : l'auteur corrige les défauts identifiés\n6. **Vérification** : validation des corrections, clôture\n\n## Rôles dans une Revue\n- **Auteur** : crée le document, corrige les défauts\n- **Modérateur** : anime la réunion, garantit le respect du processus\n- **Relecteur** : examine le document, identifie les anomalies\n- **Rédacteur** : documente les anomalies et décisions\n- **Manager** : décide de l'organisation, alloue les ressources\n\n## Types de Revues\n1. **Informelle** : Pas de processus formel, simple relecture par un pair\n2. **Revue Pas-à-Pas (Walkthrough)** : L'auteur présent, objectif pédagogique, moins formelle\n3. **Revue Technique** : Processus structuré, modérateur, focus technique\n4. **Inspection** : La plus formelle, métriques, rôles définis, entrée/sortie critères",
+    "keyPoints": [
+      "Le test statique trouve des défauts sans exécuter le code",
+      "Les revues sont plus efficaces pour trouver des défauts de spécification",
+      "Une revue formelle suit un processus en 6 étapes",
+      "Il existe 4 types de revues, de l'informelle à l'inspection",
+      "Les rôles dans une revue incluent auteur, modérateur, relecteur, rédacteur",
+      "L'analyse statique outillée complète les revues manuelles"
+    ],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "cs-ch4",
+    "chapterId": "ch4",
+    "title": "Techniques de Conception de Tests — Aide-Mémoire",
+    "content": "# Techniques de Conception de Tests — Aide-Mémoire\n\n## Techniques Boîte Noire (Fonctionnelles)\n\n### Partition d'Équivalence (EP)\n- Divise les données d'entrée en partitions (classes d'équivalence)\n- Une seule valeur par partition suffit pour tester\n- 2 partitions : valide et invalide (par condition)\n\n### Analyse des Valeurs Limites (BVA)\n- Teste les limites des partitions d'équivalence\n- Retient les valeurs : min-1, min, min+1, max-1, max, max+1\n- Complémentaire de EP, très efficace pour trouver des défauts aux frontières\n\n### Table de Décision\n- Technique pour tester des combinaisons de conditions\n- Structure : conditions (inputs) en lignes, règles (colonnes), actions (outputs)\n- 2^n combinaisons pour n conditions booléennes\n- Idéale pour la logique métier complexe\n\n### Test de Transition d'États\n- Modélise le système comme un ensemble d'états et de transitions\n- Teste : les transitions valides, invalides, et les séquences d'états\n- Utile pour les systèmes basés sur des états (GUI, protocoles, machines)\n\n## Techniques Boîte Blanche (Structurelles)\n\n### Couverture d'Instructions\n- Mesure : % d'instructions exécutées par les tests\n- 100% = chaque ligne de code exécutée au moins une fois\n- Ne garantit pas que toutes les branches sont testées\n\n### Couverture de Branches\n- Mesure : % de branches (décisions) exécutées\n- Plus fort que la couverture d'instructions\n- 100% de branches implique 100% d'instructions\n\n## Techniques Basées sur l'Expérience\n\n### Supposition d'Erreurs\n- Utilise l'expérience du testeur pour anticiper les défauts\n- Se base sur les erreurs passées, les cas limites, les pièges connus\n\n### Test Exploratoire\n- Conception et exécution simultanées\n- Utilisation de chartes de test pour orienter la session\n- Très efficace pour découvrir des défauts inattendus",
+    "keyPoints": [
+      "Les techniques boîte noire se basent sur les spécifications, pas sur le code",
+      "EP divise les données en classes, BVA teste les limites de ces classes",
+      "Les tables de décision testent les combinaisons de conditions logiques",
+      "Les transitions d'états modélisent le comportement du système",
+      "La couverture de branches est plus forte que la couverture d'instructions",
+      "Les techniques basées sur l'expérience exploitent la connaissance et l'intuition du testeur"
+    ],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "cs-ch5",
+    "chapterId": "ch5",
+    "title": "Gestion du Test — Aide-Mémoire",
+    "content": "# Gestion du Test — Aide-Mémoire\n\n## Planification des Tests\n- Définit la **stratégie** et l'**approche** de test\n- Inclut : périmètre, ressources, calendrier, risques\n- Résultat : le **Plan de Test**\n\n## Estimation\n- **Méthode Delphi** : consensus d'experts\n- **Méthode Analogique** : basée sur des projets similaires\n- **Décomposition** : découpage en tâches élémentaires\n\n## Gestion des Risques\n### Risques Projet\nProblèmes organisationnels : délais irréalistes, pénurie de ressources, turn-over\n### Risques Produit\nDéfauts potentiels dans le produit : pannes, mauvaise performance, faille de sécurité\n\nProcessus :\n1. Identification des risques\n2. Analyse (probabilité × impact)\n3. Priorisation\n4. Atténuation (plan d'action)\n\n## Suivi et Contrôle\n**Métriques clés** :\n- Pourcentage de cas de test exécutés\n- Taux de réussite/échec\n- Densité de défauts\n- Couverture atteinte\n- Progression vs planning\n\n## Gestion des Défauts\nCycle de vie d'un défaut :\n1. Découverte → 2. Rapport → 3. Triage → 4. Correction → 5. Confirmation → 6. Fermeture\n\n## Gestion de Configuration\n- Identification des éléments de configuration\n- Contrôle des versions\n- Suivi des changements\n- Garantit l'intégrité et la traçabilité des artefacts",
+    "keyPoints": [
+      "Le plan de test définit quoi, comment, qui, quand et combien",
+      "L'estimation peut utiliser Delphi, l'analogie ou la décomposition",
+      "Les risques sont projet ou produit : probabilité × impact",
+      "Le suivi utilise des métriques pour informer les décisions de contrôle",
+      "Le cycle de vie d'un défaut suit 6 étapes de la découverte à la fermeture",
+      "La gestion de configuration assure l'intégrité des artefacts de test"
+    ],
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "cs-ch6",
+    "chapterId": "ch6",
+    "title": "Outils de Test — Aide-Mémoire",
+    "content": "# Outils de Test — Aide-Mémoire\n\n## Classification des Outils\n\n### Outils de Gestion\n- Gestion des tests (Quality Center, TestRail, Zephyr)\n- Gestion des défauts (JIRA, Bugzilla, Azure DevOps)\n- Gestion des exigences et traçabilité\n\n### Outils de Test Statique\n- Analyse statique : SonarQube, ESLint, PMD\n- Révision de code : Gerrit, Crucible\n\n### Outils de Conception de Tests\n- Génération de cas de test basée sur des modèles\n- Outils de conception de tests à partir de données\n\n### Outils d'Exécution et Automatisation\n- Automatisation fonctionnelle : Selenium, Cypress, Playwright\n- Test d'API : Postman, REST Assured\n- Test de charge : JMeter, Gatling, k6\n\n### Outils de Test Non Fonctionnel\n- Performance : JMeter, LoadRunner\n- Sécurité : OWASP ZAP, Burp Suite\n- Accessibilité : axe, Lighthouse\n\n## Avantages de l'Utilisation d'Outils\n- Réduction du travail répétitif\n- Cohérence et reproductibilité\n- Accès à des informations difficiles à obtenir manuellement\n- Gain de temps et d'effort\n- Rapports automatisés et centralisés\n\n## Risques Potentiels\n- Attentes irréalistes (l'outil ne résout pas tous les problèmes)\n- Coût d'acquisition et de formation\n- Maintenance des scripts d'automatisation\n- Fausse confiance dans les résultats automatisés\n- Dépendance excessive à l'outil\n\n## Critères de Sélection\n1. Définir le besoin et les objectifs\n2. Évaluer les fonctionnalités par rapport aux exigences\n3. Considérer l'intégration avec l'écosystème existant\n4. Évaluer le coût total de possession (licence, formation, maintenance)\n5. Tester l'outil sur un projet pilote avant déploiement",
+    "keyPoints": [
+      "Les outils de test se classent par fonction : gestion, statique, conception, exécution, non fonctionnel",
+      "L'automatisation réduit le travail répétitif mais nécessite de la maintenance",
+      "Les attentes irréalistes sont le principal risque lié aux outils",
+      "Un projet pilote est recommandé avant le déploiement d'un outil",
+      "Pour l'automatisation, prioriser les tests de régression et les tests répétitifs",
+      "Le coût total de possession inclut licence, formation, maintenance et infrastructure"
+    ],
+    "createdAt": "2026-01-01"
+  }
+]

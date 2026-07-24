@@ -1,0 +1,37 @@
+// ===== ISTQB CTFL v4.0.1 — Progress Bar Component =====
+
+'use client';
+
+import * as React from 'react';
+import * as ProgressPrimitive from '@radix-ui/react-progress';
+import { cn } from '@/lib/utils';
+
+interface ProgressProps
+  extends React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root> {
+  indicatorClassName?: string;
+}
+
+const Progress = React.forwardRef<
+  React.ElementRef<typeof ProgressPrimitive.Root>,
+  ProgressProps
+>(({ className, value, indicatorClassName, ...props }, ref) => (
+  <ProgressPrimitive.Root
+    ref={ref}
+    className={cn(
+      'relative h-2 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700',
+      className,
+    )}
+    {...props}
+  >
+    <ProgressPrimitive.Indicator
+      className={cn(
+        'h-full w-full flex-1 rounded-full bg-indigo-600 transition-all duration-300 ease-out dark:bg-indigo-500',
+        indicatorClassName,
+      )}
+      style={{ transform: `translateX(-${100 - (value ?? 0)}%)` }}
+    />
+  </ProgressPrimitive.Root>
+));
+Progress.displayName = 'Progress';
+
+export { Progress };

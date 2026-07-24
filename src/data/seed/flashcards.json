@@ -1,0 +1,2391 @@
+[
+  {
+    "id": "fc-001",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.1",
+    "front": "Quels sont les cinq objectifs principaux du test logiciel ?",
+    "back": "1. Évaluer des produits de travail\n2. Trouver des défauts\n3. Donner de la confiance dans le niveau de qualité\n4. Prévenir les défauts\n5. Fournir des informations pour la prise de décision",
+    "hint": "Pensez aux bénéfices du test pour l'équipe et les parties prenantes",
+    "tags": [
+      "objectifs",
+      "fondamentaux"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-002",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.2",
+    "front": "Quelle est la différence entre le test et le débogage ?",
+    "back": "Le **test** identifie des défaillances en exécutant le logiciel. Le **débogage** est l'activité de développement qui trouve, analyse et corrige la cause des défaillances (les défauts). Les testeurs trouvent les défaillances ; les développeurs corrigent les défauts.",
+    "hint": "L'un est une activité de vérification, l'autre une activité de correction",
+    "tags": [
+      "test",
+      "debugging",
+      "fondamentaux"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-003",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Quels sont les 7 principes fondamentaux du test ?",
+    "back": "1. Les tests montrent la présence de défauts\n2. Les tests exhaustifs sont impossibles\n3. Tester tôt\n4. Regroupement des défauts\n5. Paradoxe du pesticide\n6. Le test dépend du contexte\n7. L'absence d'erreur est une illusion",
+    "hint": "Commence par 'Les tests montrent...' et finit par 'L'absence...'",
+    "tags": [
+      "principes",
+      "fondamentaux"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-004",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Expliquez le principe du 'Regroupement des défauts'",
+    "back": "Ce principe énonce qu'un petit nombre de modules contient la plupart des défauts découverts lors des tests. Environ 80% des défauts se trouvent dans 20% des modules. Cela permet de prioriser les tests sur les zones à risque.",
+    "hint": "Loi de Pareto appliquée aux défauts logiciels",
+    "tags": [
+      "principes",
+      "pareto"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-005",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Expliquez le 'Paradoxe du pesticide'",
+    "back": "Si les mêmes tests sont répétés plusieurs fois, ils finissent par ne plus trouver de nouveaux défauts. Pour découvrir de nouveaux défauts, il faut régulièrement réviser et améliorer les tests existants, et en créer de nouveaux.",
+    "hint": "Les insectes deviennent résistants aux pesticides",
+    "tags": [
+      "principes",
+      "pesticide"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-006",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.2.2",
+    "front": "Quelles sont les 6 activités du processus de test ?",
+    "back": "1. Planification\n2. Analyse\n3. Conception\n4. Implémentation\n5. Exécution\n6. Clôture",
+    "hint": "PACICE : Planification, Analyse, Conception, Implémentation, Clôture, Exécution... ou dans l'ordre ?",
+    "tags": [
+      "processus",
+      "test"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-007",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.2.2",
+    "front": "Qu'est-ce que la traçabilité en test ?",
+    "back": "La traçabilité est la capacité à relier les éléments d'un processus de développement : exigences → conditions de test → cas de test → résultats d'exécution → défauts. Elle permet d'évaluer la couverture et d'analyser l'impact des changements.",
+    "hint": "Relie les exigences aux résultats de test",
+    "tags": [
+      "traçabilité",
+      "gestion"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-008",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Que signifie 'Les tests exhaustifs sont impossibles' ?",
+    "back": "Il est impossible de tester toutes les combinaisons possibles d'entrées, de préconditions et de chemins d'exécution dans un logiciel, sauf pour des cas triviaux. Il faut donc utiliser l'analyse des risques et des techniques de conception pour prioriser les tests.",
+    "hint": "Combien de combinaisons existe-t-il avec 10 entrées booléennes ?",
+    "tags": [
+      "principes",
+      "exhaustif"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-009",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.2.1",
+    "front": "Quels sont les 4 niveaux de test ?",
+    "back": "1. Test de composant (unitaire)\n2. Test d'intégration\n3. Test système\n4. Test d'acceptation",
+    "hint": "Du plus petit au plus grand",
+    "tags": [
+      "niveaux",
+      "SDLC"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-010",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.2.1",
+    "front": "Qui effectue généralement le test de composant ?",
+    "back": "Les **développeurs**. Le test de composant est souvent réalisé par les développeurs eux-mêmes, qui ont accès au code source et utilisent des frameworks de test unitaire (JUnit, pytest, NUnit).",
+    "hint": "Pas les testeurs",
+    "tags": [
+      "composant",
+      "développeur"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-011",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.3.1",
+    "front": "Quels sont les quatre types de test ?",
+    "back": "1. Test fonctionnel\n2. Test non fonctionnel\n3. Test structurel (boîte blanche)\n4. Test lié aux changements (confirmation et régression)",
+    "hint": "Fonctionnel, Non fonctionnel, Structurel, Changements...",
+    "tags": [
+      "types",
+      "classification"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-012",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.3.1",
+    "front": "Quelle est la différence entre test fonctionnel et test non fonctionnel ?",
+    "back": "Le **test fonctionnel** vérifie **ce que** le système fait (conformité aux exigences fonctionnelles). Le **test non fonctionnel** vérifie **comment** le système se comporte (performance, sécurité, utilisabilité, fiabilité).",
+    "hint": "Quoi vs Comment",
+    "tags": [
+      "fonctionnel",
+      "non-fonctionnel"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-013",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.5.1",
+    "front": "Quelle est la différence entre test de confirmation et test de régression ?",
+    "back": "Le **test de confirmation** (re-test) vérifie qu'un défaut spécifique a été correctement corrigé. Le **test de régression** vérifie que les modifications n'ont pas introduit de nouveaux défauts dans les parties inchangées du système.",
+    "hint": "L'un vérifie le correctif, l'autre vérifie les effets secondaires",
+    "tags": [
+      "confirmation",
+      "régression"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-014",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.1.1",
+    "front": "Qu'est-ce que le test statique ?",
+    "back": "Le test statique examine les produits de travail (code, documentation, spécifications) sans exécuter le code. Il inclut les revues manuelles (informelles, walkthroughs, techniques, inspections) et l'analyse outillée (analyse statique).",
+    "hint": "Sans exécution du code",
+    "tags": [
+      "statique",
+      "revue"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-015",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.1",
+    "front": "Quels sont les 4 types de revue ?",
+    "back": "1. Revue informelle\n2. Walkthrough (revue pas-à-pas)\n3. Revue technique\n4. Inspection\n(Ordre du moins formel au plus formel)",
+    "hint": "De l'informel à l'inspection, en passant par le walkthrough",
+    "tags": [
+      "revue",
+      "types"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-016",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.2",
+    "front": "Quels sont les 5 rôles principaux dans une revue formelle ?",
+    "back": "1. **Auteur** - crée le document\n2. **Modérateur** - anime la réunion\n3. **Relecteur** - examine le document\n4. **Rédacteur** - documente les anomalies\n5. **Manager** - décide de l'organisation",
+    "hint": "Auteur, Modérateur, Relecteur, Rédacteur, Manager",
+    "tags": [
+      "revue",
+      "rôles"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-017",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.2",
+    "front": "Quelles sont les 6 étapes d'une revue formelle ?",
+    "back": "1. Planification\n2. Lancement\n3. Préparation individuelle\n4. Réunion de revue\n5. Correction\n6. Vérification",
+    "hint": "Planification → Lancement → Préparation → Réunion → Correction → Vérification",
+    "tags": [
+      "revue",
+      "processus"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-018",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.1.2",
+    "front": "Qu'est-ce que l'analyse statique outillée ?",
+    "back": "L'analyse statique outillée utilise des outils logiciels (linters, analyseurs de code) pour examiner le code source, les modèles, ou la documentation sans l'exécuter. Elle peut détecter des défauts comme des violations de codage, des pointeurs nuls potentiels, ou des failles de sécurité.",
+    "hint": "Outils comme SonarQube, ESLint, PMD",
+    "tags": [
+      "statique",
+      "outils"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-019",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.1",
+    "front": "Qu'est-ce que la partition d'équivalence (EP) ?",
+    "back": "Technique boîte noire qui divise les données d'entrée en partitions (classes d'équivalence). Les valeurs d'une même partition sont traitées de la même façon par le système. Une seule valeur par partition suffit pour tester. Il y a généralement des partitions valides et invalides.",
+    "hint": "Diviser pour mieux tester",
+    "tags": [
+      "EP",
+      "boîte noire"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-020",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.2",
+    "front": "Qu'est-ce que l'analyse des valeurs limites (BVA) ?",
+    "back": "Technique boîte noire complémentaire de EP qui teste les valeurs aux limites des partitions d'équivalence. Pour chaque limite, on teste : la valeur immédiatement en dessous, la valeur à la limite, et la valeur immédiatement au-dessus. C'est là que les défauts sont les plus fréquents.",
+    "hint": "Frontières des partitions",
+    "tags": [
+      "BVA",
+      "boîte noire"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-021",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.3",
+    "front": "Qu'est-ce qu'une table de décision ?",
+    "back": "Technique boîte noire qui représente les combinaisons de conditions (entrées) et leurs actions (sorties) sous forme de tableau. Chaque colonne est une règle. Pour n conditions booléennes, il y a 2^n règles possibles. Utile pour tester la logique métier complexe.",
+    "hint": "Conditions → Règles → Actions",
+    "tags": [
+      "décision",
+      "boîte noire"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-022",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.4",
+    "front": "Qu'est-ce que le test de transition d'états ?",
+    "back": "Technique boîte noire qui modélise le système comme un ensemble d'états et de transitions entre ces états, déclenchées par des événements. On teste les transitions valides, les transitions invalides, et les séquences d'états. Utile pour GUI, protocoles, machines à états.",
+    "hint": "États + Événements → Transitions",
+    "tags": [
+      "état",
+      "transition"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-023",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.3.2",
+    "front": "Qu'est-ce que la couverture d'instructions ?",
+    "back": "Technique boîte blanche qui mesure le pourcentage d'instructions exécutables du code qui ont été exercées par au moins un test. 100% de couverture d'instructions signifie que chaque ligne de code a été exécutée au moins une fois.",
+    "hint": "Combien de lignes de code sont exécutées ?",
+    "tags": [
+      "boîte blanche",
+      "couverture"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-024",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.3.3",
+    "front": "Qu'est-ce que la couverture de branches ?",
+    "back": "Technique boîte blanche qui mesure le pourcentage de branches (décisions, comme les if/else) qui ont été exercées. 100% de couverture de branches implique 100% de couverture d'instructions, mais l'inverse n'est pas vrai. C'est un critère plus fort.",
+    "hint": "Plus fort que la couverture d'instructions",
+    "tags": [
+      "boîte blanche",
+      "branche"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-025",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.4.1",
+    "front": "Qu'est-ce que le test exploratoire ?",
+    "back": "Technique basée sur l'expérience où le testeur conçoit et exécute les tests simultanément, en explorant le logiciel de façon créative. Il utilise des chartes de test pour guider ses sessions. Très efficace pour découvrir des défauts inattendus.",
+    "hint": "Conception et exécution en parallèle",
+    "tags": [
+      "exploratoire",
+      "expérience"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-026",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.4.2",
+    "front": "Qu'est-ce que la supposition d'erreurs ?",
+    "back": "Technique basée sur l'expérience où le testeur utilise sa connaissance des défauts passés, du comportement des applications, et des modes de défaillance courants pour anticiper où les défauts sont les plus probables et concevoir des tests spécifiques.",
+    "hint": "Basée sur l'expérience et l'intuition",
+    "tags": [
+      "erreur",
+      "expérience"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-027",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.1.1",
+    "front": "Quels sont les éléments clés d'un plan de test ?",
+    "back": "Un plan de test inclut :\n- Périmètre (quoi est testé et quoi ne l'est pas)\n- Approche et stratégie\n- Ressources (personnes, outils, environnements)\n- Calendrier et jalons\n- Critères d'entrée et de sortie\n- Risques et contingences",
+    "hint": "Quoi, comment, qui, quand, combien",
+    "tags": [
+      "planification",
+      "test"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-028",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.1.2",
+    "front": "Quelle est la différence entre le suivi et le contrôle des tests ?",
+    "back": "Le **suivi** vérifie l'avancement des activités de test par rapport au plan (métriques, indicateurs). Le **contrôle** prend des actions correctives basées sur les informations du suivi (repriorisation, ajustement du calendrier, réallocation des ressources).",
+    "hint": "Suivi = mesurer, Contrôle = agir",
+    "tags": [
+      "suivi",
+      "contrôle",
+      "gestion"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-029",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.2.1",
+    "front": "Quelle est la différence entre un risque produit et un risque projet ?",
+    "back": "Les **risques produit** concernent la qualité du logiciel lui-même (défauts, performance, sécurité). Les **risques projet** concernent la gestion du projet (délais irréalistes, pénurie de ressources, budget, turn-over).",
+    "hint": "Produit = qualité, Projet = gestion",
+    "tags": [
+      "risque",
+      "gestion"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-030",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.1.1",
+    "front": "Quelles sont les 6 étapes du cycle de vie d'un défaut ?",
+    "back": "1. Découverte\n2. Rapport\n3. Triage (analyse et priorisation)\n4. Correction\n5. Confirmation (re-test)\n6. Fermeture",
+    "hint": "Découverte → Rapport → Triage → Correction → Confirmation → Fermeture",
+    "tags": [
+      "défaut",
+      "cycle de vie"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-031",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.1.1",
+    "front": "Qu'est-ce que la gestion de configuration en test ?",
+    "back": "C'est le processus d'identification, de contrôle et de suivi des versions des artefacts de test (code, plans, cas de test, données, rapports). Elle garantit l'intégrité, la traçabilité et la reproductibilité des tests.",
+    "hint": "Contrôle des versions des artefacts de test",
+    "tags": [
+      "configuration",
+      "gestion"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-032",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.1.1",
+    "front": "Qu'est-ce que l'analyse d'impact ?",
+    "back": "L'analyse d'impact évalue les conséquences potentielles d'un changement sur le système existant. Elle identifie les composants, fonctionnalités et tests qui pourraient être affectés, permettant de dimensionner correctement le test de régression nécessaire.",
+    "hint": "Conséquences d'un changement",
+    "tags": [
+      "impact",
+      "changement"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-033",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.1.1",
+    "front": "Quels sont les principaux avantages des outils de test ?",
+    "back": "1. Réduction du travail répétitif\n2. Cohérence et reproductibilité\n3. Accès à des informations difficiles à obtenir manuellement\n4. Gain de temps et d'effort\n5. Rapports automatisés et centralisés\n6. Possibilité d'exécuter des tests 24/7",
+    "hint": "Répétition, Cohérence, Information, Temps, Rapports, Disponibilité",
+    "tags": [
+      "outils",
+      "avantages"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-034",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Quels sont les risques liés à l'utilisation d'outils de test ?",
+    "back": "1. Attentes irréalistes\n2. Coût d'acquisition et de formation\n3. Maintenance des scripts d'automatisation\n4. Fausse confiance dans les résultats\n5. Dépendance excessive à l'outil\n6. Problèmes de compatibilité et d'intégration",
+    "hint": "Attentes, Coût, Maintenance, Confiance, Dépendance, Compatibilité",
+    "tags": [
+      "outils",
+      "risques"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-035",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Citez 3 exemples d'outils d'automatisation fonctionnelle",
+    "back": "1. **Selenium** — Automatisation de tests web (navigateurs)\n2. **Cypress** — Tests front-end modernes\n3. **Playwright** — Automatisation multi-navigateur par Microsoft",
+    "hint": "Des frameworks populaires pour le web",
+    "tags": [
+      "automatisation",
+      "outils"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-036",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Quelles sont les étapes de sélection d'un outil de test ?",
+    "back": "1. Définir le besoin et les objectifs\n2. Évaluer les fonctionnalités par rapport aux exigences\n3. Considérer l'intégration avec l'écosystème existant\n4. Évaluer le coût total de possession\n5. Réaliser un projet pilote\n6. Déployer avec une phase d'apprentissage",
+    "hint": "Besoin → Évaluation → Intégration → Coût → Pilote → Déploiement",
+    "tags": [
+      "sélection",
+      "outils"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-037",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.5.2",
+    "front": "Quels sont les trois déclencheurs du test de maintenance ?",
+    "back": "1. **Modifications** : correctifs, améliorations fonctionnelles, changements technologiques\n2. **Migrations** : changement de plateforme, de base de données, d'infrastructure\n3. **Mise hors service** : retrait progressif ou immédiat d'un système",
+    "hint": "Modifications, Migrations, Mise hors service",
+    "tags": [
+      "maintenance",
+      "déclencheurs"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-038",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Expliquez le principe 'Tester tôt'",
+    "back": "Les activités de test doivent commencer le plus tôt possible dans le cycle de vie du développement. Plus tôt un défaut est trouvé, moins il coûte cher à corriger. Ce principe s'applique aux revues de spécifications, à l'analyse statique, et à la conception des tests en parallèle du développement.",
+    "hint": "Plus on trouve tôt, moins ça coûte",
+    "tags": [
+      "principes",
+      "tôt"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-039",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.1",
+    "front": "Quels sont les facteurs qui influencent l'effort de test ?",
+    "back": "1. La taille et la complexité du produit\n2. Les facteurs liés au processus de développement\n3. Les facteurs liés à l'équipe (compétences, expérience)\n4. Les objectifs de test (critères de sortie, couverture requise)\n5. Les contraintes de temps et de budget\n6. Les outils disponibles",
+    "hint": "Produit, Processus, Personnes, Objectifs, Contraintes, Outils",
+    "tags": [
+      "effort",
+      "estimation"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-040",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.2.2",
+    "front": "Qu'est-ce que le testware ?",
+    "back": "Le testware est l'ensemble des artefacts produits pendant le processus de test : plans de test, spécifications de conception, cas de test, procédures de test, données de test, scripts d'automatisation, et rapports de test. C'est un sous-ensemble des produits de travail logiciel.",
+    "hint": "Tous les livrables du processus de test",
+    "tags": [
+      "testware",
+      "artefacts"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-041",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.1.1",
+    "front": "Qu'est-ce qu'un oracle de test ?",
+    "back": "Un oracle de test est une source d'information permettant de déterminer si les résultats réels d'une exécution de test correspondent aux résultats attendus. Exemples : spécifications, manuels utilisateur, systèmes de référence, connaissance du domaine.",
+    "hint": "Comment savoir si le résultat est correct ?",
+    "tags": [
+      "oracle",
+      "test"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-042",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Expliquez le principe 'Le test dépend du contexte'",
+    "back": "Il n'existe pas de méthode de test universelle. Les tests sont effectués différemment selon le contexte : un site e-commerce, un logiciel médical, une application mobile, ou un système de trading n'auront pas les mêmes priorités, risques, et approches de test.",
+    "hint": "Pas de solution unique",
+    "tags": [
+      "principes",
+      "contexte"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-043",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Expliquez le principe 'L'absence d'erreur est une illusion'",
+    "back": "Trouver et corriger des défauts ne garantit pas que le système réponde aux besoins des utilisateurs. Un système sans défaut technique peut être inutilisable ou ne pas répondre aux attentes. Il faut aussi valider que le bon produit a été construit.",
+    "hint": "Un logiciel sans bug peut être inutile",
+    "tags": [
+      "principes",
+      "illusion"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-044",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.1",
+    "front": "Quelle est la différence entre vérification et validation ?",
+    "back": "La **vérification** répond à la question : 'Est-ce que nous construisons le produit correctement ?' (conformité aux spécifications). La **validation** répond à : 'Est-ce que nous construisons le bon produit ?' (répond aux besoins utilisateur).",
+    "hint": "Correctement vs Bon",
+    "tags": [
+      "vérification",
+      "validation"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-045",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.2.2",
+    "front": "Comment calcule-t-on la priorité d'un risque ?",
+    "back": "La priorité d'un risque se calcule en multipliant la **probabilité** d'occurrence par l'**impact** potentiel :\nNiveau de Risque = Probabilité × Impact\nPlus le niveau de risque est élevé, plus il nécessite d'attention et d'atténuation.",
+    "hint": "Probabilité × Impact",
+    "tags": [
+      "risque",
+      "priorisation"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-046",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.1.3",
+    "front": "Citez 3 métriques de suivi des tests",
+    "back": "1. Pourcentage de cas de test exécutés\n2. Taux de réussite/échec des tests\n3. Densité de défauts (nombre de défauts par module ou par KLOC)\nAutres : couverture atteinte, délai de correction, progression vs planning",
+    "hint": "Exécution, Résultats, Défauts",
+    "tags": [
+      "métriques",
+      "suivi"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-047",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.2",
+    "front": "Quel est le rôle du modérateur dans une revue ?",
+    "back": "Le modérateur (ou animateur) est responsable du bon déroulement de la réunion de revue. Il s'assure que le processus est respecté, que chaque participant peut s'exprimer, et que la réunion reste productive et centrée sur les objectifs.",
+    "hint": "Chef d'orchestre de la revue",
+    "tags": [
+      "revue",
+      "modérateur"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-048",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.1.1",
+    "front": "Quel est l'avantage du modèle en V par rapport au modèle en cascade ?",
+    "back": "Le modèle en V associe chaque phase de développement à un niveau de test correspondant (exigences → test d'acceptation, conception détaillée → test d'intégration). Cela permet une planification des tests plus précoce et une meilleure traçabilité.",
+    "hint": "Relation explicite entre développement et test",
+    "tags": [
+      "modèle en V",
+      "SDLC"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-049",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.4.1",
+    "front": "Qu'est-ce qu'un test structurel (boîte blanche) ?",
+    "back": "Un test qui évalue la structure interne du code ou du composant. Le testeur a accès au code source et conçoit des tests basés sur la logique, les chemins, les branches et les conditions du code. Complémentaire aux tests boîte noire.",
+    "hint": "Basé sur le code source",
+    "tags": [
+      "boîte blanche",
+      "structurel"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-050",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.5.1",
+    "front": "Quand effectue-t-on un test de régression ?",
+    "back": "Après toute modification du logiciel : correction de défauts, ajout de fonctionnalités, refactoring, changement de configuration, ou mise à jour d'un composant. Le test de régression est aussi nécessaire après des changements dans l'environnement (OS, base de données, bibliothèques).",
+    "hint": "Après chaque changement",
+    "tags": [
+      "régression",
+      "changement"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-051",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.1.1",
+    "front": "Qu'est-ce qu'un critère d'entrée en test ?",
+    "back": "Conditions qui doivent être remplies avant de commencer une activité de test : disponibilité du test object, environnement de test prêt, données de test préparées, outils installés, équipe formée. Ils évitent de gaspiller du temps sur des tests non valides.",
+    "hint": "Ce qui doit être vrai pour commencer",
+    "tags": [
+      "critères",
+      "entrée"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-052",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.2",
+    "front": "Quelle est la relation entre erreur, défaut et défaillance ?",
+    "back": "1. **Erreur** : action humaine qui produit un résultat incorrect\n2. **Défaut** : imperfection dans le code/document (conséquence de l'erreur)\n3. **Défaillance** : comportement incorrect observé lors de l'exécution (conséquence du défaut activé)\nUne erreur humaine → introduit un défaut → qui peut causer une défaillance.",
+    "hint": "Erreur → Défaut → Défaillance",
+    "tags": [
+      "terminologie",
+      "défaut"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-053",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.2",
+    "front": "Pour un champ âge acceptant 18-120 ans, quelles valeurs BVA tester ?",
+    "back": "Avec BVA 2-value : 17 (invalide), 18 (limite valide), 119 (valide), 120 (limite valide), 121 (invalide).\nAvec BVA 3-value : 17, 18, 19 (limite basse) et 119, 120, 121 (limite haute).",
+    "hint": "Les bornes et leurs voisines immédiates",
+    "tags": [
+      "BVA",
+      "exemple"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-054",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.1",
+    "front": "Pour un champ 'couleur' acceptant Rouge, Vert, Bleu — combien de partitions d'équivalence ?",
+    "back": "2 partitions :\n- **Valide** : {Rouge, Vert, Bleu} — une seule valeur suffit\n- **Invalide** : toute autre valeur (Jaune, #FF0000, 'ABC', etc.) — une seule valeur suffit",
+    "hint": "Valide et Invalide",
+    "tags": [
+      "EP",
+      "exemple"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-055",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.1.2",
+    "front": "Comment les tests s'intègrent-ils dans un cycle Agile ?",
+    "back": "Dans l'Agile, les tests sont continus et itératifs :\n- Tests automatisés dans chaque sprint\n- Tests de régression après chaque incrément\n- Le testeur fait partie de l'équipe pluridisciplinaire\n- Les tests sont définis avant le développement (TDD/ATDD)\n- Les revues et tests exploratoires complètent l'automatisation",
+    "hint": "Continu, automatisé, intégré à l'équipe",
+    "tags": [
+      "agile",
+      "SDLC"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-056",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Pourquoi faut-il prioriser les tests à automatiser ?",
+    "back": "Parce que l'automatisation a un coût (développement, maintenance, exécution). Il faut prioriser :\n- Les tests de régression (répétitifs)\n- Les tests sur plusieurs configurations\n- Les tests à forte valeur ajoutée mais répétitifs\n- Éviter d'automatiser des tests instables ou à usage unique",
+    "hint": "ROI de l'automatisation",
+    "tags": [
+      "automatisation",
+      "priorisation"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-01-01"
+  },
+  {
+    "id": "fc-057",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.1",
+    "front": "Citez les 5 objectifs principaux du test logiciel.",
+    "back": "1. Évaluer la qualité\n2. Trouver des défauts\n3. Prévenir les défauts\n4. Donner de la confiance\n5. Fournir des informations pour les décisions",
+    "hint": null,
+    "tags": [
+      "objectifs",
+      "fondamentaux"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-058",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.2",
+    "front": "Quelle est la différence entre une erreur humaine, un défaut et une défaillance ?",
+    "back": "**Erreur humaine** → Cause (action humaine incorrecte)\n**Défaut** → Conséquence dans l'artefact (bug)\n**Défaillance** → Comportement incorrect observé lors de l'exécution",
+    "hint": null,
+    "tags": [
+      "erreur",
+      "defaut",
+      "defaillance"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-059",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Citez les 7 principes fondamentaux du test logiciel.",
+    "back": "1. Tests montrent présence de défauts\n2. Tests exhaustifs impossibles\n3. Tester tôt\n4. Regroupement des défauts (Pareto)\n5. Paradoxe du pesticide\n6. Test dépend du contexte\n7. Absence d'erreur = illusion",
+    "hint": null,
+    "tags": [
+      "principes"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-060",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Expliquez le principe 'Tester tôt' (principe n°3).",
+    "back": "Commencer les activités de test le plus tôt possible dans le cycle de développement réduit les coûts de correction. Plus un défaut est détecté tard, plus il coûte cher à corriger (effet de levier 10x à chaque étape).",
+    "hint": null,
+    "tags": [
+      "principes",
+      "couts"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-061",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.2.2",
+    "front": "Quelles sont les 6 activités du processus de test ?",
+    "back": "1. Planification\n2. Analyse\n3. Conception\n4. Implémentation\n5. Exécution\n6. Clôture\n\nMnémotechnique : PACICE",
+    "hint": null,
+    "tags": [
+      "processus"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-062",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.2.2",
+    "front": "Que se passe-t-il pendant l'analyse des tests ?",
+    "back": "On examine les bases de test (spécifications, exigences) pour identifier **les conditions de test** : que peut-on tester ? Quels sont les aspects testables ?",
+    "hint": null,
+    "tags": [
+      "analyse",
+      "conception"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-063",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.3.1",
+    "front": "Quels sont les types de revue (du moins formel au plus formel) ?",
+    "back": "1. **Revue informelle** (pas de processus défini)\n2. **Walkthrough** (présenté par l'auteur)\n3. **Revue technique** (évaluation par des pairs)\n4. **Inspection** (processus formel avec rôles et métriques)",
+    "hint": null,
+    "tags": [
+      "revues",
+      "formel"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-064",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.2.3",
+    "front": "Qu'est-ce que la couverture de test ?",
+    "back": "La couverture mesure l'étendue du produit logiciel qui a été testé par rapport à un critère donné. Exemples :\n- Couverture des exigences : % d'exigences testées\n- Couverture de code : % de lignes de code exécutées",
+    "hint": null,
+    "tags": [
+      "couverture",
+      "metriques"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-065",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.2.3",
+    "front": "Quelle est la contribution principale du test à la qualité ?",
+    "back": "Le test fournit une **évaluation objective** de la qualité du logiciel et des **risques résiduels**, permettant aux parties prenantes de prendre des décisions éclairées (mise en production, corrections supplémentaires, etc.).",
+    "hint": null,
+    "tags": [
+      "qualite",
+      "objectifs"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-066",
+    "chapterId": "ch1",
+    "lessonId": null,
+    "loId": "FL-1.1.3",
+    "front": "Qu'est-ce que l'effet de levier (cost escalation) des défauts ?",
+    "back": "Le coût de correction d'un défaut augmente de façon exponentielle plus il est détecté tard dans le cycle. Un défaut coûte 1x en conception, 10x en développement, 100x en test, 1000x en production.",
+    "hint": null,
+    "tags": [
+      "couts",
+      "qualite"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-067",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.1.1",
+    "front": "Quels sont les 4 niveaux de test ?",
+    "back": "1. Test **composant** (unitaire)\n2. Test **d'intégration**\n3. Test **système**\n4. Test **d'acceptation**",
+    "hint": null,
+    "tags": [
+      "niveaux"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-068",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.1.2",
+    "front": "Quelle est la différence entre test fonctionnel et test non-fonctionnel ?",
+    "back": "**Fonctionnel** : vérifie CE QUE le système fait (connexion, calcul, validation)\n**Non-fonctionnel** : vérifie COMMENT le système le fait (performance, sécurité, utilisabilité, fiabilité)",
+    "hint": null,
+    "tags": [
+      "types",
+      "fonctionnel",
+      "non-fonctionnel"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-069",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.2.1",
+    "front": "Quels sont les 4 types de maintenance en test ?",
+    "back": "1. **Corrective** : corriger des défauts\n2. **Adaptative** : s'adapter à un nouvel environnement\n3. **Perfective** : améliorer les performances/maintenabilité\n4. **Préventive** : prévenir les défauts futurs",
+    "hint": null,
+    "tags": [
+      "maintenance"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-070",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.3.1",
+    "front": "Quels sont les niveaux d'indépendance des testeurs ?",
+    "back": "Du moins indépendant au plus indépendant :\n1. Tests par l'auteur lui-même\n2. Tests par un collègue de l'équipe\n3. Tests par une équipe de test dédiée\n4. Tests par un organisme externe",
+    "hint": null,
+    "tags": [
+      "independance",
+      "organisation"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-071",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.3.2",
+    "front": "Citez les types de revue du moins formel au plus formel.",
+    "back": "1. Revues informelles\n2. Walkthroughs\n3. Revues techniques\n4. Inspections\n\nPlus un type est formel, plus il suit un processus défini avec rôles et métriques.",
+    "hint": null,
+    "tags": [
+      "revues",
+      "types"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-072",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.3.2",
+    "front": "Quels sont les rôles principaux dans une inspection ?",
+    "back": "- **Auteur** : crée l'artefact\n- **Modérateur** : anime la réunion\n- **Réviseur** : examine l'artefact\n- **Scribe** : note les défauts\n- **Manager** : décide (optionnel)",
+    "hint": null,
+    "tags": [
+      "revues",
+      "roles"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-073",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.4.1",
+    "front": "Qu'est-ce que le risque produit ?",
+    "back": "Risque lié au logiciel lui-même :\n- Défauts fonctionnels\n- Mauvaise performance\n- Problèmes de sécurité\n- Problèmes de fiabilité\nCes risques affectent directement la qualité du produit livré.",
+    "hint": null,
+    "tags": [
+      "risques"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-074",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.4.1",
+    "front": "Qu'est-ce que le risque projet ?",
+    "back": "Risque lié à la gestion du projet :\n- Retards de planning\n- Dépassement de budget\n- Manque de ressources\n- Problèmes organisationnels\n- Changements de périmètre\nCes risques affectent la capacité à livrer.",
+    "hint": null,
+    "tags": [
+      "risques"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-075",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.1.2",
+    "front": "Qu'est-ce qu'un test de régression ?",
+    "back": "Test qui vérifie que les **modifications récentes** (corrections de bugs, nouvelles fonctionnalités) n'ont pas introduit de nouveaux défauts dans les parties **inchangées** du logiciel. Essentiel après chaque changement.",
+    "hint": null,
+    "tags": [
+      "regression"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-076",
+    "chapterId": "ch2",
+    "lessonId": null,
+    "loId": "FL-2.1.1",
+    "front": "Quel est l'objectif du test d'intégration ?",
+    "back": "Vérifier que les **interfaces** entre les composants ou systèmes fonctionnent correctement : échanges de données, appels API, communication inter-services, protocoles.",
+    "hint": null,
+    "tags": [
+      "integration",
+      "niveaux"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-077",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.1.1",
+    "front": "Qu'est-ce qu'un cas de test ?",
+    "back": "Un ensemble de **préconditions**, **valeurs d'entrée**, **actions à effectuer**, **résultats attendus** et **postconditions**, conçu pour vérifier un aspect spécifique du logiciel.",
+    "hint": null,
+    "tags": [
+      "cas de test"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-078",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.1.2",
+    "front": "Quelle est la différence entre boîte noire et boîte blanche ?",
+    "back": "**Boîte noire** : basée sur les spécifications, sans connaissance du code\n**Boîte blanche** : basée sur la structure interne du code source\nLes deux sont complémentaires.",
+    "hint": null,
+    "tags": [
+      "techniques"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-079",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.1",
+    "front": "Qu'est-ce que l'analyse des valeurs limites (BVA) ?",
+    "back": "Technique de test boîte noire qui teste les valeurs aux **frontières** des partitions d'équivalence. Les défauts sont statistiquement plus fréquents aux limites. Ex: intervalle [1,100] → tester 0, 1, 100, 101.",
+    "hint": null,
+    "tags": [
+      "BVA",
+      "limites"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-080",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.2",
+    "front": "Qu'est-ce que le partitionnement d'équivalence (EP) ?",
+    "back": "Technique qui divise les données d'entrée en **classes** où toutes les valeurs d'une classe sont traitées de la même façon. On teste une valeur représentative par classe. Ex: âge valide [18-65], invalide bas <18, invalide haut >65.",
+    "hint": null,
+    "tags": [
+      "partitionnement",
+      "equivalence"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-081",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.2",
+    "front": "Qu'est-ce qu'une table de décision ?",
+    "back": "Outil qui représente les **combinaisons logiques** de conditions et les actions correspondantes. Chaque colonne = une règle. Idéal pour les règles métier complexes avec ET/OU/NON. Ex: \"Si client fidèle ET panier > 100€, alors livraison gratuite\".",
+    "hint": null,
+    "tags": [
+      "table décision",
+      "conditions"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-082",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.2",
+    "front": "Qu'est-ce que le test de transition d'état ?",
+    "back": "Technique pour tester des systèmes dont le comportement dépend de l'**état** actuel et des **événements** reçus. On modélise les états, transitions, événements et actions. Ex: feux de circulation (vert→orange→rouge→vert).",
+    "hint": null,
+    "tags": [
+      "transition",
+      "etat"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-083",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.3",
+    "front": "Qu'est-ce que la couverture des instructions (code coverage) ?",
+    "back": "Mesure du **pourcentage d'instructions** ou de lignes de code qui ont été exécutées par les tests. C'est la forme la plus simple de couverture de code. Attention : 100% ne garantit pas que tous les chemins sont testés.",
+    "hint": null,
+    "tags": [
+      "couverture",
+      "boite blanche"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-084",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.3",
+    "front": "Qu'est-ce que la couverture des décisions ?",
+    "back": "Mesure qui vérifie que chaque **décision booléenne** (if, while, for) a pris les valeurs **Vrai** et **Faux** au moins une fois pendant les tests. Plus forte que la simple couverture des instructions.",
+    "hint": null,
+    "tags": [
+      "couverture",
+      "decisions"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-085",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.1",
+    "front": "Quelle est la différence entre 2-value BVA et 3-value BVA ?",
+    "back": "**2-value BVA** : teste la valeur limite et son voisin immédiat. Ex: [1,100] → 0-1, 100-101 (4 valeurs)\n**3-value BVA** : teste la limite, son voisin inférieur et son voisin supérieur. Ex: [1,100] → 0-1-2, 99-100-101 (6 valeurs)",
+    "hint": null,
+    "tags": [
+      "BVA",
+      "limites"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-086",
+    "chapterId": "ch3",
+    "lessonId": null,
+    "loId": "FL-3.2.2",
+    "front": "Quand utiliser une table de décision plutôt qu'une autre technique ?",
+    "back": "Quand le comportement du système dépend de **combinaisons logiques** de plusieurs conditions (2 à N). Particulièrement adaptée pour : règles métier, calculs de primes, workflows avec conditions ET/OU/NON.",
+    "hint": null,
+    "tags": [
+      "table décision",
+      "quand"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-087",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.1.1",
+    "front": "Quelles sont les activités de la gestion des tests ?",
+    "back": "1. **Planification** : définition des objectifs et de l'approche\n2. **Estimation** : évaluation de l'effort\n3. **Suivi (monitoring)** : mesure de l'avancement\n4. **Contrôle (controlling)** : ajustements correctifs",
+    "hint": null,
+    "tags": [
+      "gestion"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-088",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.1",
+    "front": "Citez 4 techniques d'estimation des tests.",
+    "back": "1. **Par analogie** : basée sur des projets similaires\n2. **Bottom-up (décomposition)** : estimer chaque tâche, additionner\n3. **PERT (3 points)** : optimiste + 4×probable + pessimiste / 6\n4. **Jugement d'expert** : avis de spécialistes",
+    "hint": null,
+    "tags": [
+      "estimation"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-089",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.1",
+    "front": "Quelle est la formule PERT (3 points) ?",
+    "back": "Estimation = (O + 4×M + P) / 6\nO = scénario optimiste\nM = scénario le plus probable\nP = scénario pessimiste\nExemple : (5 + 4×10 + 20) / 6 = (5+40+20)/6 = 10,8 jours",
+    "hint": null,
+    "tags": [
+      "PERT",
+      "estimation"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-090",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.2",
+    "front": "Quels éléments composent une stratégie de test ?",
+    "back": "La stratégie définit :\n- **Périmètre** : quoi tester\n- **Risques** : analyse et priorisation\n- **Approche** : techniques de test\n- **Critères d'entrée/sortie**\n- **Ressources** : équipe, outils, environnements\n- **Calendrier** : planning des phases",
+    "hint": null,
+    "tags": [
+      "strategie"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-091",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.3",
+    "front": "Qu'est-ce que les critères d'entrée et de sortie (entry/exit criteria) ?",
+    "back": "**Critères d'entrée** : conditions à remplir AVANT de commencer (ex: environnement prêt, artefacts livrés)\n**Critères de sortie** : conditions à remplir pour TERMINER (ex: 95% de tests réussis, bugs critiques corrigés)",
+    "hint": null,
+    "tags": [
+      "critères",
+      "entree",
+      "sortie"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-092",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.4",
+    "front": "Quels sont les éléments clés d'un plan de test ?",
+    "back": "Un plan de test contient :\n1. Contexte et objectifs\n2. Périmètre (dans/sans)\n3. Risques et hypothèses\n4. Stratégie de test\n5. Ressources (humaines, outils)\n6. Calendrier et jalons\n7. Critères d'entrée/sortie",
+    "hint": null,
+    "tags": [
+      "plan",
+      "test plan"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-093",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.3.1",
+    "front": "Qu'est-ce que le suivi (monitoring) et le contrôle (controlling) des tests ?",
+    "back": "**Monitoring** : mesurer et comparer l'avancement réel au plan (métriques : taux de passage, défauts trouvés, couverture)\n**Controlling** : prendre des décisions correctives si écart (ajuster ressources, priorité, périmètre)",
+    "hint": null,
+    "tags": [
+      "suivi",
+      "controle"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-094",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.4.1",
+    "front": "Quels sont les éléments d'un bon rapport de défaut ?",
+    "back": "1. Titre clair et concis\n2. Environnement (OS, navigateur, version)\n3. Étapes de reproduction précises\n4. Résultat attendu vs obtenu\n5. Sévérité (impact technique)\n6. Priorité (urgence métier)\n7. Pièces jointes (captures, logs)",
+    "hint": null,
+    "tags": [
+      "defaut",
+      "bug report"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-095",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.4.1",
+    "front": "Quelle est la différence entre sévérité et priorité ?",
+    "back": "**Sévérité** : impact technique du défaut sur le système\n- Critique : blocage\n- Majeure : fonctionnalité cassée\n- Mineure : défaut fonctionnel léger\n- Cosmétique : problème visuel\n\n**Priorité** : urgence de correction\n- Haute : corriger immédiatement\n- Moyenne : corriger avant livraison\n- Basse : corriger si temps",
+    "hint": null,
+    "tags": [
+      "severite",
+      "priorite"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-096",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.5.1",
+    "front": "Que contient un rapport de synthèse des tests (test summary report) ?",
+    "back": "1. Résumé des résultats de test\n2. Évaluation de la qualité\n3. Comparaison aux critères de sortie\n4. Risques résiduels identifiés\n5. Leçons apprises\n6. Recommandation finale (GO/NO-GO)",
+    "hint": null,
+    "tags": [
+      "synthèse",
+      "rapport"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-097",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.5.1",
+    "front": "Qu'est-ce que la clôture des tests ?",
+    "back": "Activité finale qui :\n- Archive les artefacts de test\n- Vérifie que tous les défauts sont traités\n- Documente les leçons apprises\n- Propose des améliorations pour les prochains projets\n- Formellement clôture la phase de test",
+    "hint": null,
+    "tags": [
+      "cloture"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-098",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.3.1",
+    "front": "Qu'est-ce que la densité de défauts ?",
+    "back": "Métrique = Nombre de défauts / Taille du logiciel\nTaille mesurée en :\n- KLOC (mille lignes de code)\n- Nombre de fonctions\n- Nombre d'exigences\nPermet de comparer la qualité relative entre modules.",
+    "hint": null,
+    "tags": [
+      "metriques",
+      "densite"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-099",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.4.1",
+    "front": "Quels sont les niveaux de sévérité d'un défaut ?",
+    "back": "Du plus grave au moins grave :\n1. **Critique** : blocage, perte de données\n2. **Majeure** : fonctionnalité principale dégradée\n3. **Mineure** : fonctionnalité secondaire affectée\n4. **Cosmétique** : problème d'interface sans impact fonctionnel",
+    "hint": null,
+    "tags": [
+      "severite"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-100",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.1",
+    "front": "Qu'est-ce que l'estimation par analogie ?",
+    "back": "Technique d'estimation qui compare le projet actuel à des **projets antérieurs similaires**. On ajuste l'estimation en fonction des différences de taille, de complexité, de contexte. Rapide à mettre en œuvre mais dépend de la qualité des données historiques.",
+    "hint": null,
+    "tags": [
+      "estimation",
+      "analogie"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-101",
+    "chapterId": "ch4",
+    "lessonId": null,
+    "loId": "FL-4.2.2",
+    "front": "Qu'est-ce que l'approche de test préventive vs réactive ?",
+    "back": "**Préventive** : les tests sont conçus et préparés **avant** le développement du code. Permet de prévenir les défauts.\n**Réactive** : les tests sont conçus **après** que le code est livré. On réagit au code existant.",
+    "hint": null,
+    "tags": [
+      "approche",
+      "preventive",
+      "reactive"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-102",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.2.1",
+    "front": "Quels sont les principaux types d'outils de test ?",
+    "back": "1. **Gestion de test (TMS)** : organisation, cas de test, rapports\n2. **Exécution** : tests fonctionnels, régression\n3. **Performance/charge** : montée en charge\n4. **Analyse statique** : linting, sécurité (SAST)\n5. **Couverture de code**\n6. **Gestion de défauts** : bug tracking",
+    "hint": null,
+    "tags": [
+      "outils",
+      "types"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-103",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.2.2",
+    "front": "Quelle est la différence entre un outil TMS et un outil de bug tracking ?",
+    "back": "**TMS (Test Management System)** : gère les cas de test, les plans, l'exécution, les métriques, les rapports\n**Bug tracker** : suit les défauts (création, assignation, résolution, vérification)\n\nUn TMS peut inclure un bug tracker, et inversement.",
+    "hint": null,
+    "tags": [
+      "outils",
+      "TMS",
+      "bug"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-104",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.3.1",
+    "front": "Quels sont les critères de sélection d'un outil de test ?",
+    "back": "1. **Adéquation aux besoins** : types de tests, technologies\n2. **Intégration** : avec les autres outils (CI/CD, IDE)\n3. **Compétences de l'équipe** : courbe d'apprentissage\n4. **Coût total** : licence, formation, maintenance\n5. **Support et communauté**\n6. **Évolutivité** : s'adaptera-t-il à la croissance ?",
+    "hint": null,
+    "tags": [
+      "selection",
+      "outils"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-105",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.3.2",
+    "front": "Quels sont les risques de l'adoption d'un outil de test ?",
+    "back": "1. **Attentes irréalistes** : l'outil ne résout pas tout\n2. **Sous-estimation** du temps d'apprentissage\n3. **Résistance au changement** de l'équipe\n4. **Dépendance excessive** à l'outil\n5. **Coûts cachés** : maintenance, mises à jour\n6. **Abandon** si la valeur n'est pas démontrée",
+    "hint": null,
+    "tags": [
+      "risques",
+      "adoption"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-106",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.3.1",
+    "front": "Quelle est la meilleure approche pour déployer un outil de test ?",
+    "back": "1. **Évaluer** les besoins et sélectionner\n2. **Pilote** : projet test à petite échelle\n3. **Former** l'équipe\n4. **Évaluer** les résultats du pilote\n5. **Déployer** progressivement\n6. **Mesurer** le ROI continu\nNe JAMAIS déployer en big-bang sans phase pilote !",
+    "hint": null,
+    "tags": [
+      "deploiement",
+      "outils"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-107",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.4.1",
+    "front": "Quels tests sont les meilleurs candidats pour l'automatisation ?",
+    "back": "✔ Tests **répétitifs** et **fréquents**\n✔ Tests de **régression**\n✔ Tests de **charge/performance**\n✔ Tests avec **données prévisibles**\n✔ Tests **stables** (peu de changements)\n\n✘ Éviter : tests exploratoires, tests d'utilisabilité, tests uniques",
+    "hint": null,
+    "tags": [
+      "automatisation",
+      "candidats"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-108",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.5.1",
+    "front": "Qu'est-ce que l'analyse statique ?",
+    "back": "Analyse du **code source sans l'exécuter** (test statique automatisé).\nDétecte :\n- Violations des normes de codage\n- Code mort ou dupliqué\n- Vulnérabilités potentielles (SAST)\n- Complexité cyclomatique élevée\n- Variables non initialisées",
+    "hint": null,
+    "tags": [
+      "statique",
+      "analyse"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-109",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.2.2",
+    "front": "Qu'est-ce que l'analyse dynamique ?",
+    "back": "Analyse du logiciel **pendant son exécution** pour détecter des problèmes qui n'apparaissent qu'à l'exécution :\n- Fuites mémoire\n- Deadlocks\n- Race conditions\n- Violations d'accès\n- Problèmes de performance",
+    "hint": null,
+    "tags": [
+      "dynamique",
+      "analyse"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-110",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.2.1",
+    "front": "Qu'est-ce que le data-driven testing ?",
+    "back": "Approche d'automatisation où les **données de test sont séparées des scripts**. Un même script est exécuté plusieurs fois avec des jeux de données différents.\nAvantage : un changement de données ne nécessite pas de modifier le code de test.",
+    "hint": null,
+    "tags": [
+      "data-driven",
+      "automatisation"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-111",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.2.1",
+    "front": "Qu'est-ce que le keyword-driven testing ?",
+    "back": "Approche où les actions de test sont décrites par des **mots-clés métier réutilisables** (ex: 'seConnecter', 'ajouterAuPanier', 'validerCommande').\nLes mots-clés sont implémentés une fois et utilisés dans plusieurs cas de test. Accessible aux non-techniciens.",
+    "hint": null,
+    "tags": [
+      "keyword-driven",
+      "automatisation"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-112",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.4.1",
+    "front": "Quand l'automatisation des tests est-elle rentable ?",
+    "back": "L'automatisation devient rentable quand le **coût de développement + maintenance** est inférieur au **coût d'exécution manuelle** sur la durée.\nGénéralement rentable à partir de **3 cycles d'exécution** des mêmes tests. Plus les tests sont exécutés souvent, plus le ROI est élevé.",
+    "hint": null,
+    "tags": [
+      "automatisation",
+      "ROI"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-113",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.5.1",
+    "front": "Qu'est-ce qu'un outil SAST ?",
+    "back": "**Static Application Security Testing**\nOutil d'analyse statique spécialisé dans la détection de **vulnérabilités de sécurité** :\n- Injections SQL\n- XSS (Cross-Site Scripting)\n- Buffer overflows\n- Entrées non validées\n- Mauvaise gestion des sessions",
+    "hint": null,
+    "tags": [
+      "SAST",
+      "securite"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-114",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.1.1",
+    "front": "Quels sont les avantages des outils de test ?",
+    "back": "✔ Réduction des tâches **répétitives**\n✔ Augmentation de la **productivité**\n✔ Amélioration de la **traçabilité**\n✔ **Répétabilité** des tests\n✔ **Métriques objectives**\n✔ Détection **précoce** des défauts\n✔ Tests impossibles **manuellement** (charge, concurrence)",
+    "hint": null,
+    "tags": [
+      "avantages",
+      "outils"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-115",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.4.1",
+    "front": "Quels sont les risques de l'automatisation des tests ?",
+    "back": "⚠ Coût initial élevé\n⚠ Maintenance continue des scripts\n⚠ Faux positifs / faux négatifs\n⚠ Tests fragiles (changement d'interface)\n⚠ Ne remplace pas l'exploration humaine\n⚠ Peut donner un faux sentiment de sécurité\n⚠ Nécessite des compétences techniques",
+    "hint": null,
+    "tags": [
+      "automatisation",
+      "risques"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-116",
+    "chapterId": "ch5",
+    "lessonId": null,
+    "loId": "FL-5.2.2",
+    "front": "À quoi sert un outil de gestion de configuration des tests ?",
+    "back": "À gérer les **versions** des artefacts de test (cas de test, données, scripts) et les lier aux versions du logiciel testé.\nPermet de savoir :\n- Quelle version des tests a été utilisée\n- Avec quelle version du logiciel\n- Qui a modifié quoi et quand",
+    "hint": null,
+    "tags": [
+      "configuration",
+      "version"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-117",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.1.1",
+    "front": "Qu'est-ce qu'une revue de management ?",
+    "back": "Évaluation par la direction (management) de l'avancement du projet et des résultats. \nObjectifs : \n- Suivre l'avancement\n- Évaluer les risques\n- Prendre des décisions stratégiques\n- Allouer les ressources nécessaires",
+    "hint": null,
+    "tags": [
+      "management",
+      "revue"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-118",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.1.1",
+    "front": "Quelle est la différence entre une revue technique et un audit ?",
+    "back": "**Revue technique** : évalue la **qualité technique** d'un artefact logiciel (code, conception). Focalisée sur le produit.\n**Audit** : vérifie la **conformité aux processus**, normes et réglementations (ISO, CMMI). Focalisée sur les processus.",
+    "hint": null,
+    "tags": [
+      "revue",
+      "audit"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-119",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Quels sont les principaux types d'outils d'analyse statique ?",
+    "back": "1. **Linters** : vérification du style et conventions (ESLint, Pylint)\n2. **SAST** : sécurité (SonarQube, Checkmarx)\n3. **Détection de code mort** : fonctions inutilisées\n4. **Analyse de complexité** : cyclomatique\n5. **Détection de duplication** : code copié\n6. **Analyse de métriques** : taille, maintenabilité",
+    "hint": null,
+    "tags": [
+      "statique",
+      "types",
+      "outils"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-120",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Quand intégrer l'analyse statique dans le cycle de développement ?",
+    "back": "Idéalement le **plus tôt possible** (shift-left) :\n1. Dans l'**IDE** du développeur (feedback immédiat)\n2. À chaque **commit** dans le pipeline CI/CD\n3. Avant les tests dynamiques\n4. Pendant les **revues de code** (données objectives)",
+    "hint": null,
+    "tags": [
+      "statique",
+      "integration",
+      "shift-left"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-121",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Qu'est-ce que la complexité cyclomatique ?",
+    "back": "Mesure du nombre de **chemins d'exécution indépendants** dans un programme.\nCalculée à partir du graphe de flux de contrôle :\nM = E - N + 2P\nOù E = arêtes, N = nœuds, P = composants connectés.\nValeur recommandée : < 10 par fonction.",
+    "hint": null,
+    "tags": [
+      "complexite",
+      "cyclomatique"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-122",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Pourquoi une complexité cyclomatique élevée est-elle problématique ?",
+    "back": "✗ Code **difficile à comprendre**\n✗ Code **difficile à tester** (plus de chemins)\n✗ Plus de **bugs potentiels**\n✗ **Maintenance coûteuse**\n✗ Plus de cas de test nécessaires pour la couverture\n\nSolution : refactoriser en fonctions plus petites (principe de responsabilité unique).",
+    "hint": null,
+    "tags": [
+      "complexite",
+      "problemes"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-123",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Qu'est-ce que les faux positifs (false positives) en analyse statique ?",
+    "back": "Alertes générées par l'outil qui signalent un problème **qui n'en est pas un**.\nExemple : l'outil signale une variable potentiellement non initialisée, mais un chemin d'exécution garantit qu'elle l'est toujours.\n\nProblème : trop de faux positifs = **lassitude** et risque d'ignorer de vrais problèmes.",
+    "hint": null,
+    "tags": [
+      "faux positifs",
+      "statique"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-124",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.1.1",
+    "front": "Qu'est-ce qu'une revue de projet ?",
+    "back": "Réunion qui examine l'**avancement global** du projet avec l'équipe projet.\nOrdre du jour typique :\n- Avancement par rapport au planning\n- Jalons atteints / en retard\n- Problèmes et risques\n- Actions correctives\n- Prochaines étapes",
+    "hint": null,
+    "tags": [
+      "revue",
+      "projet"
+    ],
+    "difficulty": "medium",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-125",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Quelle est la différence entre test statique et test dynamique ?",
+    "back": "**Test statique** : examine les artefacts (code, documents) **sans exécuter** le logiciel. Revues, walkthroughs, inspections, analyse statique.\n**Test dynamique** : exécute le logiciel avec des entrées et observe les résultats. Tests fonctionnels, tests de performance.",
+    "hint": null,
+    "tags": [
+      "statique",
+      "dynamique"
+    ],
+    "difficulty": "easy",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  },
+  {
+    "id": "fc-126",
+    "chapterId": "ch6",
+    "lessonId": null,
+    "loId": "FL-6.2.1",
+    "front": "Quel est l'objectif d'un outil de métriques de code ?",
+    "back": "Fournir des **indicateurs objectifs** sur la qualité interne du code :\n- Complexité cyclomatique (M)\n- Profondeur d'héritage (DIT)\n- Couplage entre classes (CBO)\n- Lignes de code par méthode (LOC)\n- Duplication de code (%)\n- Maintenabilité (maintainability index)",
+    "hint": null,
+    "tags": [
+      "metriques",
+      "qualite code"
+    ],
+    "difficulty": "hard",
+    "nextReviewAt": null,
+    "intervalDays": 1,
+    "reviewCount": 0,
+    "correctStreak": 0,
+    "createdAt": "2026-07-24"
+  }
+]

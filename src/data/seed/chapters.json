@@ -1,0 +1,2120 @@
+[
+  {
+    "id": "ch1",
+    "slug": "fundamentals-of-testing",
+    "title": "Fundamentals of Testing",
+    "titleFr": "Fondamentaux du Test",
+    "description": "Ce chapitre introduit les concepts fondamentaux du test logiciel : les objectifs du test, la différence entre test et débogage, les sept principes fondamentaux, le processus de test en six étapes, la traçabilité, les rôles des acteurs, et l'approche 'testeur dans l'équipe' (whole team approach).",
+    "durationMinutes": 180,
+    "order": 1,
+    "keywords": [
+      "test",
+      "qualité",
+      "débogage",
+      "vérification",
+      "validation",
+      "traçabilité",
+      "testware",
+      "principes"
+    ],
+    "learningObjectives": [
+      {
+        "id": "FL-1.1.1",
+        "chapterId": "ch1",
+        "code": "FL-1.1.1",
+        "description": "Identifier les objectifs typiques du test",
+        "kLevel": "K1",
+        "businessOutcomeId": "FL-BO1",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-1.1.2",
+        "chapterId": "ch1",
+        "code": "FL-1.1.2",
+        "description": "Différencier le test du débogage",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO1",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-1.1.3",
+        "chapterId": "ch1",
+        "code": "FL-1.1.3",
+        "description": "Appliquer les sept principes du test",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO1",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-1.2.1",
+        "chapterId": "ch1",
+        "code": "FL-1.2.1",
+        "description": "Expliquer les activités du processus de test",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO2",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-1.2.2",
+        "chapterId": "ch1",
+        "code": "FL-1.2.2",
+        "description": "Décrire le rôle de la traçabilité dans le test",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO2",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-1.2.3",
+        "chapterId": "ch1",
+        "code": "FL-1.2.3",
+        "description": "Distinguer les rôles dans les activités de test",
+        "kLevel": "K1",
+        "businessOutcomeId": "FL-BO2",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      }
+    ],
+    "sections": [
+      {
+        "id": "ch1-sec1",
+        "chapterId": "ch1",
+        "slug": "what-is-testing",
+        "title": "Qu'est-ce que le test ?",
+        "order": 1,
+        "lessons": [
+          {
+            "id": "ch1-l1",
+            "chapterId": "ch1",
+            "sectionId": "ch1-sec1",
+            "slug": "test-objectives",
+            "title": "Objectifs du Test",
+            "objective": "Comprendre les cinq objectifs principaux du test logiciel et savoir les distinguer des idées reçues.",
+            "summary": "Le test poursuit cinq objectifs principaux : évaluer les produits de travail, trouver des défauts, donner de la confiance, prévenir les défauts et fournir des informations pour la prise de décision.",
+            "content": "# Objectifs du Test\n\nLe test logiciel ne se limite pas à « trouver des bugs ». C'est une activité beaucoup plus riche qui poursuit plusieurs objectifs complémentaires.\n\n## Les cinq objectifs principaux\n\n**Évaluer les produits de travail.** Le test permet d'examiner des artefacts tels que les spécifications, les cas d'utilisation, l'architecture, le code source, et les manuels utilisateur. Cette évaluation peut révéler des incohérences, des ambiguïtés ou des omissions bien avant l'exécution du code.\n\n**Trouver des défauts.** C'est l'objectif le plus connu. En exécutant le logiciel dans des conditions variées, le testeur provoque des défaillances qui révèlent des défauts sous-jacents. Plus un défaut est détecté tôt, moins son coût de correction est élevé — le principe du *shift left*.\n\n**Donner de la confiance dans le niveau de qualité.** Les tests réussis, surtout lorsqu'ils couvrent les fonctionnalités critiques, rassurent les parties prenantes sur la qualité du livrable. Cette confiance permet de prendre des décisions éclairées sur la mise en production.\n\n**Prévenir les défauts.** En analysant les causes racines des défauts passés et en participant aux revues de spécifications, le testeur contribue à éviter l'introduction de nouveaux défauts. La prévention est toujours plus économique que la correction.\n\n**Fournir des informations pour la prise de décision.** Les rapports de test, les métriques de couverture, la sévérité des défauts restants — toutes ces informations aident le management à décider si le produit est prêt pour la release.\n\n## Objectifs selon le contexte\n\nLes objectifs varient selon le **contexte** :\n- Pour un site e-commerce, l'accent sera mis sur la **disponibilité** et la **sécurité des transactions**\n- Pour un logiciel médical, la **fiabilité** et la **conformité réglementaire** sont primordiales\n- Pour un jeu vidéo, l'**expérience utilisateur** et la **performance** passent au premier plan\n\n> **À retenir :** Le test n'est pas une activité punitive ou un simple filet de sécurité — c'est un investissement qui apporte de la valeur tout au long du cycle de vie du logiciel.",
+            "examples": [
+              {
+                "id": "ex-ch1-l1-1",
+                "title": "Exemple : Objectifs de test pour une application bancaire",
+                "scenario": "Une équipe teste une application de banque en ligne. Les objectifs incluent : vérifier que les transactions sont correctement calculées (trouver des défauts), s'assurer que le chiffrement SSL fonctionne (donner confiance), et vérifier que les exigences RGPD sont respectées (évaluer la conformité).",
+                "explanation": "Chaque objectif contribue à un aspect différent de la qualité : la correction fonctionnelle, la sécurité perçue par le client, et la conformité légale nécessaire à la mise en production."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch1-l1-1",
+                "title": "Idée reçue : Le test ne sert qu'à trouver des bugs",
+                "scenario": "Un manager demande à son équipe de test de 'juste trouver tous les bugs avant la release'. L'équipe teste frénétiquement sans documenter les cas de test ni analyser les risques.",
+                "whyWrong": "Trouver des bugs est important, mais ce n'est qu'un des cinq objectifs. Sans analyse de risque, sans évaluation de la couverture, et sans reporting structuré, l'équipe ne peut pas donner de vision fiable de la qualité.",
+                "correctApproach": "L'équipe doit commencer par une analyse des risques pour prioriser les tests, documenter les cas de test pour assurer la traçabilité, et fournir des rapports réguliers sur la progression et la couverture."
+              }
+            ],
+            "examTraps": [
+              "Ne pas confondre 'prévenir les défauts' avec 'corriger les défauts' — la prévention agit en amont (revues, analyses), la correction en aval (débogage).",
+              "L'objectif 'donner confiance' ne signifie pas que le test prouve l'absence de défauts — il montre seulement le niveau de qualité atteint."
+            ],
+            "glossaryTerms": [
+              "g-test-objective",
+              "g-test-condition",
+              "g-quality",
+              "g-verification",
+              "g-validation"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch1-l2",
+            "prevLessonId": null,
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch1-l2",
+            "chapterId": "ch1",
+            "sectionId": "ch1-sec1",
+            "slug": "testing-vs-debugging",
+            "title": "Test vs Débogage",
+            "objective": "Comprendre la distinction fondamentale entre le test (activité de vérification) et le débogage (activité de correction).",
+            "summary": "Le test identifie des défaillances ; le débogage analyse et corrige les défauts qui les causent. Ce sont deux activités distinctes menées par des rôles différents.",
+            "content": "# Test vs Débogage\n\nUne confusion fréquente consiste à mélanger le test et le débogage. Pourtant, il s'agit de deux activités fondamentalement différentes.\n\n## Définitions\n\nLe **test** est le processus qui consiste à exécuter un programme ou un système dans le but de trouver des **défaillances** — c'est-à-dire des comportements observables incorrects. Quand un test échoue, le testeur documente la défaillance et le contexte qui l'a provoquée.\n\nLe **débogage** est l'activité de développement qui intervient après qu'une défaillance a été signalée. Le développeur :\n1. **Localise** la cause de la défaillance dans le code\n2. **Analyse** la nature du défaut (logique, mémoire, concurrence, etc.)\n3. **Corrige** le défaut en modifiant le code\n4. **Vérifie** que la correction résout le problème\n\n## Qui fait quoi ?\n\n- **Testeur** : activité de **test** — trouver des défaillances, évaluer la qualité\n- **Développeur** : activité de **débogage** — analyser et corriger les défauts\n\nLe testeur n'a pas à déboguer — son rôle s'arrête quand il a signalé la défaillance de manière claire et reproductible. Le développeur prend le relais.\n\n## Chaîne de causalité\n\n**Erreur humaine** → **Défaut** introduit dans le code → **Défaillance** observée lors du test\n\n- L'**erreur** est commise par un humain (mauvaise compréhension du besoin, faute de frappe)\n- Le **défaut** (bug, fault) est l'imperfection laissée dans le code\n- La **défaillance** (failure) est le symptôme visible lors de l'exécution\n\n> **À retenir :** Le test trouve des défaillances, pas des défauts. Le débogage trouve et corrige des défauts. Les deux activités sont complémentaires mais distinctes.",
+            "examples": [
+              {
+                "id": "ex-ch1-l2-1",
+                "title": "Exemple : Test et débogage sur une fonction de connexion",
+                "scenario": "Un testeur tente de se connecter avec un mot de passe valide et obtient une erreur 'Accès refusé'. Il documente l'écran, les entrées, et les étapes pour reproduire le problème. Le développeur reçoit le rapport, examine le code de la fonction de validation, trouve une comparaison incorrecte (== au lieu de .equals()), corrige, et vérifie que la correction fonctionne.",
+                "explanation": "Le testeur a trouvé une défaillance ; le développeur a débogué pour identifier et corriger le défaut sous-jacent."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch1-l2-1",
+                "title": "Confusion des rôles",
+                "scenario": "Un testeur, face à un bug, ouvre le code source et modifie la ligne qui semble incorrecte, sans passer par le processus de gestion des défauts.",
+                "whyWrong": "Le testeur n'a ni la légitimité ni nécessairement la compétence pour modifier le code de production. Cela contourne le processus de qualité, peut introduire d'autres défauts, et crée un désordre dans la traçabilité.",
+                "correctApproach": "Le testeur doit documenter la défaillance dans l'outil de gestion des défauts, avec les étapes de reproduction, le résultat attendu et le résultat observé. Le développeur analysera et corrigera via le processus établi."
+              }
+            ],
+            "examTraps": [
+              "Un testeur qui corrige un bug pendant qu'il teste devient un développeur — ce n'est pas son rôle.",
+              "Le débogage n'est pas une activité de test, même s'il utilise parfois des exécutions similaires."
+            ],
+            "glossaryTerms": [
+              "g-test-execution",
+              "g-debugging",
+              "g-defect",
+              "g-error",
+              "g-fault",
+              "g-failure"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch1-l3",
+            "prevLessonId": "ch1-l1",
+            "estimatedMinutes": 12,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch1-l3",
+            "chapterId": "ch1",
+            "sectionId": "ch1-sec1",
+            "slug": "seven-testing-principles",
+            "title": "Les Sept Principes du Test",
+            "objective": "Connaître et savoir appliquer les sept principes fondamentaux du test logiciel.",
+            "summary": "Les sept principes du test — présence de défauts, exhaustivité impossible, test précoce, regroupement, paradoxe du pesticide, dépendance au contexte, absence d'erreur illusoire — guident toute activité de test.",
+            "content": "# Les Sept Principes du Test\n\nLes sept principes fondamentaux du test ont été établis par l'ISTQB pour guider les testeurs dans leur travail. Les connaître et les comprendre est essentiel pour réussir la certification CTFL.\n\n## 1. Les tests montrent la présence de défauts\n> *Testing shows the presence of defects, not their absence.*\n\nUn test réussi ne prouve jamais qu'un logiciel est exempt de défauts. Il montre seulement que, dans les conditions testées, aucun défaut n'a été observé. Même après des milliers de tests réussis, des défauts peuvent subsister dans des chemins non testés.\n\n## 2. Les tests exhaustifs sont impossibles\n> *Exhaustive testing is impossible.*\n\nSauf pour les programmes les plus triviaux, il est impossible de tester toutes les combinaisons d'entrées, de préconditions, et de chemins d'exécution. Par exemple, un formulaire avec 10 champs booléens a déjà 2^10 = 1024 combinaisons. Il faut donc **prioriser par risque** et utiliser des **techniques de conception** pour choisir les tests les plus pertinents.\n\n## 3. Tester tôt\n> *Early testing saves time and money.*\n\nPlus un défaut est découvert tôt dans le cycle de vie, moins il coûte cher à corriger. Un défaut de spécification trouvé lors d'une revue coûte 10 à 100 fois moins cher à corriger que le même défaut découvert en production.\n\n## 4. Regroupement des défauts\n> *Defects cluster together.*\n\nQuelques modules contiennent la majorité des défauts — c'est l'application de la loi de Pareto (80/20) au test logiciel. Les tests doivent donc se concentrer sur les zones identifiées comme les plus risquées.\n\n## 5. Paradoxe du pesticide\n> *Tests wear out.*\n\nRépéter indéfiniment les mêmes tests finit par ne plus trouver de nouveaux défauts. Comme les insectes deviennent résistants aux pesticides, les défauts résiduels deviennent de plus en plus difficiles à trouver. Il faut régulièrement réviser et enrichir les tests.\n\n## 6. Le test dépend du contexte\n> *Testing is context dependent.*\n\nUn site e-commerce, un logiciel de pilotage d'avion, et un jeu mobile ne se testent pas de la même manière. Les risques, les techniques et l'effort de test varient selon le domaine, les exigences réglementaires, et les attentes des utilisateurs.\n\n## 7. L'absence d'erreur est une illusion\n> *Absence-of-errors is a fallacy.*\n\nUn logiciel techniquement parfait (sans défaut) mais qui ne répond pas aux besoins des utilisateurs ou qui résout le mauvais problème est un échec. La validation est aussi importante que la vérification.\n\n> **Mnémotechnique :** *P.E.R.P.P.C.A.* — Présence, Exhaustivité, Regroupement, Pesticide, Contexte, Absence.",
+            "examples": [
+              {
+                "id": "ex-ch1-l3-1",
+                "title": "Application des principes à un projet Agile",
+                "scenario": "Une équipe Agile développe une application de réservation de vols. Ils appliquent le principe 'tester tôt' en participant aux grooming sessions. Ils utilisent 'les tests montrent la présence' pour expliquer aux parties prenantes que même avec 95% de tests réussis, des risques subsistent. Ils appliquent le 'paradoxe du pesticide' en ajoutant de nouveaux scénarios de test chaque sprint.",
+                "explanation": "Les principes ne sont pas théoriques — ils guident concrètement les décisions quotidiennes de l'équipe."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch1-l3-1",
+                "title": "Violation du principe 'Tester tôt'",
+                "scenario": "Une équipe attend que tout le développement soit terminé avant de commencer les tests. Ils découvrent alors que la moitié des fonctionnalités ne correspondent pas aux spécifications.",
+                "whyWrong": "Tester tard signifie que les défauts de conception et de spécification ne sont découverts qu'après des semaines de développement. Le coût de correction est multiplié.",
+                "correctApproach": "Les testeurs doivent être impliqués dès la phase de spécification, participer aux revues des user stories, et commencer la conception des tests en parallèle du développement."
+              }
+            ],
+            "examTraps": [
+              "Le principe 1 est souvent testé avec des formulations négatives — 'les tests prouvent l'absence de défauts' est FAUX.",
+              "Le principe 5 ne signifie pas qu'il faut arrêter la régression — il faut enrichir les tests existants."
+            ],
+            "glossaryTerms": [
+              "g-test-coverage",
+              "g-risk",
+              "g-verification",
+              "g-validation"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch1-l4",
+            "prevLessonId": "ch1-l2",
+            "estimatedMinutes": 20,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      },
+      {
+        "id": "ch1-sec2",
+        "chapterId": "ch1",
+        "slug": "test-process",
+        "title": "Processus de Test",
+        "order": 2,
+        "lessons": [
+          {
+            "id": "ch1-l4",
+            "chapterId": "ch1",
+            "sectionId": "ch1-sec2",
+            "slug": "test-process-activities",
+            "title": "Les Six Activités du Processus de Test",
+            "objective": "Décrire les six activités du processus de test et comprendre leur enchaînement logique.",
+            "summary": "Le processus de test comprend six activités : planification, analyse, conception, implémentation, exécution, et clôture.",
+            "content": "# Les Six Activités du Processus de Test\n\nLe processus de test structuré par l'ISTQB comprend six activités principales.\n\n## 1. Planification des tests\nDéfinit la **stratégie** et l'**approche** de test. Elle répond aux questions : *Que tester ? Comment ? Avec quelles ressources ? Dans quels délais ?* Le livrable principal est le **plan de test**.\n\n## 2. Analyse des tests\nExamine la **base de test** (spécifications, exigences, user stories) pour identifier les **conditions de test**. *Qu'est-ce qui doit être testé ?*\n\n## 3. Conception des tests\nTransforme les conditions de test en **cas de test** concrets. On détermine : les données d'entrée, les préconditions, les actions, et les résultats attendus.\n\n## 4. Implémentation des tests\nOrganise les cas de test en **procédures de test** et **suites de test**. On prépare l'**environnement de test** et les **données de test**.\n\n## 5. Exécution des tests\nLance les tests, compare les résultats réels aux résultats attendus, et documente les **défaillances**.\n\n## 6. Clôture des tests\nArchive les **testware**, documente les **leçons apprises**, et libère les ressources.\n\n> Ces six activités s'appliquent à tous les niveaux de test et s'adaptent au modèle de développement utilisé.",
+            "examples": [
+              {
+                "id": "ex-ch1-l4-1",
+                "title": "Processus appliqué à un correctif urgent",
+                "scenario": "Une équipe doit corriger un bug critique en production. La planification est rapide. L'analyse identifie les conditions. La conception crée 3 cas de test. L'implémentation prépare l'environnement. L'exécution lance les tests. La clôture archive le rapport.",
+                "explanation": "Même en urgence, les six étapes sont respectées — leur profondeur s'adapte au contexte."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch1-l4-1",
+                "title": "Sauter l'analyse",
+                "scenario": "Une équipe commence directement par écrire des scripts d'automatisation sans avoir analysé les conditions de test. Résultat : beaucoup de tests redondants et des fonctionnalités critiques non couvertes.",
+                "whyWrong": "Sans analyse, la conception est aveugle. On teste ce qui est facile plutôt que ce qui est important.",
+                "correctApproach": "Toujours commencer par l'analyse de la base de test pour identifier systématiquement les conditions de test."
+              }
+            ],
+            "examTraps": [
+              "L'analyse identifie QUOI tester, la conception définit COMMENT tester — ne pas confondre.",
+              "La clôture n'est pas optionnelle — elle assure la capitalisation des connaissances."
+            ],
+            "glossaryTerms": [
+              "g-test-plan",
+              "g-testware",
+              "g-test-case",
+              "g-test-procedure",
+              "g-test-suite",
+              "g-test-execution",
+              "g-test-completion"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch1-l5",
+            "prevLessonId": "ch1-l3",
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch1-l5",
+            "chapterId": "ch1",
+            "sectionId": "ch1-sec2",
+            "slug": "traceability",
+            "title": "Traçabilité et Testware",
+            "objective": "Comprendre le rôle de la traçabilité dans le processus de test et savoir identifier les différents types de testware.",
+            "summary": "La traçabilité relie les éléments de la base de test aux conditions de test, aux cas de test, aux résultats, et aux défauts. Le testware désigne l'ensemble des artefacts produits pendant le test.",
+            "content": "# Traçabilité et Testware\n\n## La traçabilité\n\nLa **traçabilité** est la capacité à suivre la relation entre les différents artefacts du cycle de développement. Dans le contexte du test, elle permet de relier :\n\n**Exigences** → **Conditions de test** → **Cas de test** → **Résultats d'exécution** → **Défauts**\n\n### Pourquoi la traçabilité est-elle importante ?\n\n- **Évaluation de la couverture** : Quelles exigences sont couvertes par les tests ?\n- **Analyse d'impact** : Si une exigence change, quels cas de test doivent être modifiés ?\n- **Conformité** : Dans les domaines réglementés, la traçabilité est exigée par les auditeurs.\n- **Rapport de progression** : Combien d'exigences sont entièrement testées ?\n\n## Le testware\n\nLe **testware** désigne l'ensemble des artefacts produits pendant le processus de test : plans de test, spécifications de conception, cas de test, procédures de test, données de test, scripts d'automatisation, et rapports de test.\n\nLe testware doit être géré comme n'importe quel autre artefact logiciel : versionné, sauvegardé, et accessible.\n\n> **À retenir :** La traçabilité est le ciment qui relie le test au reste du développement. Sans elle, il est impossible de mesurer la couverture ou d'analyser l'impact des changements.",
+            "examples": [
+              {
+                "id": "ex-ch1-l5-1",
+                "title": "Utilisation de la traçabilité pour un changement réglementaire",
+                "scenario": "Une nouvelle réglementation bancaire modifie l'exigence 'délai de virement de 24h' en '2h'. Grâce à la traçabilité, l'équipe identifie immédiatement les 12 cas de test concernés, les met à jour, et exécute les tests de régression.",
+                "explanation": "Sans traçabilité, l'équipe aurait dû ré-analyser manuellement toutes les spécifications — un travail long et source d'erreurs."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch1-l5-1",
+                "title": "Absence de traçabilité",
+                "scenario": "Un projet sans matrice de traçabilité. Lorsqu'un client demande si toutes les exigences sont testées, l'équipe ne peut pas répondre.",
+                "whyWrong": "Sans traçabilité, l'équipe ne peut pas démontrer la couverture des tests.",
+                "correctApproach": "Mettre en place une matrice de traçabilité dès le début du projet."
+              }
+            ],
+            "examTraps": [
+              "La traçabilité ne se limite pas aux exigences fonctionnelles — elle peut aussi relier les risques, les cas de test, et les défauts.",
+              "Le testware comprend les données de test, pas seulement les cas de test."
+            ],
+            "glossaryTerms": [
+              "g-traceability",
+              "g-testware",
+              "g-test-data",
+              "g-test-environment",
+              "g-test-basis"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch1-l6",
+            "prevLessonId": "ch1-l4",
+            "estimatedMinutes": 12,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      },
+      {
+        "id": "ch1-sec3",
+        "chapterId": "ch1",
+        "slug": "roles-and-team",
+        "title": "Rôles et Approche TÉA",
+        "order": 3,
+        "lessons": [
+          {
+            "id": "ch1-l6",
+            "chapterId": "ch1",
+            "sectionId": "ch1-sec3",
+            "slug": "testing-roles",
+            "title": "Rôles dans les Activités de Test",
+            "objective": "Identifier les différents rôles impliqués dans les activités de test et leurs responsabilités.",
+            "summary": "Plusieurs rôles contribuent au test : testeur, chef de projet test, développeur, analyste métier, et d'autres parties prenantes.",
+            "content": "# Rôles dans les Activités de Test\n\nLe test n'est pas l'affaire des seuls testeurs. Plusieurs rôles collaborent pour assurer la qualité du logiciel.\n\n### Le Testeur\nConçoit, implémente et exécute les tests. Analyse la base de test, identifie les conditions, conçoit les cas de test, exécute les tests, signale les défauts, participe aux revues.\n\n### Le Chef de Projet Test / Test Manager\nDéfinit la stratégie de test, estime les ressources, suit la progression, gère les risques, reporte aux parties prenantes.\n\n### Le Développeur\nEffectue les tests de composant, participe aux revues, corrige les défauts, automatise les tests unitaires.\n\n### L'Analyste Métier / Product Owner\nFournit la base de test, clarifie les exigences, participe aux tests d'acceptation, définit les critères d'acceptation.\n\n### Autres parties prenantes\nAdministrateur système, responsable qualité, support client, auditeur — chacun contribue à la qualité à son niveau.\n\n> **À retenir :** La qualité est l'affaire de tous. Chaque rôle contribue au test à son niveau.",
+            "examples": [
+              {
+                "id": "ex-ch1-l6-1",
+                "title": "Collaboration des rôles dans un sprint",
+                "scenario": "Dans un sprint Agile, l'analyste métier rédige les user stories. Le développeur écrit les tests unitaires. Le testeur conçoit les tests fonctionnels. L'équipe entière participe à la revue de sprint.",
+                "explanation": "Chaque rôle apporte sa perspective unique."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch1-l6-1",
+                "title": "Testeur isolé",
+                "scenario": "Dans une équipe, seul le testeur est responsable de la qualité. Les développeurs ne testent pas leur code.",
+                "whyWrong": "Quand un seul rôle porte la responsabilité de la qualité, les défauts ne sont détectés qu'en fin de cycle.",
+                "correctApproach": "Adopter l'approche TÉA où chaque membre partage la responsabilité de la qualité."
+              }
+            ],
+            "examTraps": [
+              "Le développeur participe aussi aux tests (unitaires) et aux revues.",
+              "Le testeur et le chef de projet test sont deux rôles différents, même si une même personne peut les exercer."
+            ],
+            "glossaryTerms": [
+              "g-test-execution",
+              "g-test-plan"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch1-l7",
+            "prevLessonId": "ch1-l5",
+            "estimatedMinutes": 12,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch1-l7",
+            "chapterId": "ch1",
+            "sectionId": "ch1-sec3",
+            "slug": "whole-team-approach",
+            "title": "L'Approche Testeur dans l'Équipe (TÉA)",
+            "objective": "Comprendre le concept de 'whole team approach' et comment chaque membre contribue à la qualité.",
+            "summary": "L'approche TÉA implique que la qualité est la responsabilité de toute l'équipe. Chaque membre contribue aux activités de test selon ses compétences.",
+            "content": "# L'Approche Testeur dans l'Équipe (TÉA)\n\nL'approche TÉA — aussi appelée *Whole Team Approach* — est un principe fondamental des méthodes Agiles mais applicable à tout contexte de développement.\n\n## Principe de base\n\nLa **qualité** n'est pas la responsabilité d'une seule personne. Chaque membre de l'équipe contribue en fonction de ses compétences.\n\n- **Développeurs** : tests unitaires, revues de code, corrections rapides\n- **Testeurs** : expertise en conception de tests, techniques avancées, tests exploratoires, coaching\n- **Analystes Métier** : critères d'acceptation clairs, participation aux tests d'acceptation\n- **Scrum Masters** : facilitation, allocation du temps, élimination des obstacles\n\n## Bénéfices\n\n- **Détection précoce** des défauts\n- **Responsabilité partagée** — pas de 'nous vs eux'\n- **Apprentissage croisé** entre les rôles\n- **Meilleure estimation** collective de l'effort de test\n\n> **À retenir :** Dans l'approche TÉA, le testeur n'est pas le 'garde-barrière' de la qualité, mais un **facilitateur** qui aide l'équipe à intégrer la qualité dans chaque activité.",
+            "examples": [
+              {
+                "id": "ex-ch1-l7-1",
+                "title": "TÉA en pratique",
+                "scenario": "Lors du sprint planning, toute l'équipe estime les user stories incluant l'effort de test. Pendant le sprint, développeurs et testeurs travaillent ensemble sur l'automatisation.",
+                "explanation": "La qualité n'est pas une phase séparée — elle est intégrée dans chaque activité du sprint."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch1-l7-1",
+                "title": "Équipe en silos",
+                "scenario": "Les développeurs codent pendant 3 semaines, puis 'lancent le code par-dessus le mur' à l'équipe de test.",
+                "whyWrong": "L'approche en silos retarde la détection des défauts et crée des tensions.",
+                "correctApproach": "Intégrer les testeurs dès le début du cycle et planifier les tests en parallèle du développement."
+              }
+            ],
+            "examTraps": [
+              "TÉA ne signifie pas qu'il n'y a plus de testeurs — cela signifie que toute l'équipe participe aux tests.",
+              "L'approche TÉA nécessite le soutien du management pour fonctionner."
+            ],
+            "glossaryTerms": [
+              "g-quality",
+              "g-verification",
+              "g-validation"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": null,
+            "prevLessonId": "ch1-l6",
+            "estimatedMinutes": 10,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      }
+    ],
+    "status": "available",
+    "masteryScore": 0,
+    "createdAt": "2026-01-01",
+    "updatedAt": "2026-01-01"
+  },
+  {
+    "id": "ch2",
+    "slug": "testing-throughout-sdlc",
+    "title": "Testing Throughout the SDLC",
+    "titleFr": "Test tout au long du Cycle de Vie",
+    "description": "Ce chapitre examine comment le test s'intègre dans les différents modèles de cycle de vie logiciel (cascade, V, Agile), les quatre niveaux de test (composant, intégration, système, acceptation), les quatre types de test (fonctionnel, non fonctionnel, structurel, lié aux changements), et le test de maintenance.",
+    "durationMinutes": 130,
+    "order": 2,
+    "keywords": [
+      "SDLC",
+      "cycle de vie",
+      "niveaux de test",
+      "types de test",
+      "maintenance",
+      "composant",
+      "intégration",
+      "système",
+      "acceptation",
+      "régression"
+    ],
+    "learningObjectives": [
+      {
+        "id": "FL-2.1.1",
+        "chapterId": "ch2",
+        "code": "FL-2.1.1",
+        "description": "Expliquer les relations entre le développement, les tests et la qualité dans les différents modèles SDLC",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO3",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-2.1.2",
+        "chapterId": "ch2",
+        "code": "FL-2.1.2",
+        "description": "Distinguer les approches de test dans les cycles de vie séquentiels et itératifs",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO3",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-2.2.1",
+        "chapterId": "ch2",
+        "code": "FL-2.2.1",
+        "description": "Comparer les quatre niveaux de test",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO4",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-2.3.1",
+        "chapterId": "ch2",
+        "code": "FL-2.3.1",
+        "description": "Classer les quatre types de test",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO4",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-2.5.1",
+        "chapterId": "ch2",
+        "code": "FL-2.5.1",
+        "description": "Comparer le test de confirmation et le test de régression",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO4",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-2.5.2",
+        "chapterId": "ch2",
+        "code": "FL-2.5.2",
+        "description": "Décrire les facteurs déclencheurs du test de maintenance",
+        "kLevel": "K1",
+        "businessOutcomeId": "FL-BO4",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      }
+    ],
+    "sections": [
+      {
+        "id": "ch2-sec1",
+        "chapterId": "ch2",
+        "slug": "sdlc-models",
+        "title": "Modèles de Cycle de Vie",
+        "order": 1,
+        "lessons": [
+          {
+            "id": "ch2-l1",
+            "chapterId": "ch2",
+            "sectionId": "ch2-sec1",
+            "slug": "waterfall-v-model",
+            "title": "Modèle en Cascade et Modèle en V",
+            "objective": "Comprendre les caractéristiques du modèle en cascade et du modèle en V, et leurs implications pour le test.",
+            "summary": "Le modèle en V associe chaque phase de développement à un niveau de test correspondant, permettant une planification précoce des tests par rapport au modèle en cascade.",
+            "content": "# Modèle en Cascade et Modèle en V\n\n## Modèle en Cascade\n\nLe modèle en cascade est un modèle séquentiel où chaque phase doit être complètement terminée avant que la suivante ne commence :\n\n**Exigences** → **Conception** → **Implémentation** → **Test** → **Déploiement** → **Maintenance**\n\nAvantages : simplicité, jalons clairs, documentation complète à chaque étape.\nInconvénients : les tests n'interviennent qu'en fin de cycle, les retours sont tardifs, les changements sont coûteux.\n\n## Modèle en V\n\nLe modèle en V remédie au principal défaut du modèle en cascade en reliant chaque phase de développement à une phase de test correspondante :\n\n- **Analyse des besoins** ↔ **Test d'acceptation**\n- **Conception système** ↔ **Test système**\n- **Conception détaillée** ↔ **Test d'intégration**\n- **Codage** ↔ **Test de composant**\n\nAvantages : planification précoce des tests, meilleure traçabilité, détection plus rapide des incohérences.\n\n> **À retenir :** Le modèle en V permet de commencer la conception des tests dès que les exigences sont rédigées, bien avant que le code ne soit écrit.",
+            "examples": [
+              {
+                "id": "ex-ch2-l1-1",
+                "title": "Application du modèle en V",
+                "scenario": "Une équipe reçoit les spécifications fonctionnelles d'un module de facturation. Dès le lendemain, le testeur commence à concevoir les cas de test d'acceptation, en parallèle du développement. Quand le développeur termine le code, les tests d'intégration et système sont déjà prêts.",
+                "explanation": "Grâce au modèle en V, les tests sont prêts en même temps que le code, ce qui réduit le time-to-market."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch2-l1-1",
+                "title": "Piège du modèle en cascade",
+                "scenario": "Dans un projet en cascade, les tests commencent 3 mois après le début du développement. L'équipe découvre que la moitié des fonctionnalités ne correspondent pas aux besoins réels des utilisateurs.",
+                "whyWrong": "Les tests tardifs retardent la découverte des défauts de conception, augmentant les coûts de correction.",
+                "correctApproach": "Même dans un cycle en cascade, impliquer les testeurs dès la phase d'analyse des besoins pour les revues de spécifications."
+              }
+            ],
+            "examTraps": [
+              "Dans le modèle en V, la planification des tests commence pendant la phase d'analyse des besoins, pas pendant la phase de codage.",
+              "Le modèle en V n'est pas un processus Agile — c'est un modèle séquentiel avec des phases de test définies."
+            ],
+            "glossaryTerms": [
+              "g-sdlc",
+              "g-test-level"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch2-l2",
+            "prevLessonId": null,
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch2-l2",
+            "chapterId": "ch2",
+            "sectionId": "ch2-sec1",
+            "slug": "iterative-agile",
+            "title": "Développement Itératif et Agile",
+            "objective": "Comprendre comment le test s'intègre dans les cycles de développement itératifs et Agile.",
+            "summary": "Dans l'Agile, les tests sont continus, automatisés, et intégrés à chaque sprint. Le testeur fait partie de l'équipe pluridisciplinaire.",
+            "content": "# Développement Itératif et Agile\n\n## Caractéristiques du cycle Agile\n\nDans les méthodes Agiles (Scrum, Kanban), le développement est découpé en **itérations** courtes (sprints de 1 à 4 semaines). Chaque sprint produit un incrément potentiellement livrable.\n\n## Implications pour le test\n\n### Tests continus\nLes tests ne sont pas une phase séparée — ils sont exécutés **en continu** tout au long du sprint. Chaque user story est testée avant d'être considérée comme 'done'.\n\n### Automatisation intensive\nPour suivre le rythme des itérations courtes, l'automatisation est cruciale :\n- Tests unitaires automatisés (CI/CD)\n- Tests de régression automatisés\n- Tests d'API automatisés\n\n### Testeur intégré à l'équipe\nLe testeur n'est pas dans une équipe séparée. Il collabore quotidiennement avec les développeurs, participe aux daily standups, et contribue à toutes les cérémonies Agile.\n\n### Définition of Done\nLa 'Definition of Done' inclut des critères de test : tous les tests automatisés passent, les tests exploratoires sont effectués, aucun défaut critique n'est ouvert.\n\n> **À retenir :** Dans l'Agile, le test n'est pas une phase mais une activité continue intégrée au développement.",
+            "examples": [
+              {
+                "id": "ex-ch2-l2-1",
+                "title": "Test dans un sprint Scrum",
+                "scenario": "Jour 1-2 : le testeur participe au sprint planning et aide à estimer l'effort de test. Jour 2-5 : les développeurs codent, le testeur prépare les cas de test. Jour 4-7 : exécution des tests, signalement des bugs. Jour 8-10 : correction et re-test. Sprint review : démonstration de la fonctionnalité testée.",
+                "explanation": "Le test est réparti sur tout le sprint, pas concentré à la fin."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch2-l2-1",
+                "title": "Test en fin de sprint",
+                "scenario": "Une équipe Agile commence les tests le dernier jour du sprint. Les bugs découverts ne peuvent pas être corrigés dans le sprint en cours.",
+                "whyWrong": "Tester en fin de sprint détruit l'avantage de l'Agile (itération rapide) et accumule une dette de test.",
+                "correctApproach": "Les tests doivent être terminés au milieu du sprint pour laisser le temps de corriger et re-tester."
+              }
+            ],
+            "examTraps": [
+              "L'Agile ne dispense pas de la documentation — les cas de test importants doivent être documentés.",
+              "L'automatisation est essentielle en Agile mais ne remplace pas les tests exploratoires."
+            ],
+            "glossaryTerms": [
+              "g-sdlc",
+              "g-test-automation"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch2-l3",
+            "prevLessonId": "ch2-l1",
+            "estimatedMinutes": 12,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch2-l3",
+            "chapterId": "ch2",
+            "sectionId": "ch2-sec1",
+            "slug": "devops-and-cicd",
+            "title": "DevOps et Intégration Continue",
+            "objective": "Comprendre l'impact de DevOps et CI/CD sur les activités de test.",
+            "summary": "Dans un contexte DevOps, les tests sont automatisés et intégrés dans le pipeline CI/CD, avec des portes de qualité à chaque étape.",
+            "content": "# DevOps et Intégration Continue\n\n## Le pipeline CI/CD\n\nDevOps étend l'Agile en intégrant les opérations (déploiement, infrastructure) au cycle de développement. Le pipeline CI/CD automatise :\n1. **Build** : compilation du code\n2. **Tests unitaires** : exécutés à chaque commit\n3. **Analyse statique** : qualité du code, vulnérabilités\n4. **Tests d'intégration** : interactions entre composants\n5. **Tests fonctionnels** : validation des fonctionnalités\n6. **Tests de performance** : charges et stress\n7. **Déploiement** : mise en production automatisée\n\n## Portes de qualité (Quality Gates)\n\nChaque étape du pipeline peut bloquer le déploiement si des critères ne sont pas satisfaits :\n- Couverture de code minimale (ex: 80%)\n- Aucun défaut critique\n- Seuil de performance (temps de réponse < 200ms)\n\n> **À retenir :** En DevOps, la qualité est intégrée dans le pipeline — on ne 'teste pas la qualité à la fin', on la construit à chaque étape.",
+            "examples": [
+              {
+                "id": "ex-ch2-l3-1",
+                "title": "Pipeline CI/CD avec quality gates",
+                "scenario": "Un développeur pousse du code. Le pipeline CI/CD exécute automatiquement 500 tests unitaires, 50 tests d'intégration, et 30 tests fonctionnels. La couverture de code est de 82%. Tous les tests passent. Le déploiement en staging est automatique. Si un test échoue, le pipeline s'arrête et une notification est envoyée à l'équipe.",
+                "explanation": "Le pipeline garantit que chaque changement est testé avant d'atteindre la production."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch2-l3-1",
+                "title": "Pipeline sans qualité gate",
+                "scenario": "Le pipeline CI/CD exécute les tests mais ne bloque pas le déploiement en cas d'échec. Résultat : des correctifs mal testés arrivent en production.",
+                "whyWrong": "Sans quality gates, le pipeline n'est qu'une illusion d'automatisation — la qualité n'est pas garantie.",
+                "correctApproach": "Configurer des quality gates qui bloquent la progression si les critères ne sont pas satisfaits."
+              }
+            ],
+            "examTraps": [
+              "Le CI/CD n'élimine pas le besoin de tests manuels et exploratoires — il automatise ce qui peut l'être.",
+              "Un pipeline CI/CD n'est efficace que si les tests qu'il exécute sont de bonne qualité."
+            ],
+            "glossaryTerms": [
+              "g-test-automation",
+              "g-test-execution"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch2-l4",
+            "prevLessonId": "ch2-l2",
+            "estimatedMinutes": 10,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      },
+      {
+        "id": "ch2-sec2",
+        "chapterId": "ch2",
+        "slug": "test-levels",
+        "title": "Niveaux de Test",
+        "order": 2,
+        "lessons": [
+          {
+            "id": "ch2-l4",
+            "chapterId": "ch2",
+            "sectionId": "ch2-sec2",
+            "slug": "component-integration-testing",
+            "title": "Test de Composant et Test d'Intégration",
+            "objective": "Comparer le test de composant et le test d'intégration, leurs objectifs et leurs techniques.",
+            "summary": "Le test de composant vérifie des unités individuelles en isolation. Le test d'intégration vérifie les interactions entre composants.",
+            "content": "# Test de Composant et Test d'Intégration\n\n## Test de Composant (Unitaire)\n\n**Objectif** : vérifier le comportement d'un composant individuel (fonction, classe, module) de manière isolée.\n\n- **Qui** : généralement les développeurs\n- **Accès** : au code source (boîte blanche)\n- **Techniques** : couverture d'instructions et de branches\n- **Outils** : JUnit, pytest, NUnit, Jest\n- **Automatisation** : fortement recommandée (intégration CI/CD)\n\n### Ce qu'il teste :\n- Comportement fonctionnel d'une unité\n- Gestion des erreurs et des cas limites\n- Chemins d'exécution (instructions, branches)\n\n## Test d'Intégration\n\n**Objectif** : vérifier les interactions entre composants — interfaces, échanges de données, protocoles.\n\n- **Approches** :\n  - **Big Bang** : tous les composants sont intégrés en une fois\n  - **Incrémentale** : composant par composant (top-down ou bottom-up)\n  - **Avec bouchons/stubs** : simule les composants manquants\n\n### Types de défauts trouvés :\n- Incompatibilité d'interfaces\n- Mauvais format de données\n- Problèmes de synchronisation\n- Erreurs de séquencement\n\n> **À retenir :** Le test d'intégration trouve des défauts que le test de composant ne peut pas trouver — car ces défauts n'apparaissent que lors des interactions entre composants.",
+            "examples": [
+              {
+                "id": "ex-ch2-l4-1",
+                "title": "Test d'intégration d'un module de paiement",
+                "scenario": "Un module de paiement en ligne intègre trois composants : front-end, API de paiement, et base de données. Les tests unitaires de chaque composant passent. Mais le test d'intégration révèle que l'API attend un format JSON différent de celui envoyé par le front-end.",
+                "explanation": "Défaut d'interface — chaque composant fonctionne individuellement mais pas ensemble."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch2-l4-1",
+                "title": "Négliger le test d'intégration",
+                "scenario": "Une équipe exécute uniquement des tests unitaires. En production, les modules ne communiquent pas correctement entre eux.",
+                "whyWrong": "Les tests unitaires ne couvrent pas les interactions entre composants.",
+                "correctApproach": "Ajouter des tests d'intégration qui vérifient les interfaces et les échanges de données."
+              }
+            ],
+            "examTraps": [
+              "Le test de composant est généralement effectué par les développeurs, mais les testeurs peuvent aussi y contribuer (revue des cas de test).",
+              "Le 'Big Bang' n'est généralement pas recommandé car il rend le diagnostic des défauts plus difficile."
+            ],
+            "glossaryTerms": [
+              "g-component-testing",
+              "g-integration-testing",
+              "g-test-level"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch2-l5",
+            "prevLessonId": "ch2-l3",
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch2-l5",
+            "chapterId": "ch2",
+            "sectionId": "ch2-sec2",
+            "slug": "system-acceptance-testing",
+            "title": "Test Système et Test d'Acceptation",
+            "objective": "Comparer le test système et le test d'acceptation, leurs objectifs et leurs publics cibles.",
+            "summary": "Le test système vérifie le comportement du système complet. Le test d'acceptation valide que le système répond aux besoins des utilisateurs et aux critères d'acceptation.",
+            "content": "# Test Système et Test d'Acceptation\n\n## Test Système\n\n**Objectif** : vérifier le comportement du système complet et intégré, de bout en bout.\n\n- **Qui** : testeurs indépendants (idéalement)\n- **Accès** : par l'interface (boîte noire principalement)\n- **Portée** : fonctions, performances, sécurité, fiabilité, compatibilité\n- **Environnement** : représentatif de la production\n\n### Activités typiques :\n- Exécution des cas de test fonctionnels de bout en bout\n- Tests de performance (charge, stress, endurance)\n- Tests de sécurité (authentification, autorisation, chiffrement)\n- Tests d'utilisabilité (ergonomie, accessibilité)\n\n## Test d'Acceptation\n\n**Objectif** : déterminer si le système est acceptable pour les utilisateurs et les parties prenantes.\n\n- **Qui** : utilisateurs finaux, clients, opérateurs\n- **Types** :\n  - **Acceptation utilisateur (UAT)** : validation par les utilisateurs métier\n  - **Acceptation opérationnelle** : validation par les opérateurs (sauvegardes, reprise après sinistre)\n  - **Acceptation contractuelle** : validation des critères contractuels\n  - **Acceptation réglementaire** : conformité aux normes et lois\n\n> **À retenir :** Le test système répond à 'le système fonctionne-t-il correctement ?' tandis que le test d'acceptation répond à 'les utilisateurs acceptent-ils le système ?'.",
+            "examples": [
+              {
+                "id": "ex-ch2-l5-1",
+                "title": "Test d'acceptation d'un ERP",
+                "scenario": "Une entreprise déploie un nouvel ERP. Le test système a vérifié que toutes les fonctions marchent. En UAT, les utilisateurs comptables découvrent que le workflow de validation des factures ne correspond pas à leur processus métier actuel.",
+                "explanation": "Le test d'acceptation valide l'adéquation au métier, pas seulement le bon fonctionnement technique."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch2-l5-1",
+                "title": "Confondre test système et UAT",
+                "scenario": "L'équipe de test réalise des tests fonctionnels exhaustifs et déclare le système 'prêt'. En production, les utilisateurs se plaignent que l'interface ne correspond pas à leur façon de travailler.",
+                "whyWrong": "Les tests des testeurs ne remplacent pas la validation par les vrais utilisateurs dans des conditions réelles.",
+                "correctApproach": "Planifier une phase d'UAT distincte où les utilisateurs testent le système avec leurs propres scénarios métier."
+              }
+            ],
+            "examTraps": [
+              "Le test d'acceptation est le dernier niveau de test, mais il peut révéler des défauts qui nécessitent des correctifs.",
+              "L'UAT ne doit pas être la première occasion pour les utilisateurs de voir le système — des démos régulières sont préférables."
+            ],
+            "glossaryTerms": [
+              "g-system-testing",
+              "g-acceptance-testing",
+              "g-test-level",
+              "g-validation"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch2-l6",
+            "prevLessonId": "ch2-l4",
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      },
+      {
+        "id": "ch2-sec3",
+        "chapterId": "ch2",
+        "slug": "test-types",
+        "title": "Types de Test",
+        "order": 3,
+        "lessons": [
+          {
+            "id": "ch2-l6",
+            "chapterId": "ch2",
+            "sectionId": "ch2-sec3",
+            "slug": "functional-nonfunctional-testing",
+            "title": "Test Fonctionnel et Non Fonctionnel",
+            "objective": "Distinguer le test fonctionnel du test non fonctionnel, avec des exemples pour chaque catégorie.",
+            "summary": "Le test fonctionnel vérifie ce que le système fait. Le test non fonctionnel vérifie comment le système se comporte. Ces deux types de test sont complémentaires.",
+            "content": "# Test Fonctionnel et Non Fonctionnel\n\n## Test Fonctionnel\n\n**Définition** : vérifie que le système implémente correctement les fonctions spécifiées dans les exigences.\n\n**Exemples** :\n- Connexion à l'application avec identifiants valides\n- Calcul du montant total d'une commande\n- Recherche de produits par mot-clé\n- Envoi d'un email de confirmation\n\n**Techniques** : partition d'équivalence, analyse des valeurs limites, tables de décision, transitions d'états\n\n## Test Non Fonctionnel\n\n**Définition** : vérifie les caractéristiques de qualité du système — comment il se comporte plutôt que ce qu'il fait.\n\n**Catégories principales** :\n- **Performance** : temps de réponse, débit, charge maximale\n- **Sécurité** : authentification, autorisation, chiffrement, injection\n- **Utilisabilité** : ergonomie, accessibilité, expérience utilisateur\n- **Fiabilité** : disponibilité, tolérance aux pannes, reprise\n- **Portabilité** : compatibilité multi-navigateur, multi-plateforme, multi-appareil\n- **Maintenabilité** : lisibilité du code, modularité, testabilité\n\n> **À retenir :** Le test fonctionnel vérifie que la fonction 'calculerTVA' retourne le bon montant. Le test non fonctionnel vérifie que ce calcul s'effectue en moins de 200ms, même avec 1000 utilisateurs simultanés.",
+            "examples": [
+              {
+                "id": "ex-ch2-l6-1",
+                "title": "Tests fonctionnel et non fonctionnel d'un site e-commerce",
+                "scenario": "Test fonctionnel : ajouter un article au panier, appliquer un code promo, passer la commande — vérifier que le total est correct. Test non fonctionnel : mesurer le temps de réponse de la page de paiement avec 500 utilisateurs simultanés — objectif < 3 secondes.",
+                "explanation": "Les deux types sont essentiels — un site qui fonctionne mais est trop lent perdra des clients."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch2-l6-1",
+                "title": "Négliger le test non fonctionnel",
+                "scenario": "Une startup teste uniquement les fonctionnalités de son application mobile. Au lancement, l'app est trop lente sur les appareils anciens et se décharge trop vite la batterie.",
+                "whyWrong": "Les utilisateurs désinstallent une application qui fonctionne mais qui est lente ou gourmande en ressources.",
+                "correctApproach": "Inclure des tests de performance et de consommation de ressources dès les premiers sprints."
+              }
+            ],
+            "examTraps": [
+              "Un même test peut être à la fois fonctionnel et non fonctionnel si on vérifie à la fois le résultat correct et le temps de réponse.",
+              "Le test non fonctionnel n'est pas optionnel — il est aussi important que le test fonctionnel."
+            ],
+            "glossaryTerms": [
+              "g-functional-testing",
+              "g-non-functional-testing",
+              "g-test-type"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch2-l7",
+            "prevLessonId": "ch2-l5",
+            "estimatedMinutes": 12,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch2-l7",
+            "chapterId": "ch2",
+            "sectionId": "ch2-sec3",
+            "slug": "whitebox-change-related",
+            "title": "Test Structurel et Lié aux Changements",
+            "objective": "Comprendre le test structurel (boîte blanche) et les tests liés aux changements (confirmation et régression).",
+            "summary": "Le test structurel examine la structure interne du code. Les tests liés aux changements vérifient l'impact des modifications : confirmation (le correctif marche) et régression (rien d'autre n'est cassé).",
+            "content": "# Test Structurel et Lié aux Changements\n\n## Test Structurel (Boîte Blanche)\n\n**Définition** : conçoit des tests basés sur la structure interne du code ou du composant.\n\n**Techniques** :\n- **Couverture d'instructions** : chaque ligne de code exécutée au moins une fois\n- **Couverture de branches** : chaque décision (if/else, switch) testée dans toutes ses directions\n\n**Qui** : généralement les développeurs (accès au code nécessaire)\n\n## Test Lié aux Changements\n\n### Test de Confirmation (Re-test)\n\nAprès la correction d'un défaut, le test de confirmation vérifie que le correctif fonctionne :\n- On rejoue le même scénario qui avait échoué\n- On vérifie que le résultat est maintenant correct\n- On teste aussi des variantes autour du correctif\n\n### Test de Régression\n\nAprès une modification (correctif, nouvelle fonctionnalité, refactoring), le test de régression vérifie que les parties inchangées du système fonctionnent toujours :\n- On réexécute les tests existants (automatisés de préférence)\n- On sélectionne les tests les plus pertinents (analyse d'impact)\n- On ajoute de nouveaux tests pour les zones modifiées\n\n**Différence clé** :\n- **Confirmation** : 'Le correctif a-t-il résolu le problème spécifique ?'\n- **Régression** : 'Le correctif a-t-il introduit de nouveaux problèmes ailleurs ?'\n\n> **À retenir :** Le test de confirmation vérifie le correctif. Le test de régression vérifie que le reste du système n'a pas été affecté.",
+            "examples": [
+              {
+                "id": "ex-ch2-l7-1",
+                "title": "Confirmation et régression après une correction",
+                "scenario": "Un bug est signalé : le bouton 'Valider' ne répond pas. Le développeur corrige le code JavaScript. Le testeur exécute le test de confirmation (clique sur 'Valider' et vérifie que ça marche). Puis il exécute une batterie de tests de régression sur les autres boutons et formulaires.",
+                "explanation": "Confirmation : le correctif marche. Régression : rien d'autre n'est cassé."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch2-l7-1",
+                "title": "Tester la confirmation sans la régression",
+                "scenario": "Un développeur corrige un bug de calcul dans un module de facturation. Il re-teste le module de facturation, ça marche. En production, le module de relance de paiement, qui dépend du calcul, plante.",
+                "whyWrong": "Le correctif a modifié un format de donnée utilisé par un autre module — la régression n'a pas été vérifiée.",
+                "correctApproach": "Toujours exécuter à la fois le test de confirmation (sur le correctif) et une sélection de tests de régression (sur les dépendances)."
+              }
+            ],
+            "examTraps": [
+              "Un test de confirmation réussi ne garantit pas que le défaut est complètement résolu — il peut y avoir d'autres chemins d'exécution impactés.",
+              "Le test de régression ne nécessite pas de tester TOUT le système — on sélectionne les tests pertinents via l'analyse d'impact."
+            ],
+            "glossaryTerms": [
+              "g-confirmation-testing",
+              "g-regression-testing",
+              "g-maintenance-testing",
+              "g-statement-coverage",
+              "g-branch-coverage"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch2-l8",
+            "prevLessonId": "ch2-l6",
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      },
+      {
+        "id": "ch2-sec4",
+        "chapterId": "ch2",
+        "slug": "maintenance-testing",
+        "title": "Test de Maintenance",
+        "order": 4,
+        "lessons": [
+          {
+            "id": "ch2-l8",
+            "chapterId": "ch2",
+            "sectionId": "ch2-sec4",
+            "slug": "maintenance-testing-overview",
+            "title": "Test de Maintenance : Déclencheurs et Activités",
+            "objective": "Décrire les facteurs déclencheurs du test de maintenance et les activités spécifiques à ce contexte.",
+            "summary": "Le test de maintenance intervient lors des modifications, migrations et mises hors service de systèmes en production. Il inclut l'analyse d'impact, le test de régression, et le test de confirmation.",
+            "content": "# Test de Maintenance\n\n## Définition\n\nLe test de maintenance est effectué sur un système déployé et opérationnel, à l'occasion de changements ou d'évolutions.\n\n## Trois déclencheurs principaux\n\n### 1. Modifications\n- Correctifs de bugs (patches)\n- Évolutions fonctionnelles (nouvelles fonctionnalités)\n- Changements technologiques (mise à jour de framework, d'OS)\n\n### 2. Migrations\n- Changement de plateforme (on-premise vers cloud)\n- Changement de base de données (Oracle vers PostgreSQL)\n- Migration vers une nouvelle infrastructure\n\n### 3. Mise hors service (Retirement)\n- Arrêt progressif (phases)\n- Archivage des données\n- Vérification que les données sont accessibles après retrait\n\n## Activités spécifiques\n\n**Analyse d'impact** : évalue l'étendue des changements et identifie les composants et tests affectés.\n\n**Test de régression** : vérifie que les modifications n'ont pas d'effets secondaires indésirables.\n\n**Test de confirmation** : vérifie que chaque correctif résout bien le problème ciblé.\n\n> **À retenir :** La maintenance représente souvent 60-80% du coût total d'un logiciel sur sa durée de vie — le test de maintenance est donc crucial.",
+            "examples": [
+              {
+                "id": "ex-ch2-l8-1",
+                "title": "Test de maintenance pour une migration cloud",
+                "scenario": "Une entreprise migre son CRM on-premise vers AWS. Le test de maintenance inclut : vérifier que les données ont été correctement transférées, que les temps de réponse sont équivalents ou meilleurs, et que les intégrations avec les autres systèmes fonctionnent toujours.",
+                "explanation": "La migration ne change pas les fonctionnalités, mais tout l'environnement change — les tests doivent vérifier que le comportement est identique."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch2-l8-1",
+                "title": "Migration sans test de maintenance",
+                "scenario": "Une équipe migre une base de données sans tester. En production, les requêtes qui prenaient 100ms prennent maintenant 30 secondes à cause d'un index manquant.",
+                "whyWrong": "Sans test de maintenance, les régressions de performance passent inaperçues jusqu'à la mise en production.",
+                "correctApproach": "Inclure des tests de performance dans le plan de test de maintenance, en comparant les métriques avant et après la migration."
+              }
+            ],
+            "examTraps": [
+              "Le test de maintenance n'est pas un simple 're-test' — il nécessite une analyse d'impact spécifique.",
+              "La mise hors service d'un système nécessite aussi des tests (archivage, export, intégrité des données)."
+            ],
+            "glossaryTerms": [
+              "g-maintenance-testing",
+              "g-regression-testing",
+              "g-confirmation-testing"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": null,
+            "prevLessonId": "ch2-l7",
+            "estimatedMinutes": 12,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      }
+    ],
+    "status": "available",
+    "masteryScore": 0,
+    "createdAt": "2026-01-01",
+    "updatedAt": "2026-01-01"
+  },
+  {
+    "id": "ch3",
+    "slug": "static-testing",
+    "title": "Static Testing",
+    "titleFr": "Test Statique",
+    "description": "Ce chapitre couvre le test statique : les différences avec le test dynamique, les avantages des revues, le processus de revue formelle en six étapes, les rôles des participants, et les quatre types de revue (informelle, walkthrough, technique, inspection).",
+    "durationMinutes": 80,
+    "order": 3,
+    "keywords": [
+      "statique",
+      "revue",
+      "inspection",
+      "walkthrough",
+      "relecture",
+      "analyse statique",
+      "qualité"
+    ],
+    "learningObjectives": [
+      {
+        "id": "FL-3.1.1",
+        "chapterId": "ch3",
+        "code": "FL-3.1.1",
+        "description": "Reconnaître les différences entre le test statique et le test dynamique",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO5",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-3.1.2",
+        "chapterId": "ch3",
+        "code": "FL-3.1.2",
+        "description": "Décrire les avantages du test statique",
+        "kLevel": "K1",
+        "businessOutcomeId": "FL-BO5",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-3.2.1",
+        "chapterId": "ch3",
+        "code": "FL-3.2.1",
+        "description": "Décrire les différentes activités d'un processus de revue formelle",
+        "kLevel": "K1",
+        "businessOutcomeId": "FL-BO5",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      },
+      {
+        "id": "FL-3.2.2",
+        "chapterId": "ch3",
+        "code": "FL-3.2.2",
+        "description": "Distinguer les types de revue en fonction de leur degré de formalité",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO5",
+        "masteryScore": 0,
+        "questionCount": 0,
+        "createdAt": "2026-01-01"
+      }
+    ],
+    "sections": [
+      {
+        "id": "ch3-sec1",
+        "chapterId": "ch3",
+        "slug": "static-testing-basics",
+        "title": "Bases du Test Statique",
+        "order": 1,
+        "lessons": [
+          {
+            "id": "ch3-l1",
+            "chapterId": "ch3",
+            "sectionId": "ch3-sec1",
+            "slug": "static-vs-dynamic",
+            "title": "Test Statique vs Test Dynamique",
+            "objective": "Reconnaître les différences entre le test statique et le test dynamique.",
+            "summary": "Le test statique examine les artefacts sans exécuter le code. Le test dynamique exécute le code et compare les résultats réels aux résultats attendus.",
+            "content": "# Test Statique vs Test Dynamique\n\n## Définitions\n\n**Test statique** : examen des produits de travail (code, spécifications, documentation) sans exécution du logiciel. Il inclut les **revues manuelles** et l'**analyse outillée**.\n\n**Test dynamique** : exécution du logiciel pour vérifier son comportement et comparer les résultats réels aux résultats attendus.\n\n## Différences clés\n\n| Aspect | Test Statique | Test Dynamique |\n|--------|---------------|----------------|\n| Exécution du code | Non | Oui |\n| Types de défauts | Structure, spécification, documentation | Comportement, performance, sécurité |\n| Quand | Dès le début du cycle | Après implémentation |\n| Outils | Analyseurs statiques, revue | Frameworks de test, exécuteurs |\n| Coût des correctifs | Très faible | Plus élevé |\n\n## Avantages du test statique\n\n- **Détection précoce** : trouve les défauts de spécification avant même l'écriture du code\n- **Économie** : corriger un défaut dans une spécification coûte 10 à 100 fois moins cher qu'en production\n- **Couverture large** : peut examiner des aspects que le test dynamique ne couvre pas (normes de codage, documentation)\n- **Complémentarité** : certains défauts ne sont trouvables qu'en statique (incohérences logiques, code mort)\n\n> **À retenir :** Le test statique et le test dynamique sont complémentaires. Un défaut de spécification trouvé en statique n'aurait jamais été détecté par un test dynamique bien conçu.",
+            "examples": [
+              {
+                "id": "ex-ch3-l1-1",
+                "title": "Défaut trouvé en test statique",
+                "scenario": "Lors d'une revue de spécification, un testeur remarque que l'exigence 'le système envoie un email de confirmation' ne précise pas le délai d'envoi. Le test dynamique de la fonctionnalité n'aurait pas détecté cette ambiguïté car un délai par défaut aurait été implémenté.",
+                "explanation": "Le test statique trouve des problèmes que le test dynamique ne peut pas trouver — des ambiguïtés, des incohérences, des omissions."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch3-l1-1",
+                "title": "Tout miser sur le dynamique",
+                "scenario": "Une équipe ne fait que du test dynamique. Les spécifications ne sont jamais revues. En phase de test, l'équipe découvre que la moitié des fonctionnalités implémentées ne correspondent pas aux besoins réels.",
+                "whyWrong": "Sans revue des spécifications, les défauts de conception ne sont découverts qu'après implémentation — coût de correction très élevé.",
+                "correctApproach": "Combiner test statique (revues de spécifications, analyse de code) et test dynamique pour une couverture optimale."
+              }
+            ],
+            "examTraps": [
+              "Le test statique n'est pas 'plus important' que le dynamique — ils sont complémentaires.",
+              "L'analyse statique outillée ne remplace pas les revues humaines — les outils trouvent des motifs récurrents, les humains trouvent des problèmes sémantiques."
+            ],
+            "glossaryTerms": [
+              "g-static-testing",
+              "g-dynamic-testing",
+              "g-verification",
+              "g-review"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch3-l2",
+            "prevLessonId": null,
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch3-l2",
+            "chapterId": "ch3",
+            "sectionId": "ch3-sec1",
+            "slug": "benefits-of-static-testing",
+            "title": "Avantages du Test Statique",
+            "objective": "Décrire les avantages du test statique et les situer dans le cycle de développement.",
+            "summary": "Le test statique apporte des bénéfices mesurables : réduction des coûts, amélioration de la qualité, meilleure communication, et détection précoce des défauts.",
+            "content": "# Avantages du Test Statique\n\n## Bénéfices quantifiables\n\n### Réduction des coûts\nLes études montrent qu'un défaut trouvé lors d'une revue de spécifications coûte 10 à 100 fois moins cher à corriger qu'un défaut trouvé en production. Cela s'explique par l'absence de coût de développement pour une fonctionnalité erronée.\n\n### Amélioration de la qualité du code\nL'analyse statique outillée (SonarQube, ESLint) détecte :\n- Les violations de normes de codage\n- Les vulnérabilités de sécurité (injection SQL, XSS)\n- Le code mort ou dupliqué\n- Les problèmes de performance potentiels\n- Les mauvaises pratiques (anti-patterns)\n\n### Meilleure communication\nLes revues forcent la discussion entre les rôles (développeurs, testeurs, analystes). Cela améliore la compréhension partagée du système et réduit les ambiguïtés.\n\n### Complémentarité\nCertains défauts ne sont détectables qu'en statique :\n- Logique manquante (condition non traitée)\n- Code inaccessible ou mort\n- Incohérences entre spécifications\n- Violations de normes\n\n> **À retenir :** Le retour sur investissement du test statique est l'un des plus élevés de toutes les activités de test.",
+            "examples": [
+              {
+                "id": "ex-ch3-l2-1",
+                "title": "ROI du test statique",
+                "scenario": "Un projet de 100 000 lignes de code investit 40 heures dans des revues de code et de spécifications par sprint. Ils trouvent en moyenne 15 défauts par sprint, dont 8 n'auraient été trouvés qu'en production. Le coût de correction en production étant 50 fois plus élevé, l'économie est de 8×50 = 400 unités de coût pour un investissement de 40 heures.",
+                "explanation": "Le ROI du test statique est excellent — il paye pour lui-même plusieurs fois."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch3-l2-1",
+                "title": "Revue mal organisée",
+                "scenario": "Une équipe organise des revues sans préparation : les participants découvrent le document pendant la réunion. Résultat : la revue est inefficace, peu de défauts sont trouvés, et l'équipe considère que les revues 'ne marchent pas'.",
+                "whyWrong": "Sans préparation individuelle, les relecteurs n'ont pas le temps d'analyser le document en profondeur.",
+                "correctApproach": "Exiger une préparation individuelle avant la réunion de revue — c'est l'étape la plus importante pour trouver des défauts."
+              }
+            ],
+            "examTraps": [
+              "L'analyse statique outillée ne trouve pas tous les défauts — elle trouve des motifs récurrents, pas des problèmes sémantiques.",
+              "Les revues ne servent pas seulement à trouver des défauts — elles améliorent aussi la compréhension partagée et la communication."
+            ],
+            "glossaryTerms": [
+              "g-static-testing",
+              "g-review",
+              "g-inspection"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch3-l3",
+            "prevLessonId": "ch3-l1",
+            "estimatedMinutes": 10,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      },
+      {
+        "id": "ch3-sec2",
+        "chapterId": "ch3",
+        "slug": "review-process",
+        "title": "Processus de Revue",
+        "order": 2,
+        "lessons": [
+          {
+            "id": "ch3-l3",
+            "chapterId": "ch3",
+            "sectionId": "ch3-sec2",
+            "slug": "formal-review-process",
+            "title": "Les Six Étapes d'une Revue Formelle",
+            "objective": "Décrire les six activités d'un processus de revue formelle.",
+            "summary": "Le processus de revue formelle comprend six étapes : planification, lancement, préparation individuelle, réunion de revue, correction, et vérification.",
+            "content": "# Les Six Étapes d'une Revue Formelle\n\n## 1. Planification\nDéfinition du périmètre de la revue, sélection des participants, assignation des rôles, et planification des créneaux. Le modérateur prépare la réunion.\n\n## 2. Lancement (Kick-off)\nDistribution du document à examiner, briefing sur les objectifs de la revue, et rappel des règles. Chaque participant reçoit le matériel et les critères d'évaluation.\n\n## 3. Préparation individuelle\n**Étape la plus importante.** Chaque relecteur examine le document individuellement, note les anomalies, les questions et les suggestions. Cette étape prend généralement 60-70% du temps total de la revue.\n\n## 4. Réunion de revue\nLe modérateur anime la réunion. Les anomalies identifiées sont discutées, consolidées, et enregistrées par le rédacteur. La réunion produit une liste d'anomalies et des décisions (accepté, à corriger, à revoir).\n\n## 5. Correction\nL'auteur corrige les anomalies identifiées dans le document. Les corrections peuvent être simples (coquille) ou substantielles (reformulation de sections entières).\n\n## 6. Vérification (Suivi)\nLe modérateur ou un relecteur désigné vérifie que toutes les corrections ont été appliquées correctement. Si des corrections majeures ont été faites, une nouvelle revue peut être nécessaire.\n\n> **À retenir :** La préparation individuelle est l'étape où la majorité des défauts sont trouvés. Une heure de préparation bien faite vaut trois heures de réunion.",
+            "examples": [
+              {
+                "id": "ex-ch3-l3-1",
+                "title": "Revue formelle d'une spécification",
+                "scenario": "Le modérateur planifie la revue d'une spécification de 20 pages. 5 relecteurs prennent 2 heures chacun pour préparer. La réunion dure 1h30 et identifie 23 anomalies. L'auteur corrige en 4 heures. Le modérateur vérifie les corrections en 30 minutes.",
+                "explanation": "Temps total : 5×2h (préparation) + 1.5h (réunion) + 4h (correction) + 0.5h (vérification) = 16h pour 23 anomalies trouvées — excellent retour sur investissement."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch3-l3-1",
+                "title": "Revue sans préparation",
+                "scenario": "Le modérateur envoie le document la veille et la réunion commence directement par une lecture page à page. Les participants n'ont pas eu le temps de préparer. La réunion dure 3 heures et ne trouve que 3 anomalies mineures.",
+                "whyWrong": "Sans préparation, les relecteurs ne peuvent pas analyser le document en profondeur. La lecture collective est inefficace.",
+                "correctApproach": "Imposer un délai minimum de préparation (2-3 jours ouvrés) et exiger que chaque relecteur vienne avec ses remarques écrites."
+              }
+            ],
+            "examTraps": [
+              "La réunion de revue n'est pas le moment de lire le document pour la première fois — la lecture doit être faite en préparation.",
+              "La vérification finale (étape 6) est obligatoire — on ne peut pas clôturer sans vérifier que les corrections ont été appliquées."
+            ],
+            "glossaryTerms": [
+              "g-review",
+              "g-inspection",
+              "g-walkthrough"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch3-l4",
+            "prevLessonId": "ch3-l2",
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch3-l4",
+            "chapterId": "ch3",
+            "sectionId": "ch3-sec2",
+            "slug": "review-roles",
+            "title": "Rôles dans une Revue",
+            "objective": "Identifier les rôles dans une revue formelle et leurs responsabilités.",
+            "summary": "Les cinq rôles principaux d'une revue sont : auteur, modérateur, relecteur, rédacteur, et manager. Chaque rôle a des responsabilités spécifiques.",
+            "content": "# Rôles dans une Revue\n\n## Les cinq rôles principaux\n\n### Auteur\nCrée le document soumis à la revue. Son rôle :\n- Présenter le document lors du lancement\n- Recevoir les commentaires sans se justifier\n- Corriger les anomalies identifiées\n\n### Modérateur (Animateur)\nGarant du processus de revue. Son rôle :\n- Planifier et organiser la revue\n- Animer la réunion de manière constructive\n- S'assurer que le processus est respecté\n- Faire respecter les règles (pas de recherche de coupables)\n\n### Relecteur (Examinateur)\nExpert du domaine ou du document. Son rôle :\n- Préparer la revue en analysant le document\n- Identifier et documenter les anomalies\n- Participer activement à la réunion\n\n### Rédacteur (Scribe)\nDocumente les résultats. Son rôle :\n- Enregistrer les anomalies identifiées\n- Noter les décisions prises\n- Assurer le suivi des actions\n\n### Manager\nDécide de l'organisation. Son rôle :\n- Décider du déclenchement de la revue\n- Allouer les ressources (temps des participants)\n- Valider les résultats de la revue\n\n> **À retenir :** Dans une petite équipe, une même personne peut jouer plusieurs rôles, mais l'auteur ne doit jamais être aussi le modérateur ou le rédacteur (conflit d'intérêts).",
+            "examples": [
+              {
+                "id": "ex-ch3-l4-1",
+                "title": "Distribution des rôles pour une revue de code",
+                "scenario": "Pour une revue de code d'un module critique : le développeur qui a écrit le code est l'auteur. Un développeur senior est modérateur. Deux autres développeurs sont relecteurs. Un stagiaire tient le rôle de rédacteur. Le tech lead joue le rôle de manager.",
+                "explanation": "Chaque rôle apporte une perspective différente et contribue à l'efficacité de la revue."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch3-l4-1",
+                "title": "Auteur-modérateur",
+                "scenario": "L'auteur du document anime aussi la réunion de revue. Il passe rapidement sur les sections qu'il maîtrise mal et minimise les critiques.",
+                "whyWrong": "L'auteur ne peut pas être objectif sur son propre travail et peut orienter la réunion pour éviter les critiques.",
+                "correctApproach": "Le modérateur doit être un tiers neutre, pas l'auteur du document."
+              }
+            ],
+            "examTraps": [
+              "Le manager n'est pas toujours présent à la réunion — son rôle est plus stratégique (décider d'organiser la revue, allouer les ressources).",
+              "Le modérateur n'est pas un expert technique — c'est un animateur qui garantit le processus."
+            ],
+            "glossaryTerms": [
+              "g-review",
+              "g-inspection"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch3-l5",
+            "prevLessonId": "ch3-l3",
+            "estimatedMinutes": 10,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      },
+      {
+        "id": "ch3-sec3",
+        "chapterId": "ch3",
+        "slug": "review-types",
+        "title": "Types de Revues",
+        "order": 3,
+        "lessons": [
+          {
+            "id": "ch3-l5",
+            "chapterId": "ch3",
+            "sectionId": "ch3-sec3",
+            "slug": "informal-walkthrough",
+            "title": "Revue Informelle et Walkthrough",
+            "objective": "Distinguer la revue informelle du walkthrough en termes de formalité, d'objectifs et de participants.",
+            "summary": "La revue informelle est une simple relecture par un pair. Le walkthrough est animé par l'auteur et a un objectif pédagogique.",
+            "content": "# Revue Informelle et Walkthrough\n\n## Revue Informelle\n\n**Niveau de formalité** : Très faible\n**Objectif** : Obtenir un retour rapide sur un travail en cours\n**Processus** : Aucun processus formel — simple relecture par un collègue ou discussion informelle.\n**Participants** : Auteur + 1 ou 2 relecteurs\n**Documentation** : Aucune — les commentaires sont verbaux ou dans les marges\n**Quand l'utiliser** : Travail en cours, petits documents, première ébauche\n\n**Avantages** : Rapide, flexible, peu de contraintes.\n**Limites** : Pas de traçabilité, dépend de la compétence du relecteur.\n\n## Walkthrough (Revue Pas-à-Pas)\n\n**Niveau de formalité** : Faible à modéré\n**Objectif** : Présenter le document, recueillir des retours, atteindre un consensus, former les membres de l'équipe.\n**Processus** : L'auteur guide les participants à travers le document, section par section.\n**Participants** : Auteur (animateur), relecteurs (peut inclure des personnes d'autres équipes)\n**Documentation** : Minimale — liste des points soulevés\n**Quand l'utiliser** : Documents complexes nécessitant une explication, nouvelles technologies ou processus, équipes en formation\n\n**Avantages** : Permet à l'auteur d'expliquer ses choix, bon pour l'apprentissage et le partage de connaissances.\n**Limites** : L'auteur contrôle le déroulement, peut manquer des défauts par manque de regard critique.\n\n> **À retenir :** La revue informelle est idéale pour du feedback rapide ; le walkthrough est préférable quand le partage de connaissances est un objectif.",
+            "examples": [
+              {
+                "id": "ex-ch3-l5-1",
+                "title": "Walkthrough d'une architecture technique",
+                "scenario": "L'architecte présente la nouvelle architecture microservices à l'équipe. Il explique les choix techniques, les compromis, et les points d'attention. Les développeurs posent des questions et suggèrent des améliorations. Le walkthrough permet de valider la compréhension collective.",
+                "explanation": "Le walkthrough n'est pas qu'une revue — c'est aussi une opportunité de formation et de montée en compétence de l'équipe."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch3-l5-1",
+                "title": "Walkthrough inefficace",
+                "scenario": "L'auteur lit le document page par page sans interactivité. Les participants s'ennuient et ne participent pas. La réunion dure 2 heures et ne produit que des remarques superficielles.",
+                "whyWrong": "Le walkthrough doit être interactif — l'auteur doit poser des questions, solliciter les avis, et encourager la discussion.",
+                "correctApproach": "Préparer des questions ciblées, demander aux participants d'identifier les points faibles, et limiter la réunion à 60 minutes maximum."
+              }
+            ],
+            "examTraps": [
+              "Le walkthrough est animé par l'AUTEUR, pas par un modérateur — contrairement à la revue technique et à l'inspection.",
+              "La revue informelle n'exige aucune documentation — mais les commentaires importants doivent être notés pour ne pas être perdus."
+            ],
+            "glossaryTerms": [
+              "g-review",
+              "g-walkthrough"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch3-l6",
+            "prevLessonId": "ch3-l4",
+            "estimatedMinutes": 12,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch3-l6",
+            "chapterId": "ch3",
+            "sectionId": "ch3-sec3",
+            "slug": "technical-review-inspection",
+            "title": "Revue Technique et Inspection",
+            "objective": "Comparer la revue technique et l'inspection, les deux types de revue les plus formels.",
+            "summary": "La revue technique est un examen structuré par des pairs avec un modérateur. L'inspection est la plus formelle, avec des rôles définis, des métriques, et des critères d'entrée/sortie.",
+            "content": "# Revue Technique et Inspection\n\n## Revue Technique\n\n**Niveau de formalité** : Élevé\n**Objectif** : Évaluer la qualité technique du document et identifier les anomalies.\n**Processus** : Processus structuré avec modérateur, préparation individuelle, réunion.\n**Participants** : Modérateur, relecteurs (experts techniques), auteur, rédacteur.\n**Documentation** : Liste des anomalies, décisions, métriques.\n**Quand l'utiliser** : Documents techniques critiques, code, architecture, spécifications détaillées.\n\n**Particularité** : Le modérateur est souvent un expert technique (senior). L'accent est mis sur la détection d'anomalies, pas sur la correction.\n\n## Inspection\n\n**Niveau de formalité** : Très élevé (le plus formel)\n**Objectif** : Trouver le maximum de défauts dans un document critique.\n**Processus** : Processus rigoureux avec :\n- **Critères d'entrée** : le document doit être 'prêt' (complet, respecter les normes)\n- **Critères de sortie** : nombre maximum de défauts restants, métriques atteintes\n- **Réunion d'inspection** : strictement pour trouver des défauts, pas pour les résoudre\n- **Métriques** : densité de défauts, taux de détection, temps de préparation\n\n**Rôles spécifiques** :\n- **Modérateur** : formé aux techniques d'inspection, ne doit pas être l'auteur\n- **Relecteurs** : formés, souvent utilisent des check-lists\n- **Auteur** : ne doit pas animer, ne doit pas se justifier pendant l'inspection\n\n**Particularité** : L'inspection est la technique la plus efficace pour trouver des défauts, mais aussi la plus coûteuse en temps. On la réserve aux documents les plus critiques.\n\n> **À retenir :** Du moins formel au plus formel : Informelle → Walkthrough → Revue Technique → Inspection. Plus le risque est élevé, plus la revue doit être formelle.",
+            "examples": [
+              {
+                "id": "ex-ch3-l6-1",
+                "title": "Inspection d'un module de sécurité",
+                "scenario": "Le module d'authentification d'une application bancaire est soumis à une inspection. Critères d'entrée : le code compile, les tests unitaires passent, la documentation est à jour. 3 inspecteurs préparent 3 heures. La réunion dure 2 heures et trouve 15 anomalies, dont 3 critiques (failles de sécurité potentielles). L'auteur corrige. Le modérateur vérifie et clôture l'inspection.",
+                "explanation": "Pour un module critique (sécurité), l'inspection est justifiée malgré son coût — les failles de sécurité coûtent bien plus cher en production."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch3-l6-1",
+                "title": "Inspection d'un document non prêt",
+                "scenario": "Le modérateur lance une inspection sur une spécification qui n'est pas terminée — il manque la moitié des sections. Les inspecteurs perdent leur temps à préparer sur un document inachevé.",
+                "whyWrong": "Sans critères d'entrée respectés, l'inspection est inefficace car les participants travaillent sur une cible mouvante.",
+                "correctApproach": "Définir et faire respecter les critères d'entrée : le document doit être complet, révisé par l'auteur, et conforme aux normes avant inspection."
+              }
+            ],
+            "examTraps": [
+              "L'inspection ne doit PAS être utilisée pour résoudre les défauts — seulement pour les identifier. La correction vient après.",
+              "L'inspection exige des participants formés — on ne met pas n'importe qui dans une inspection sans formation préalable."
+            ],
+            "glossaryTerms": [
+              "g-review",
+              "g-inspection"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": null,
+            "prevLessonId": "ch3-l5",
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      }
+    ],
+    "status": "available",
+    "masteryScore": 0,
+    "createdAt": "2026-01-01",
+    "updatedAt": "2026-01-01"
+  },
+  {
+    "id": "ch4",
+    "slug": "test-analysis-and-design",
+    "title": "Test Analysis and Design",
+    "titleFr": "Analyse et Conception des Tests",
+    "description": "Les techniques de conception de tests sont essentielles pour créer des cas de test efficaces. Ce chapitre couvre les techniques boîte noire, boîte blanche, basées sur l'expérience et la collaboration.",
+    "durationMinutes": 390,
+    "order": 4,
+    "keywords": [
+      "black-box",
+      "white-box",
+      "equivalence partitioning",
+      "boundary value analysis",
+      "decision table",
+      "state transition",
+      "error guessing",
+      "exploratory testing"
+    ],
+    "learningObjectives": [
+      {
+        "id": "FL-4.1.1",
+        "code": "FL-4.1.1",
+        "description": "Explain the concept of test analysis and the different categories of test techniques",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO6",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-4.2.1",
+        "code": "FL-4.2.1",
+        "description": "Apply equivalence partitioning to derive test cases",
+        "kLevel": "K3",
+        "businessOutcomeId": "FL-BO7",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-4.2.2",
+        "code": "FL-4.2.2",
+        "description": "Apply boundary value analysis to derive test cases",
+        "kLevel": "K3",
+        "businessOutcomeId": "FL-BO7",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-4.2.3",
+        "code": "FL-4.2.3",
+        "description": "Apply decision table testing to derive test cases",
+        "kLevel": "K3",
+        "businessOutcomeId": "FL-BO7",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-4.2.4",
+        "code": "FL-4.2.4",
+        "description": "Apply state transition testing to derive test cases",
+        "kLevel": "K3",
+        "businessOutcomeId": "FL-BO7",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-4.3.1",
+        "code": "FL-4.3.1",
+        "description": "Apply statement coverage and branch coverage",
+        "kLevel": "K3",
+        "businessOutcomeId": "FL-BO8",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-4.4.1",
+        "code": "FL-4.4.1",
+        "description": "Explain experience-based test techniques",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO8",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-4.5.1",
+        "code": "FL-4.5.1",
+        "description": "Explain collaboration-based test approaches",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO9",
+        "masteryScore": 0,
+        "questionCount": 0
+      }
+    ],
+    "sections": [
+      {
+        "id": "ch4-sec1",
+        "chapterId": "ch4",
+        "slug": "black-box-techniques",
+        "title": "Techniques boîte noire",
+        "order": 1,
+        "lessons": [
+          {
+            "id": "ch4-l1",
+            "chapterId": "ch4",
+            "sectionId": "ch4-sec1",
+            "slug": "equivalence-partitioning",
+            "title": "Equivalence Partitioning (EP)",
+            "objective": "Comprendre et appliquer la technique des partitions d'équivalence",
+            "summary": "L'EP divise les données d'entrée en partitions (classes d'équivalence) où chaque valeur est traitée de la même façon par le système. Une seule valeur par partition suffit pour tester.",
+            "content": "# Equivalence Partitioning (EP)\n\nL'**Equivalence Partitioning** est une technique de test boîte noire qui divise les données d'entrée en partitions valides et invalides. Chaque partition contient des valeurs que le système traite de manière équivalente.\n\n**Principe clé :** Si une valeur d'une partition trouve un défaut, toutes les autres valeurs de cette partition sont susceptibles de trouver le même défaut. Inversement, si une valeur passe le test, les autres valeurs de la partition passeront probablement aussi.\n\n## Exemple concret\nPour un champ âge acceptant les valeurs de 18 à 120 ans :\n- Partition invalide 1 : âge < 18 (ex: 15)\n- Partition valide : 18 ≤ âge ≤ 120 (ex: 35)\n- Partition invalide 2 : âge > 120 (ex: 150)",
+            "examples": [
+              {
+                "id": "ex-ch4-1",
+                "title": "Test d'un champ date",
+                "scenario": "Un système de réservation accepte les dates du 01/01/2026 au 31/12/2026.",
+                "explanation": "Partition invalide avant : < 01/01/2026. Partition valide : 01/01/2026 à 31/12/2026. Partition invalide après : > 31/12/2026. Un test par partition suffit."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch4-1",
+                "title": "Tester toutes les valeurs",
+                "scenario": "Un testeur crée 103 cas de test pour le champ âge 18-120 en testant chaque valeur.",
+                "whyWrong": "Gaspillage de temps : une valeur par partition suffit. Les 102 autres valeurs ne trouveront pas de défauts différents.",
+                "correctApproach": "Tester 3 valeurs : 15 (invalide), 35 (valide), 150 (invalide)."
+              }
+            ],
+            "examTraps": [
+              "Ne pas confondre partitions valides et invalides",
+              "Une partition peut être vide (aucune valeur valide)",
+              "Les limites des partitions doivent être testées avec BVA, pas EP"
+            ],
+            "glossaryTerms": [
+              "g-equivalence-partition",
+              "g-test-case",
+              "g-test-coverage"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch4-l2",
+            "prevLessonId": null,
+            "estimatedMinutes": 25,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch4-l2",
+            "chapterId": "ch4",
+            "sectionId": "ch4-sec1",
+            "slug": "boundary-value-analysis",
+            "title": "Boundary Value Analysis (BVA)",
+            "objective": "Comprendre et appliquer l'analyse des valeurs limites",
+            "summary": "La BVA étend l'EP en testant spécifiquement les valeurs aux limites des partitions, là où les défauts sont statistiquement les plus fréquents.",
+            "content": "# Boundary Value Analysis (BVA)\n\nLa **Boundary Value Analysis** est une technique complémentaire à l'EP. Elle se concentre sur les valeurs situées aux limites des partitions d'équivalence.\n\n**Pourquoi les limites ?** Les erreurs de programmation (opérateurs <, <=, >, >=, ==, !=) se produisent le plus souvent aux limites des intervalles.\n\n## Application\nPour une partition valide [18,120] :\n- Valeur juste en dessous : 17 (invalide - limite basse)\n- Valeur à la limite basse : 18 (valide)\n- Valeur juste au-dessus de la limite basse : 19 (valide)\n- Valeur juste en dessous de la limite haute : 119 (valide)\n- Valeur à la limite haute : 120 (valide)\n- Valeur juste au-dessus : 121 (invalide - limite haute)\n\nLa BVA est la technique la plus efficace pour trouver des défauts dans les champs numériques.",
+            "examples": [
+              {
+                "id": "ex-ch4-2",
+                "title": "Test d'un formulaire de prêt",
+                "scenario": "Un prêt est accordé pour des montants entre 1000€ et 50000€.",
+                "explanation": "En BVA, on teste : 999€ (invalide bas), 1000€ (limite basse), 1001€ (juste au-dessus), 49999€ (juste en dessous), 50000€ (limite haute), 50001€ (invalide haut)."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch4-2",
+                "title": "Tester uniquement les valeurs valides",
+                "scenario": "Le testeur ne teste que 1500€, 25000€ et 48000€ pour un champ 1000-50000€.",
+                "whyWrong": "Les défauts sont majoritairement aux limites. En testant uniquement des valeurs centrales, on rate les erreurs de comparaison aux bornes.",
+                "correctApproach": "Ajouter les tests aux limites : 999, 1000, 1001, 49999, 50000, 50001."
+              }
+            ],
+            "examTraps": [
+              "La BVA ne remplace PAS l'EP, elle la complète",
+              "Pour les ensembles discrets (ex: jours de semaine), chaque élément est une limite",
+              "2-value BVA vs 3-value BVA : savoir les différencier"
+            ],
+            "glossaryTerms": [
+              "g-boundary-value-analysis",
+              "g-test-coverage",
+              "g-test-case"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch4-l3",
+            "prevLessonId": "ch4-l1",
+            "estimatedMinutes": 20,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch4-l3",
+            "chapterId": "ch4",
+            "sectionId": "ch4-sec1",
+            "slug": "decision-table-testing",
+            "title": "Decision Table Testing",
+            "objective": "Comprendre et appliquer les tables de décision",
+            "summary": "Les tables de décision permettent de tester des combinaisons de conditions logiques. Particulièrement utiles pour les règles métier complexes.",
+            "content": "# Decision Table Testing\n\nLa **Decision Table Testing** est une technique boîte noire qui traite systématiquement toutes les combinaisons de conditions pour déterminer les actions correspondantes.\n\n## Structure\nUne table de décision comporte :\n- Des **conditions** (entrées booléennes ou discrètes)\n- Des **actions** (résultats attendus)\n- Des **règles** (combinaisons de conditions)\n\n**Nombre de règles :** Pour N conditions booléennes, 2^N règles sont théoriquement possibles (réduisibles par optimisation).\n\n## Exemple : Validation de commande\n| Condition | R1 | R2 | R3 | R4 |\n|-----------|-----|-----|-----|-----|\n| Client premium ? | O | O | N | N |\n| Montant > 100€ ? | O | N | O | N |\n| **Action** | | | | |\n| Remise 10% | ✅ | ✅ | ❌ | ❌ |\n| Livraison gratuite | ✅ | ❌ | ✅ | ❌ |",
+            "examples": [
+              {
+                "id": "ex-ch4-3",
+                "title": "Test d'un système de connexion",
+                "scenario": "Un système vérifie user + mot de passe + 2FA.",
+                "explanation": "3 conditions → 8 règles. On teste toutes les combinaisons : (correct/incorrect) × (correct/incorrect) × (activé/désactivé). Certaines règles peuvent être impossibles (ex: user incorrect mais 2FA OK)."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch4-3",
+                "title": "Ne tester que le cas nominal",
+                "scenario": "Le testeur teste uniquement le cas où toutes les conditions sont vraies.",
+                "whyWrong": "Les défauts métier se cachent souvent dans les combinaisons inattendues. Par exemple, un client non premium avec un montant > 100€ pourrait recevoir une remise par erreur.",
+                "correctApproach": "Tester au moins chaque règle de la table de décision (nombre de règles = conditions uniques)."
+              }
+            ],
+            "examTraps": [
+              "Le nombre de règles est 2^N, pas N*2",
+              "Les règles impossibles doivent être identifiées et marquées",
+              "La table de décision ne gère pas les séquences temporelles"
+            ],
+            "glossaryTerms": [
+              "g-decision-table-testing",
+              "g-test-condition",
+              "g-test-coverage"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch4-l4",
+            "prevLessonId": "ch4-l2",
+            "estimatedMinutes": 30,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch4-l4",
+            "chapterId": "ch4",
+            "sectionId": "ch4-sec1",
+            "slug": "state-transition-testing",
+            "title": "State Transition Testing",
+            "objective": "Comprendre et appliquer les tests par transition d'états",
+            "summary": "Les transitions d'états testent les changements d'état d'un système en réponse à des événements. Idéal pour les workflows et systèmes à états.",
+            "content": "# State Transition Testing\n\nLa **State Transition Testing** modélise le comportement d'un système comme un ensemble d'états et de transitions entre ces états déclenchées par des événements.\n\n## Composants\n- **États :** situations dans lesquelles le système peut se trouver (ex: En attente, Validé, Expiré)\n- **Transitions :** changements d'état déclenchés par des événements\n- **Événements :** actions ou entrées qui provoquent une transition\n- **Gardes :** conditions qui doivent être remplies pour qu'une transition ait lieu\n\n**Objectif des tests :**\n1. Tester chaque état (au moins une fois)\n2. Tester chaque transition (au moins une fois)\n3. Tester les transitions invalides (événement dans un état qui ne le permet pas)",
+            "examples": [
+              {
+                "id": "ex-ch4-4",
+                "title": "Test d'un système de réservation",
+                "scenario": "États : Disponible, Réservé, Confirmé, Annulé. Événements : réserver, confirmer, annuler, payer.",
+                "explanation": "On teste : Disponible→Réservé (réserver), Réservé→Confirmé (payer), Réservé→Annulé (annuler), Confirmé→Annulé (annulation spéciale), et les transitions invalides comme Annulé→Confirmé."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch4-4",
+                "title": "Oublier les transitions invalides",
+                "scenario": "Le testeur teste les 4 chemins heureux mais pas les tentatives de transition invalide.",
+                "whyWrong": "Les vrais défauts sont souvent dans les transitions invalides. Exemple : annuler une réservation déjà confirmée, ou confirmer deux fois.",
+                "correctApproach": "Ajouter des cas de test pour chaque transition invalide possible. Le système doit soit ignorer, soit afficher une erreur appropriée."
+              }
+            ],
+            "examTraps": [
+              "Ne pas confondre états et transitions",
+              "Un état peut avoir des transitions vers lui-même",
+              "Les transitions invalides sont aussi importantes que les valides"
+            ],
+            "glossaryTerms": [
+              "g-state-transition-testing",
+              "g-test-case",
+              "g-test-suite"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": null,
+            "prevLessonId": "ch4-l3",
+            "estimatedMinutes": 25,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      },
+      {
+        "id": "ch4-sec2",
+        "chapterId": "ch4",
+        "slug": "white-box-techniques",
+        "title": "Techniques boîte blanche",
+        "order": 2,
+        "lessons": [
+          {
+            "id": "ch4-l5",
+            "chapterId": "ch4",
+            "sectionId": "ch4-sec2",
+            "slug": "statement-coverage",
+            "title": "Statement Coverage",
+            "objective": "Comprendre et calculer la couverture de code par instructions",
+            "summary": "La couverture d'instructions mesure le pourcentage d'instructions exécutables qui ont été exécutées par les tests.",
+            "content": "# Statement Coverage\n\nLa **Statement Coverage** (couverture d'instructions) est une technique boîte blanche qui mesure la proportion d'instructions exécutables du code qui ont été parcourues par les tests.\n\n**Calcul :** (Nombre d'instructions exécutées / Nombre total d'instructions) × 100\n\n## Limites\nLa couverture à 100% des instructions ne garantit PAS :\n- Que toutes les branches ont été testées (une instruction peut être exécutée sans couvrir tous les chemins)\n- Que toutes les conditions ont été testées\n\n**Exemple :**  — Avec a=1, b=1, on couvre 100% des instructions mais pas le else.",
+            "examples": [
+              {
+                "id": "ex-ch4-5",
+                "title": "Calcul de couverture",
+                "scenario": "Un code a 50 instructions, les tests en exécutent 42.",
+                "explanation": "Couverture = 42/50 = 84%. Il reste 8 instructions non testées, ce qui peut cacher des défauts."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch4-5",
+                "title": "Confondre 100% de couverture avec 100% de qualité",
+                "scenario": "L'équipe exige 100% de couverture d'instructions et arrête les tests une fois atteint.",
+                "whyWrong": "La couverture d'instructions ne garantit pas la couverture des branches ni des conditions. Un code peut avoir 100% de couverture d'instructions et contenir des bugs non détectés dans les branches conditionnelles.",
+                "correctApproach": "Combiner avec la couverture de branches et l'analyse de valeurs limites."
+              }
+            ],
+            "examTraps": [
+              "La couverture d'instructions ne couvre pas tous les chemins",
+              "Les instructions non exécutables (déclarations, imports) ne comptent pas",
+              "Les boucles : une instruction dans une boucle est comptée une fois même si exécutée 1000 fois"
+            ],
+            "glossaryTerms": [
+              "g-statement-coverage",
+              "g-test-coverage",
+              "g-white-box-testing"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch4-l6",
+            "prevLessonId": null,
+            "estimatedMinutes": 20,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch4-l6",
+            "chapterId": "ch4",
+            "sectionId": "ch4-sec2",
+            "slug": "branch-coverage",
+            "title": "Branch/Decision Coverage",
+            "objective": "Comprendre et calculer la couverture de branches",
+            "summary": "La couverture de branches mesure le pourcentage de branches (résultats booléens) qui ont été évaluées à true et à false.",
+            "content": "# Branch/Decision Coverage\n\nLa **Branch Coverage** (ou Decision Coverage) va plus loin que la Statement Coverage en vérifiant que chaque branche d'une structure conditionnelle a été empruntée.\n\n**Calcul :** (Nombre de branches exécutées / Nombre total de branches) × 100\n\n## Différence clé avec Statement Coverage\nPour  :\n- **Statement Coverage** à 100% : besoin de 1 test (a=1) — les deux instructions x=1 et x=2... non, en fait avec a=1 on teste x=1 mais pas x=2. Il faut 2 tests.\n- **Branch Coverage** à 100% : besoin de 2 tests (a=1 ET a=0)\n\n**Exigence ISTQB :** Le standard de couverture recommandé pour les systèmes critiques est 100% de couverture de branches.",
+            "examples": [
+              {
+                "id": "ex-ch4-6",
+                "title": "Calcul de couverture de branches",
+                "scenario": "Code avec 3 conditions if/else : 6 branches possibles. Les tests en couvrent 5.",
+                "explanation": "Couverture de branches = 5/6 = 83,3%. Il manque un test pour la branche else de la 3e condition."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch4-6",
+                "title": "Satisfaire la couverture d'instructions seulement",
+                "scenario": "L'équipe atteint 100% de couverture d'instructions et déclare le module testé.",
+                "whyWrong": "Un bug dans la branche else non testée n'est pas détecté. La couverture d'instructions ne distingue pas les différentes branches.",
+                "correctApproach": "Viser la couverture de branches comme minimum pour les tests critiques."
+              }
+            ],
+            "examTraps": [
+              "Branch coverage ≥ Statement coverage (toujours)",
+              "Les opérateurs && et || créent des branches court-circuit",
+              "MC/DC est un niveau plus avancé (hors CTFL)"
+            ],
+            "glossaryTerms": [
+              "g-branch-coverage",
+              "g-decision-coverage",
+              "g-white-box-testing"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": null,
+            "prevLessonId": "ch4-l5",
+            "estimatedMinutes": 20,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      },
+      {
+        "id": "ch4-sec3",
+        "chapterId": "ch4",
+        "slug": "experience-based-techniques",
+        "title": "Techniques basées sur l'expérience",
+        "order": 3,
+        "lessons": [
+          {
+            "id": "ch4-l7",
+            "chapterId": "ch4",
+            "sectionId": "ch4-sec3",
+            "slug": "error-guessing",
+            "title": "Error Guessing",
+            "objective": "Comprendre et appliquer les techniques de devinettes d'erreurs",
+            "summary": "L'error guessing exploite l'expérience du testeur pour anticiper les défauts là où ils se cachent généralement.",
+            "content": "# Error Guessing\n\nL'**Error Guessing** est une technique basée sur l'expérience où le testeur utilise sa connaissance des défauts typiques, du domaine, et des erreurs passées pour concevoir des cas de test ciblés.\n\n**Sources de connaissance :**\n- Défauts historiques du projet\n- Checklists d'erreurs communes\n- Connaissance du domaine métier\n- Patterns d'erreurs classiques (off-by-one, race conditions, injection, etc.)\n\n**Avantage :** Rapidité d'exécution, efficacité sur les zones à risque.\n**Inconvénient :** Difficile à standardiser et dépendante du testeur.",
+            "examples": [
+              {
+                "id": "ex-ch4-7",
+                "title": "Error guessing sur un formulaire",
+                "scenario": "Un formulaire d'inscription avec email, mot de passe, confirmation.",
+                "explanation": "Le testeur expérimenté teste : champs vides, email sans @, mot de passe trop court, copier-coller de la confirmation, XSS dans le champ nom, injection SQL dans l'email."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch4-7",
+                "title": "Dépendre uniquement de l'error guessing",
+                "scenario": "L'équipe skip les techniques structurées (EP, BVA) et se fie uniquement à l'intuition des testeurs.",
+                "whyWrong": "L'error guessing est incomplète : elle dépend de l'expérience individuelle. Les techniques structurées garantissent une couverture systématique que l'intuition seule ne peut pas atteindre.",
+                "correctApproach": "Utiliser l'error guessing EN COMPLÉMENT des techniques structurées."
+              }
+            ],
+            "examTraps": [
+              "Ne pas confondre error guessing avec exploratory testing",
+              "L'error guessing peut être formalisée via des checklists",
+              "Plus le testeur est expérimenté, plus l'error guessing est efficace"
+            ],
+            "glossaryTerms": [
+              "g-error-guessing",
+              "g-test-case",
+              "g-test-technique"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch4-l8",
+            "prevLessonId": null,
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch4-l8",
+            "chapterId": "ch4",
+            "sectionId": "ch4-sec3",
+            "slug": "exploratory-testing",
+            "title": "Exploratory Testing",
+            "objective": "Comprendre les principes du test exploratoire",
+            "summary": "Le test exploratoire combine conception, exécution et apprentissage simultanément, sans scripts prédéfinis.",
+            "content": "# Exploratory Testing\n\nLe **Exploratory Testing** est une approche où le testeur explore activement l'application tout en concevant et exécutant des tests en temps réel.\n\n**Caractéristiques :**\n- Aucun script prédéfini\n- Apprentissage simultané\n- Créativité et adaptabilité\n- Session limitée dans le temps (time-boxed)\n\n**Charter de test :** Chaque session exploratoire devrait avoir un charter qui définit la mission, la zone à explorer, et les risques à investiguer.",
+            "examples": [
+              {
+                "id": "ex-ch4-8",
+                "title": "Session exploratoire sur une nouvelle feature",
+                "scenario": "Une nouvelle fonctionnalité de chat en ligne est livrée sans spécifications détaillées.",
+                "explanation": "Charter : Explorer la fonctionnalité de chat, tester les cas de connexion/déconnexion, l'envoi de fichiers, les messages longs, les emojis, et la persistance des messages après rechargement."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch4-8",
+                "title": "Exploratory sans charter ni limite de temps",
+                "scenario": "Le testeur passe 3 heures à cliquer aléatoirement sur l'application.",
+                "whyWrong": "Sans charter, on ne sait pas ce qui a été testé ni ce qui ne l'a pas été. Sans limite de temps, l'effort n'est pas maîtrisé.",
+                "correctApproach": "Définir un charter clair et une time-box de 60-90 minutes par session."
+              }
+            ],
+            "examTraps": [
+              "Exploratory ≠ Ad-hoc : l'exploratory est structuré par un charter",
+              "Les sessions sont documentées après coup (notes, captures)",
+              "Pair testing exploratoire : 2 testeurs, 1 conduit, 1 observe"
+            ],
+            "glossaryTerms": [
+              "g-exploratory-testing",
+              "g-test-charter",
+              "g-test-technique"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": null,
+            "prevLessonId": "ch4-l7",
+            "estimatedMinutes": 15,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      }
+    ],
+    "status": "available",
+    "masteryScore": 0,
+    "createdAt": "2026-01-01",
+    "updatedAt": "2026-01-01"
+  },
+  {
+    "id": "ch5",
+    "slug": "managing-test-activities",
+    "title": "Managing Test Activities",
+    "titleFr": "Gestion des Activités de Test",
+    "description": "La gestion des activités de test couvre la planification, l'estimation, le suivi, le contrôle, la gestion des risques et des défauts.",
+    "durationMinutes": 335,
+    "order": 5,
+    "keywords": [
+      "test planning",
+      "estimation",
+      "risk management",
+      "monitoring",
+      "control",
+      "defect management",
+      "configuration management"
+    ],
+    "learningObjectives": [
+      {
+        "id": "FL-5.1.1",
+        "code": "FL-5.1.1",
+        "description": "Explain the purpose and content of a test plan",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO10",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-5.2.1",
+        "code": "FL-5.2.1",
+        "description": "Explain different test estimation techniques",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO10",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-5.2.2",
+        "code": "FL-5.2.2",
+        "description": "Apply risk-based testing to prioritize test activities",
+        "kLevel": "K3",
+        "businessOutcomeId": "FL-BO10",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-5.3.1",
+        "code": "FL-5.3.1",
+        "description": "Explain test monitoring and control",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO11",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-5.3.2",
+        "code": "FL-5.3.2",
+        "description": "Summarize common test metrics",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO11",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-5.3.3",
+        "code": "FL-5.3.3",
+        "description": "Explain the structure of a test report",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO11",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-5.4.1",
+        "code": "FL-5.4.1",
+        "description": "Explain defect management process",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO12",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-5.5.1",
+        "code": "FL-5.5.1",
+        "description": "Explain configuration management support for testing",
+        "kLevel": "K1",
+        "businessOutcomeId": "FL-BO12",
+        "masteryScore": 0,
+        "questionCount": 0
+      }
+    ],
+    "sections": [
+      {
+        "id": "ch5-sec1",
+        "chapterId": "ch5",
+        "slug": "test-planning",
+        "title": "Test Planning",
+        "order": 1,
+        "lessons": [
+          {
+            "id": "ch5-l1",
+            "chapterId": "ch5",
+            "sectionId": "ch5-sec1",
+            "slug": "test-plan",
+            "title": "Le Plan de Test",
+            "objective": "Comprendre la structure et le contenu d'un plan de test",
+            "summary": "Le plan de test est le document fondateur qui définit la stratégie, les objectifs, les ressources et le calendrier des activités de test.",
+            "content": "# Le Plan de Test\n\nLe **plan de test** est un document qui spécifie la portée, l'approche, les ressources et le calendrier des activités de test prévues.\n\n**Éléments clés selon ISTQB :**\n- Contexte et périmètre du projet\n- Objectifs de qualité et critères d'acceptation\n- Stratégie de test (niveaux, types, techniques)\n- Ressources humaines et environnementales\n- Calendrier et jalons\n- Critères d'entrée et de sortie\n- Risques et contingences\n- Outils et métriques",
+            "examples": [
+              {
+                "id": "ex-ch5-1",
+                "title": "Plan de test pour une release mensuelle",
+                "scenario": "Une application SaaS avec release mensuelle.",
+                "explanation": "Le plan de test inclut : stratégie de régression automatisée (3 jours), tests exploratoires sur les nouvelles features (2 jours), tests de performance (1 jour), et critères de sortie : 0 bug critique, couverture > 80%."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch5-1",
+                "title": "Plan de test sans critères de sortie",
+                "scenario": "Le test manager rédige un plan sans définir clairement quand les tests sont terminés.",
+                "whyWrong": "Sans critères de sortie, les tests peuvent s'éterniser ou s'arrêter trop tôt. L'équipe ne sait pas quand le produit est prêt.",
+                "correctApproach": "Définir des critères mesurables : couverture, taux de réussite, bugs restants par sévérité."
+              }
+            ],
+            "examTraps": [
+              "Le plan de test est un document VIVANT (mis à jour régulièrement)",
+              "Ne pas confondre plan de test avec stratégie de test",
+              "Les critères d'entrée et de sortie sont distincts"
+            ],
+            "glossaryTerms": [
+              "g-test-plan",
+              "g-entry-criteria",
+              "g-exit-criteria",
+              "g-test-strategy"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch5-l2",
+            "prevLessonId": null,
+            "estimatedMinutes": 20,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch5-l2",
+            "chapterId": "ch5",
+            "sectionId": "ch5-sec1",
+            "slug": "test-estimation",
+            "title": "Estimation des Tests",
+            "objective": "Comprendre les techniques d'estimation des tests",
+            "summary": "L'estimation permet de prévoir l'effort nécessaire aux activités de test pour planifier ressources et délais.",
+            "content": "# Estimation des Tests\n\nLes techniques d'estimation permettent de quantifier l'effort nécessaire pour les activités de test.\n\n**Techniques principales :**\n1. **Estimation par analogie :** Basée sur des projets similaires antérieurs\n2. **Wideband Delphi :** Estimation collective par experts (plusieurs rounds anonymes)\n3. **Three-point estimation :** Optimiste, pessimiste, plus probable → (O+4M+P)/6\n4. **Function Point Analysis :** Basée sur la complexité fonctionnelle\n5. **Pourcentage de l'effort de développement :** Règle empirique (30-50% de l'effort dev)",
+            "examples": [
+              {
+                "id": "ex-ch5-2",
+                "title": "Three-point estimation",
+                "scenario": "Un testeur estime : optimiste=5j, plus probable=8j, pessimiste=15j.",
+                "explanation": "Estimation = (5+4*8+15)/6 = 8,67 jours. On arrondit à 9 jours pour la planification."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch5-2",
+                "title": "Estimer uniquement sur le cas nominal",
+                "scenario": "Le test manager estime 5 jours sans considérer les risques (environnement instable, bugs bloquants, régressions).",
+                "whyWrong": "L'estimation sous-estime systématiquement l'effort réel. Les impondérables (déploiement, re-tests, réunions) ne sont pas inclus.",
+                "correctApproach": "Utiliser le three-point estimation avec un facteur de contingence de 20-30%."
+              }
+            ],
+            "examTraps": [
+              "L'estimation par analogie nécessite des données historiques fiables",
+              "Le Wideband Delphi est plus précis qu'une estimation individuelle",
+              "Toujours inclure un buffer pour les imprévus"
+            ],
+            "glossaryTerms": [
+              "g-test-estimation",
+              "g-test-plan",
+              "g-test-strategy"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch5-l3",
+            "prevLessonId": "ch5-l1",
+            "estimatedMinutes": 25,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch5-l3",
+            "chapterId": "ch5",
+            "sectionId": "ch5-sec1",
+            "slug": "risk-based-testing",
+            "title": "Risk-Based Testing (RBT)",
+            "objective": "Comprendre et appliquer le test basé sur les risques",
+            "summary": "Le Risk-Based Testing priorise les tests en fonction des risques : probabilité d'occurrence × gravité de l'impact.",
+            "content": "# Risk-Based Testing (RBT)\n\nLe **Risk-Based Testing** est une approche qui priorise les activités de test en fonction du niveau de risque identifié.\n\n**Équation du risque :** Risque = Probabilité × Impact\n\n**Types de risques :**\n- **Risques produit :** Défauts potentiels dans le logiciel (mauvaise fonctionnalité, crash, sécurité)\n- **Risques projet :** Retards, dépassement budgétaire, perte de ressources\n\n**Matrice risque :**\n| Impact \\ Probabilité | Faible | Moyen | Élevé |\n|---------------------|--------|-------|-------|\n| Élevé | Moyen | Haut | Critique |\n| Moyen | Faible | Moyen | Haut |\n| Faible | Faible | Faible | Moyen |",
+            "examples": [
+              {
+                "id": "ex-ch5-3",
+                "title": "Priorisation RBT",
+                "scenario": "Module de paiement : probabilité de bug = élevée, impact = critique. Module de profil : probabilité = faible, impact = faible.",
+                "explanation": "Le module de paiement reçoit 60% de l'effort de test (risque critique). Le profil reçoit 10% (risque faible). Les fonctionnalités intermédiaires reçoivent 30%."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch5-3",
+                "title": "Tester également tout le périmètre",
+                "scenario": "L'équipe répartit uniformément 100 heures de test sur 10 modules, sans considérer les risques.",
+                "whyWrong": "Les modules à risque faible reçoivent trop d'attention, tandis que les modules critiques (paiement, sécurité) n'en reçoivent pas assez. Les bugs graves passent en production.",
+                "correctApproach": "Analyser les risques produit, prioriser les tests sur les zones à plus haut risque."
+              }
+            ],
+            "examTraps": [
+              "Risque produit ≠ Risque projet",
+              "La gestion des risques est un processus CONTINU",
+              "Le RBT optimise la couverture mais ne la garantit pas à 100%"
+            ],
+            "glossaryTerms": [
+              "g-risk",
+              "g-risk-assessment",
+              "g-test-prioritization"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": null,
+            "prevLessonId": "ch5-l2",
+            "estimatedMinutes": 30,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      }
+    ],
+    "status": "available",
+    "masteryScore": 0,
+    "createdAt": "2026-01-01",
+    "updatedAt": "2026-01-01"
+  },
+  {
+    "id": "ch6",
+    "slug": "test-tools",
+    "title": "Test Tools",
+    "titleFr": "Outils de Test",
+    "description": "Les outils de test supportent l'automatisation, la gestion et l'exécution des tests. Ce chapitre présente leur classification, leurs bénéfices et leurs risques.",
+    "durationMinutes": 20,
+    "order": 6,
+    "keywords": [
+      "test tool",
+      "automation",
+      "tool classification",
+      "tool selection",
+      "open source",
+      "commercial"
+    ],
+    "learningObjectives": [
+      {
+        "id": "FL-6.1.1",
+        "code": "FL-6.1.1",
+        "description": "Classify different types of test tools according to their purpose",
+        "kLevel": "K1",
+        "businessOutcomeId": "FL-BO13",
+        "masteryScore": 0,
+        "questionCount": 0
+      },
+      {
+        "id": "FL-6.2.1",
+        "code": "FL-6.2.1",
+        "description": "Explain the benefits and risks of test automation",
+        "kLevel": "K2",
+        "businessOutcomeId": "FL-BO14",
+        "masteryScore": 0,
+        "questionCount": 0
+      }
+    ],
+    "sections": [
+      {
+        "id": "ch6-sec1",
+        "chapterId": "ch6",
+        "slug": "tool-classification",
+        "title": "Classification des Outils",
+        "order": 1,
+        "lessons": [
+          {
+            "id": "ch6-l1",
+            "chapterId": "ch6",
+            "sectionId": "ch6-sec1",
+            "slug": "tool-types",
+            "title": "Types d'Outils de Test",
+            "objective": "Classer les outils de test selon leur objectif",
+            "summary": "Les outils de test se classent en plusieurs catégories : gestion, exécution, analyse, performance, et support.",
+            "content": "# Types d'Outils de Test\n\nLes outils de test sont classés selon leur fonction principale dans le cycle de test.\n\n**Principales catégories :**\n1. **Outils de gestion des tests :** Planification, suivi, traçabilité (Jira, TestRail, Azure DevOps)\n2. **Outils d'exécution :** Automatisation des tests fonctionnels et de régression (Selenium, Playwright, Cypress)\n3. **Outils de performance :** Charge, stress, endurance (JMeter, Gatling, k6)\n4. **Outils d'analyse statique :** Analyse de code sans exécution (SonarQube, ESLint)\n5. **Outils de gestion de défauts :** Suivi des bugs et anomalies (Bugzilla, Jira)\n6. **Outils de test de sécurité :** Scan de vulnérabilités (OWASP ZAP, Burp Suite)",
+            "examples": [
+              {
+                "id": "ex-ch6-1",
+                "title": "Sélection d'outils pour un projet web",
+                "scenario": "Une équipe doit outiller les tests d'une application React + API REST.",
+                "explanation": "Stack recommandé : Playwright (tests E2E), k6 (performance API), SonarQube (qualité code), Jira (gestion + défauts)."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch6-1",
+                "title": "Un seul outil pour tout faire",
+                "scenario": "L'équipe choisit un outil tout-en-un de gestion des tests mais qui ne fait ni automatisation ni performance.",
+                "whyWrong": "Un outil qui essaie de tout faire est rarement bon dans tous les domaines. Il vaut mieux choisir le meilleur outil par catégorie et les intégrer.",
+                "correctApproach": "Sélectionner des outils spécialisés par domaine (gestion, exécution, performance) avec des API d'intégration."
+              }
+            ],
+            "examTraps": [
+              "Les outils de gestion de test ne remplacent pas l'automatisation",
+              "Un outil peut appartenir à plusieurs catégories",
+              "Le coût de l'outil inclut licence + formation + maintenance"
+            ],
+            "glossaryTerms": [
+              "g-test-tool",
+              "g-test-automation",
+              "g-test-management"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": "ch6-l2",
+            "prevLessonId": null,
+            "estimatedMinutes": 10,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          },
+          {
+            "id": "ch6-l2",
+            "chapterId": "ch6",
+            "sectionId": "ch6-sec1",
+            "slug": "automation-benefits-risks",
+            "title": "Bénéfices et Risques de l'Automatisation",
+            "objective": "Expliquer les bénéfices et les risques de l'automatisation des tests",
+            "summary": "L'automatisation apporte rapidité et répétabilité mais nécessite un investissement initial et une maintenance continue.",
+            "content": "# Bénéfices et Risques de l'Automatisation\n\nL'automatisation des tests est un investissement stratégique qui présente des avantages significatifs mais aussi des risques non négligeables.\n\n**Bénéfices :**\n- Exécution rapide des tests de régression\n- Réexécution régulière (CI/CD)\n- Tests 24/7 sans intervention humaine\n- Détection précoce des régressions\n- Reproducibilité exacte des tests\n\n**Risques :**\n- Coût initial élevé (outils + formation)\n- Maintenance continue (les tests automatisés vieillissent)\n- Faux positifs/négatifs\n- L'automatisation ne remplace pas les tests exploratoires\n- Donner une fausse impression de couverture totale",
+            "examples": [
+              {
+                "id": "ex-ch6-2",
+                "title": "ROI de l'automatisation",
+                "scenario": "100 tests de régression exécutés manuellement (2 jours) vs automatisés (15 min).",
+                "explanation": "Après 10 runs, l'automatisation rentabilise l'investissement de développement. Pour 50 runs/an, l'économie est de 90 jours de travail."
+              }
+            ],
+            "antiExamples": [
+              {
+                "id": "aex-ch6-2",
+                "title": "Automatiser les tests sans stratégie",
+                "scenario": "L'équipe automatise 100% des tests sans priorisation ni analyse ROI.",
+                "whyWrong": "Les tests à faible valeur (même écran, 50 variations) sont automatisés au même titre que les tests critiques. La maintenance devient un cauchemar.",
+                "correctApproach": "Prioriser l'automatisation : tests critiques, régression, smoke tests. Garder les tests exploratoires et UX en manuel."
+              }
+            ],
+            "examTraps": [
+              "L'automatisation réduit le temps d'exécution mais PAS le temps de conception",
+              "Un test automatisé qui échoue peut être un faux positif (bug dans le test, pas dans le produit)",
+              "L'automatisation ne supprime pas le besoin de testeurs"
+            ],
+            "glossaryTerms": [
+              "g-test-automation",
+              "g-regression-testing",
+              "g-test-tool"
+            ],
+            "miniQuiz": [],
+            "flashcards": [],
+            "nextLessonId": null,
+            "prevLessonId": "ch6-l1",
+            "estimatedMinutes": 10,
+            "status": "available",
+            "createdAt": "2026-01-01"
+          }
+        ]
+      }
+    ],
+    "status": "available",
+    "masteryScore": 0,
+    "createdAt": "2026-01-01",
+    "updatedAt": "2026-01-01"
+  }
+]
