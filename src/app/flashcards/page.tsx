@@ -330,17 +330,34 @@ export default function FlashcardsPage() {
                   Précédente
                 </Button>
                 <div className="flex items-center gap-1">
-                  {filtered.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => { setCurrentIndex(i); setFlipped(false); }}
-                      className={`h-2 w-2 rounded-full transition-colors ${
-                        i === currentIndex
-                          ? 'bg-indigo-600'
-                          : 'bg-slate-300 dark:bg-slate-600'
-                      }`}
-                    />
-                  ))}
+                  {(() => {
+                    const total = filtered.length;
+                    const cur = currentIndex;
+                    const maxDots = 7;
+                    if (total <= maxDots) {
+                      return filtered.map((_, i) => (
+                        <button key={i} onClick={() => { setCurrentIndex(i); setFlipped(false); }}
+                          className={`h-2 w-2 rounded-full transition-colors ${i === cur ? 'bg-indigo-600' : 'bg-slate-300 dark:bg-slate-600'}`} />
+                      ));
+                    }
+                    const pages: (number | 'start' | 'end')[] = [];
+                    const half = Math.floor((maxDots - 1) / 2);
+                    let left = Math.max(0, cur - half);
+                    let right = Math.min(total - 1, cur + half);
+                    if (cur - half <= 0) { left = 0; right = maxDots - 1; }
+                    if (cur + half >= total - 1) { left = total - maxDots; right = total - 1; }
+                    if (left > 0) pages.push('start');
+                    for (let i = left; i <= right; i++) pages.push(i);
+                    if (right < total - 1) pages.push('end');
+                    return pages.map((p, idx) => {
+                      if (p === 'start') return <span key="s" className="text-xs text-slate-400 dark:text-slate-500 px-0.5">...</span>;
+                      if (p === 'end') return <span key="e" className="text-xs text-slate-400 dark:text-slate-500 px-0.5">...</span>;
+                      return (
+                        <button key={idx} onClick={() => { setCurrentIndex(p as number); setFlipped(false); }}
+                          className={`h-2 w-2 rounded-full transition-colors ${p === cur ? 'bg-indigo-600' : 'bg-slate-300 dark:bg-slate-600'}`} />
+                      );
+                    });
+                  })()}
                 </div>
                 <Button
                   variant="ghost"
