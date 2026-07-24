@@ -47,7 +47,7 @@ export default function GlossaryPage() {
   const letters = useMemo(() => {
     const set = new Set<string>();
     for (const t of terms) {
-      const first = (t.termFr ?? t.term).charAt(0).toUpperCase();
+      const first = t.term.charAt(0).toUpperCase();
       if (/[A-ZÀ-Ü]/.test(first)) set.add(first);
     }
     return Array.from(set).sort();
@@ -59,7 +59,6 @@ export default function GlossaryPage() {
     if (debouncedSearch) {
       const q = debouncedSearch.toLowerCase();
       result = result.filter((t) =>
-        (t.termFr ?? t.term).toLowerCase().includes(q) ||
         t.term.toLowerCase().includes(q) ||
         t.definition.toLowerCase().includes(q) ||
         t.synonyms.some((s) => s.toLowerCase().includes(q))
@@ -67,10 +66,10 @@ export default function GlossaryPage() {
     }
     if (activeLetter) {
       result = result.filter((t) =>
-        (t.termFr ?? t.term).charAt(0).toUpperCase() === activeLetter
+        t.term.charAt(0).toUpperCase() === activeLetter
       );
     }
-    return result.sort((a, b) => (a.termFr ?? a.term).localeCompare(b.termFr ?? b.term));
+    return result.sort((a, b) => a.term.localeCompare(b.term));
   }, [terms, debouncedSearch, activeLetter]);
 
   const chapterMap = useMemo(() => {
@@ -178,15 +177,12 @@ export default function GlossaryPage() {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-base font-semibold text-slate-900 dark:text-slate-50">
-                        {term.termFr ?? term.term}
+                        {term.term}
                       </h3>
-                      <span className="text-xs text-slate-400 dark:text-slate-500">
-                        ({term.term})
-                      </span>
                     </div>
 
                     <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400">
-                      {term.definitionFr ?? term.definition}
+                      {term.definition}
                     </p>
 
                     {/* Synonyms */}
@@ -211,10 +207,10 @@ export default function GlossaryPage() {
                           return (
                             <button
                               key={relId}
-                              onClick={() => setSearch(rel.termFr ?? rel.term)}
+                              onClick={() => setSearch(rel.term)}
                               className="rounded-md bg-slate-100 px-2 py-0.5 text-xs text-slate-600 hover:bg-indigo-100 hover:text-indigo-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-300"
                             >
-                              {rel.termFr ?? rel.term}
+                              {rel.term}
                             </button>
                           );
                         })}
